@@ -1,12 +1,17 @@
 #include "newword.h"
 #include "ui_newword.h"
 #include <QMessageBox>
+#include <QRegExpValidator>
 
 NewWord::NewWord(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::NewWord)
 {
+    QRegExp eng_v("[A-Za-z]*");
+    QRegExp rus_v("[А-Яа-я]*");
     ui->setupUi(this);
+    ui->eng_new_word->setValidator (new QRegExpValidator (eng_v, this));
+    ui->rus_new_word->setValidator (new QRegExpValidator (rus_v, this));
     ui->eng_new_word->clear();
     ui->rus_new_word->clear();
 }

@@ -64,7 +64,14 @@
        </widget>
       </item>
       <item>
-       <widget class="QLineEdit" name="eng_new_word"/>
+       <widget class="QLineEdit" name="eng_new_word">
+        <property name="autoFillBackground">
+         <bool>false</bool>
+        </property>
+        <property name="inputMask">
+         <string/>
+        </property>
+       </widget>
       </item>
      </layout>
     </item>
