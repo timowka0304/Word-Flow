@@ -24,10 +24,26 @@ void NewWord::on_cancel_Button_clicked()
 
 void NewWord::on_save_Button_clicked()
 {
-    if (1){
+    if ((ui->eng_new_word->text().isEmpty()) || (ui->rus_new_word->text().isEmpty())){
         QMessageBox msgBox;
         msgBox.setText("Поля неверно заполнены! Проверьте правильность введенных данных");
         msgBox.setIcon(QMessageBox::Warning);
+        msgBox.setStandardButtons(QMessageBox::Ok);
+        msgBox.setDefaultButton(QMessageBox::Ok);
+        int ret = msgBox.exec();
+           switch (ret) {
+           case QMessageBox::Ok:
+             msgBox.close();
+             break;
+          default:
+             msgBox.close();
+             break;
+        }
+    }
+    else {
+        QMessageBox msgBox;
+        msgBox.setText("Слова успешно добавлены!");
+        msgBox.setIcon(QMessageBox::Information);
         msgBox.setStandardButtons(QMessageBox::Ok);
         msgBox.setDefaultButton(QMessageBox::Ok);
         int ret = msgBox.exec();
