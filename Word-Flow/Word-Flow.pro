@@ -32,7 +32,8 @@ SOURCES += \
     adjmenu.cpp \
     verbsmenu.cpp \
     userdicmenu.cpp \
-    allmenu.cpp
+    allmenu.cpp \
+    newword.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -41,7 +42,8 @@ HEADERS += \
     adjmenu.h \
     verbsmenu.h \
     userdicmenu.h \
-    allmenu.h
+    allmenu.h \
+    newword.h
 
 FORMS += \
         mainwindow.ui \
@@ -50,7 +52,8 @@ FORMS += \
     adjmenu.ui \
     verbsmenu.ui \
     userdicmenu.ui \
-    allmenu.ui
+    allmenu.ui \
+    newword.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

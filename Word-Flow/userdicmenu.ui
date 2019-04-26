@@ -69,13 +69,6 @@
           </property>
          </widget>
         </item>
-        <item>
-         <widget class="QPushButton" name="save_Button">
-          <property name="text">
-           <string>Принять изменения</string>
-          </property>
-         </widget>
-        </item>
        </layout>
       </item>
      </layout>

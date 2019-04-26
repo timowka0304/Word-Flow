@@ -5,10 +5,11 @@ UserDicMenu::UserDicMenu(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::UserDicMenu)
 {
+    newword = new NewWord;
+    connect(newword, &NewWord::UserDicMenu, this, &UserDicMenu::show);
     ui->setupUi(this);
     ui->textBrowser->setHidden(1);
     ui->hide_dic_Button->setHidden(1);
-    ui->save_Button->setHidden(1);
 }
 
 UserDicMenu::~UserDicMenu()
@@ -24,4 +25,10 @@ void UserDicMenu::on_menu_back_Button_clicked()
     ui->textBrowser->clear();
     this->close();
     emit MainMenu();
+}
+
+void UserDicMenu::on_add_Button_clicked()
+{
+    this->close();
+    newword->show();
 }
