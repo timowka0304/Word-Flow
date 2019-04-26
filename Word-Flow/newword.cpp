@@ -7,8 +7,8 @@ NewWord::NewWord(QWidget *parent) :
     ui(new Ui::NewWord)
 {
     ui->setupUi(this);
-    ui->label->clear();
-    ui->label_2->clear();
+    ui->eng_new_word->clear();
+    ui->rus_new_word->clear();
 }
 
 NewWord::~NewWord()
