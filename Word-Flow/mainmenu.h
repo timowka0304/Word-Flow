@@ -5,6 +5,8 @@
 #include "nounsmenu.h"
 #include "adjmenu.h"
 #include "verbsmenu.h"
+#include "userdicmenu.h"
+#include "allmenu.h"
 
 namespace Ui {
 class MainMenu;
@@ -27,11 +29,17 @@ private slots:
 
     void on_verbs_category_button_clicked();
 
+    void on_user_dic_button_clicked();
+
+    void on_all_category_button_clicked();
+
 private:
     Ui::MainMenu *ui;
     NounsMenu *nounsmenu;
     AdjMenu *adjmenu;
     VerbsMenu *verbsmenu;
+    UserDicMenu *userdicmenu;
+    AllMenu *allmenu;
 };
 
 #endif // MAINMENU_H

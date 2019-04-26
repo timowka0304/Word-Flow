@@ -51,6 +51,13 @@
     <item>
      <layout class="QVBoxLayout" name="verticalLayout">
       <item>
+       <widget class="QPushButton" name="all_category_button">
+        <property name="text">
+         <string>Общая категория</string>
+        </property>
+       </widget>
+      </item>
+      <item>
        <widget class="QPushButton" name="user_dic_button">
         <property name="text">
          <string>Пользовательский словарь</string>
@@ -64,13 +71,6 @@
         </property>
         <property name="text">
          <string>Твой прогресс</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QPushButton" name="all_category_button">
-        <property name="text">
-         <string>Общая категория</string>
         </property>
        </widget>
       </item>

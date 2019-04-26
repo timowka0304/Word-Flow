@@ -30,21 +30,27 @@ SOURCES += \
     mainmenu.cpp \
     nounsmenu.cpp \
     adjmenu.cpp \
-    verbsmenu.cpp
+    verbsmenu.cpp \
+    userdicmenu.cpp \
+    allmenu.cpp
 
 HEADERS += \
         mainwindow.h \
     mainmenu.h \
     nounsmenu.h \
     adjmenu.h \
-    verbsmenu.h
+    verbsmenu.h \
+    userdicmenu.h \
+    allmenu.h
 
 FORMS += \
         mainwindow.ui \
     mainmenu.ui \
     nounsmenu.ui \
     adjmenu.ui \
-    verbsmenu.ui
+    verbsmenu.ui \
+    userdicmenu.ui \
+    allmenu.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

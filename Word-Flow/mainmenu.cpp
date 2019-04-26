@@ -12,6 +12,10 @@ MainMenu::MainMenu(QWidget *parent) :
     connect(adjmenu, &AdjMenu::MainMenu, this, &MainMenu::show);
     verbsmenu = new VerbsMenu;
     connect(verbsmenu, &VerbsMenu::MainMenu, this, &MainMenu::show);
+    userdicmenu = new UserDicMenu;
+    connect(userdicmenu, &UserDicMenu::MainMenu, this, &MainMenu::show);
+    allmenu = new AllMenu;
+    connect(allmenu, &AllMenu::MainMenu, this, &MainMenu::show);
     ui->setupUi(this);
 }
 
@@ -57,4 +61,16 @@ void MainMenu::on_verbs_category_button_clicked()
 {
     this->close();
     verbsmenu->show();
+}
+
+void MainMenu::on_user_dic_button_clicked()
+{
+    this->close();
+    userdicmenu->show();
+}
+
+void MainMenu::on_all_category_button_clicked()
+{
+    this->close();
+    allmenu->show();
 }
