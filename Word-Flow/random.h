@@ -11,6 +11,9 @@ class Random : public QDialog
 {
     Q_OBJECT
 
+signals:
+    void NounsMenu();
+
 public:
     explicit Random(QWidget *parent = nullptr);
     ~Random();

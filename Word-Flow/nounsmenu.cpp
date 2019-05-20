@@ -2,11 +2,14 @@
 #include "ui_nounsmenu.h"
 #include <QtSql/QSqlDatabase>
 #include <QSqlQuery>
+#include <QMessageBox>
 
 NounsMenu::NounsMenu(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::NounsMenu)
 {
+    random = new Random;
+    connect(random, &Random::NounsMenu, this, &NounsMenu::show);
     ui->setupUi(this);
     ui->textBrowser->setHidden(1);
     ui->hide_dic_Button->setHidden(1);
@@ -57,4 +60,26 @@ void NounsMenu::on_hide_dic_Button_clicked()
     ui->hide_dic_Button->setHidden(1);
     ui->textBrowser->clear();
     ui->dic_show_Button->setHidden(0);
+}
+
+void NounsMenu::on_lets_test_Button_clicked()
+{
+    QMessageBox msgBox;
+    msgBox.setText("Вы уверены, что хотите начать тест?");
+    msgBox.setIcon(QMessageBox::Question);
+    msgBox.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
+    msgBox.setDefaultButton(QMessageBox::Yes);
+    int ret = msgBox.exec();
+       switch (ret) {
+       case QMessageBox::No:
+         msgBox.close();
+         break;
+      case QMessageBox::Yes:
+         this->close();
+           random->show();
+         break;
+      default:
+         msgBox.close();
+         break;
+    }
 }

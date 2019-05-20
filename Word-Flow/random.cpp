@@ -93,10 +93,7 @@ Random::Random(QWidget *parent) :
             }
         }
     }
-    for(int i = 0; i < 10; i++){
-        QString kue = QString::number(numbers_words[i].word_3_number);;
-        ui->textBrowser->insertPlainText(kue + " ");
-    }
+
 
     /*QSqlDatabase db;
     db = QSqlDatabase::addDatabase("QSQLITE");
