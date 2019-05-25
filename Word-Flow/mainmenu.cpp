@@ -16,6 +16,8 @@ MainMenu::MainMenu(QWidget *parent) :
     connect(userdicmenu, &UserDicMenu::MainMenu, this, &MainMenu::show);
     allmenu = new AllMenu;
     connect(allmenu, &AllMenu::MainMenu, this, &MainMenu::show);
+    progresswindow = new ProgressWindow;
+    connect(progresswindow, &ProgressWindow::MainMenu, this, &MainMenu::show);
     ui->setupUi(this);
 }
 
@@ -73,4 +75,10 @@ void MainMenu::on_all_category_button_clicked()
 {
     this->close();
     allmenu->show();
+}
+
+void MainMenu::on_progress_Button_clicked()
+{
+    this->close();
+    progresswindow->show();
 }

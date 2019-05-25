@@ -7,6 +7,7 @@
 #include "verbsmenu.h"
 #include "userdicmenu.h"
 #include "allmenu.h"
+#include "progresswindow.h"
 
 namespace Ui {
 class MainMenu;
@@ -33,6 +34,8 @@ private slots:
 
     void on_all_category_button_clicked();
 
+    void on_progress_Button_clicked();
+
 private:
     Ui::MainMenu *ui;
     NounsMenu *nounsmenu;
@@ -40,6 +43,7 @@ private:
     VerbsMenu *verbsmenu;
     UserDicMenu *userdicmenu;
     AllMenu *allmenu;
+    ProgressWindow *progresswindow;
 };
 
 #endif // MAINMENU_H
