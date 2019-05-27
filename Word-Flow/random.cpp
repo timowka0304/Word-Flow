@@ -162,6 +162,7 @@ void Random::RunTest(){
 
 void Random::ENGtoRUS(){
     ui->text_question->setText("Переведи с английского на русский слово ");
+    ui->word_1->setText("1");
 }
 
 void Random::RUStoENG(){
@@ -169,6 +170,7 @@ void Random::RUStoENG(){
 }
 
 void Random::ResultShow(){
+    ui->done_Button->setText(ui->word_1->text());
     ui->text_word->setHidden(1);
     ui->textBrowser->setHidden(1);
     ui->next_Button->setHidden(1);
