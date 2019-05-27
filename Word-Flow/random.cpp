@@ -125,6 +125,14 @@ void Random::on_back_to_menu_Button_clicked()
 
 void Random::on_next_Button_clicked()
 {
+    QButtonGroup group;
+    QList<QRadioButton *> allButtons = ui->groupBox->findChildren<QRadioButton *>();
+    for(int i = 0; i < allButtons.size(); ++i){
+            group.addButton(allButtons[i],i);
+    }
+    qDebug() << group.checkedId();
+    qDebug() << group.checkedButton();
+
     counter++;
     RunTest();
 }
