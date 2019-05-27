@@ -3,23 +3,28 @@
 #include <QtSql/QSqlDatabase>
 #include <QSqlQuery>
 #include <time.h>
-
-struct Numbers{
-    int question_number;
-    int word_answer_number;
-    int word_1_number;
-    int word_2_number;
-    int word_3_number;
-};
+#include <QMessageBox>
 
 Random::Random(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::Random)
 {
     ui->setupUi(this);
-    srand(time(0));
+    ui->back_to_menu_Button->setHidden(0);
+    ui->start_Button->setHidden(0);
+    ui->next_Button->setHidden(1);
+    ui->done_Button->setHidden(1);
+    ui->text_word->setText("");
+    ui->text_question->setText("");
+}
 
-    Numbers numbers_words[10];
+Random::~Random()
+{
+    delete ui;
+}
+
+void Random::FillStart(){
+    srand(time(nullptr));
     for(int i = 0; i < 10; i++){
         numbers_words[i].question_number = rand() % 2 + 1;
     }
@@ -93,26 +98,97 @@ Random::Random(QWidget *parent) :
             }
         }
     }
-
-
-    /*QSqlDatabase db;
-    db = QSqlDatabase::addDatabase("QSQLITE");
-    db.setDatabaseName("/home/timowka0304/Word-Flow/Word-Flow/Words.db3");
-    db.open();
-
-    QSqlQuery query;
-    query.exec("SELECT id, english, russian FROM Words");
-
-    while (query.next())
-    {
-        if ((query.value(0) > 100) && (query.value(0) < 201)){
-            QString english = query.value(1).toString();
-            QString russian = query.value(2).toString();
-        }
-    }*/
+    for (int i = 0; i < 10; i++){
+        mas_answers[i] = 0;
+    }
+    for(int i = 0; i < 10; i++){
+        QString kue = QString::number(numbers_words[i].word_3_number);;
+        ui->textBrowser->insertPlainText(kue + " ");
+    }
 }
 
-Random::~Random()
+void Random::on_start_Button_clicked()
 {
-    delete ui;
+    srand(time(nullptr));
+    QMessageBox msgBox;
+    msgBox.setText("Вы уверены, что хотите начать тест?");
+    msgBox.setIcon(QMessageBox::Question);
+    msgBox.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
+    msgBox.setDefaultButton(QMessageBox::Yes);
+    int ret = msgBox.exec();
+       switch (ret) {
+       case QMessageBox::No:
+         msgBox.close();
+         break;
+      case QMessageBox::Yes:
+         msgBox.close();
+         FillStart();
+         break;
+      default:
+         msgBox.close();
+         break;
+    }
+    ui->back_to_menu_Button->setHidden(1);
+    ui->start_Button->setHidden(1);
+    ui->next_Button->setHidden(0);
+    RunTest();
+}
+
+void Random::on_back_to_menu_Button_clicked()
+{
+    this->close();
+    emit NounsMenu();
+}
+
+void Random::on_next_Button_clicked()
+{
+    counter++;
+    RunTest();
+}
+
+void Random::RunTest(){
+    if(counter != 10){
+        if(numbers_words[counter].question_number == 1){
+            ENGtoRUS();
+        }
+        if(numbers_words[counter].question_number == 2){
+            RUStoENG();
+        }
+    }
+    if(counter == 10){
+        ResultShow();
+    }
+}
+
+void Random::ENGtoRUS(){
+    ui->text_question->setText("Переведи с английского на русский слово ");
+}
+
+void Random::RUStoENG(){
+    ui->text_question->setText("Переведи с русского на английский слово ");
+}
+
+void Random::ResultShow(){
+    ui->text_word->setHidden(1);
+    ui->textBrowser->setHidden(1);
+    ui->next_Button->setHidden(1);
+    ui->text_question->setHidden(1);
+    ui->done_Button->setHidden(0);
+}
+
+void Random::on_done_Button_clicked()
+{
+    this->close();
+    ui->text_word->setHidden(0);
+    ui->textBrowser->setHidden(0);
+    ui->next_Button->setHidden(1);
+    ui->text_question->setHidden(0);
+    ui->done_Button->setHidden(1);
+    ui->start_Button->setHidden(0);
+    ui->back_to_menu_Button->setHidden(0);
+    ui->textBrowser->clear();
+    ui->text_word->setText("");
+    ui->text_question->setText("");
+    counter = 0;
+    emit NounsMenu();
 }
