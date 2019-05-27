@@ -162,27 +162,26 @@ void Random::RunTest(){
 
 void Random::ENGtoRUS(){
     ui->text_question->setText("Переведи с английского на русский слово ");
-    int p[4];
+    int variants[4];
     srand(time(nullptr));
     ui->textBrowser->insertPlainText("\n");
     for(int i = 0; i < 4; i ++){
-        p[i] = rand() % 4 + 1;
+        variants[i] = rand() % 4 + 1;
         for(int j = 0; j < i; j ++){
-            if(p[j] == p[i]){
+            if(variants[j] == variants[i]){
                 i --;
                 break;
             }
         }
     }
-    ui->textBrowser->insertPlainText("\n");
+    /*ui->textBrowser->insertPlainText("\n");
     for(int i = 0; i < 4; i++){
-        QString kue = QString::number(p[i]);;
+        QString kue = QString::number(variants[i]);;
         ui->textBrowser->insertPlainText(kue + " ");
     }
-    ui->textBrowser->insertPlainText("\n");
+    ui->textBrowser->insertPlainText("\n");*/
     for(int i = 0; i < 4; i ++){
-        int p = rand() % 4 + 1;
-        switch(p){
+        switch(variants[i]){
             case 1: ui->word_1->setText(w[i]);
                 break;
             case 2: ui->word_2->setText(w[i]);
@@ -197,6 +196,36 @@ void Random::ENGtoRUS(){
 
 void Random::RUStoENG(){
     ui->text_question->setText("Переведи с русского на английский слово ");
+    int variants[4];
+    srand(time(nullptr));
+    ui->textBrowser->insertPlainText("\n");
+    for(int i = 0; i < 4; i ++){
+        variants[i] = rand() % 4 + 1;
+        for(int j = 0; j < i; j ++){
+            if(variants[j] == variants[i]){
+                i --;
+                break;
+            }
+        }
+    }
+    ui->textBrowser->insertPlainText("\n");
+    for(int i = 0; i < 4; i++){
+        QString kue = QString::number(variants[i]);;
+        ui->textBrowser->insertPlainText(kue + " ");
+    }
+    ui->textBrowser->insertPlainText("\n");
+    for(int i = 0; i < 4; i ++){
+        switch(variants[i]){
+            case 1: ui->word_1->setText(w[i]);
+                break;
+            case 2: ui->word_2->setText(w[i]);
+                break;
+            case 3: ui->word_3->setText(w[i]);
+                break;
+            case 4: ui->word_4->setText(w[i]);
+                break;
+        }
+    }
 }
 
 void Random::ResultShow(){
