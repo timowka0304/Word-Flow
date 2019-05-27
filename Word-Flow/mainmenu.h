@@ -34,8 +34,6 @@ private slots:
 
     void on_all_category_button_clicked();
 
-    void on_progress_Button_clicked();
-
 private:
     Ui::MainMenu *ui;
     NounsMenu *nounsmenu;

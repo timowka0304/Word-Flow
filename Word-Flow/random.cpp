@@ -162,7 +162,37 @@ void Random::RunTest(){
 
 void Random::ENGtoRUS(){
     ui->text_question->setText("Переведи с английского на русский слово ");
-    ui->word_1->setText("1");
+    int p[4];
+    srand(time(nullptr));
+    ui->textBrowser->insertPlainText("\n");
+    for(int i = 0; i < 4; i ++){
+        p[i] = rand() % 4 + 1;
+        for(int j = 0; j < i; j ++){
+            if(p[j] == p[i]){
+                i --;
+                break;
+            }
+        }
+    }
+    ui->textBrowser->insertPlainText("\n");
+    for(int i = 0; i < 4; i++){
+        QString kue = QString::number(p[i]);;
+        ui->textBrowser->insertPlainText(kue + " ");
+    }
+    ui->textBrowser->insertPlainText("\n");
+    for(int i = 0; i < 4; i ++){
+        int p = rand() % 4 + 1;
+        switch(p){
+            case 1: ui->word_1->setText(w[i]);
+                break;
+            case 2: ui->word_2->setText(w[i]);
+                break;
+            case 3: ui->word_3->setText(w[i]);
+                break;
+            case 4: ui->word_4->setText(w[i]);
+                break;
+        }
+    }
 }
 
 void Random::RUStoENG(){
@@ -170,7 +200,23 @@ void Random::RUStoENG(){
 }
 
 void Random::ResultShow(){
-    ui->done_Button->setText(ui->word_1->text());
+   // ui->done_Button->setText(ui->word_1->text());
+   /* QSqlDatabase db;
+    db = QSqlDatabase::addDatabase("QSQLITE");
+    db.setDatabaseName("/home/svetlana/Word-Flow/Word-Flow/Words.db3");
+    db.open();
+
+    QSqlQuery query;
+    query.exec("SELECT id, english, russian FROM Words");
+
+    while (query.next())
+    {
+        if (query.value(0) < 101){
+            QString english = query.value(1).toString();
+            QString russian = query.value(2).toString();
+            ui->textBrowser->insertPlainText(english+" - "+russian+"\n");
+        }
+    } */
     ui->text_word->setHidden(1);
     ui->textBrowser->setHidden(1);
     ui->next_Button->setHidden(1);
