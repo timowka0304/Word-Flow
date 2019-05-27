@@ -34,7 +34,6 @@ public:
     void ResultShow();
     void ENGtoRUS();
     void RUStoENG();
-    QString w[4] = {"1", "2", "3", "4"};
 
 private slots:
     void on_start_Button_clicked();

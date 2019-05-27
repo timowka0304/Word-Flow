@@ -16,6 +16,11 @@ Random::Random(QWidget *parent) :
     ui->done_Button->setHidden(1);
     ui->text_word->setText("");
     ui->text_question->setText("");
+    ui->groupBox->setHidden(1);
+    QSqlDatabase db;
+    db = QSqlDatabase::addDatabase("QSQLITE");
+    db.setDatabaseName("/home/timowka0304/Word-Flow/Word-Flow/Words.db3");
+    db.open();
 }
 
 Random::~Random()
@@ -28,12 +33,6 @@ void Random::FillStart(){
     for(int i = 0; i < 10; i++){
         numbers_words[i].question_number = rand() % 2 + 1;
     }
-
-    for(int i = 0; i < 10; i++){
-        QString que = QString::number(numbers_words[i].question_number);;
-        ui->textBrowser->insertPlainText(que + " ");
-    }
-    ui->textBrowser->insertPlainText("\n");
     for(int i = 0; i < 10; i ++){
         numbers_words[i].word_answer_number = rand() % 100 + 1;
         for(int j = 0; j < i; j ++){
@@ -45,11 +44,6 @@ void Random::FillStart(){
 
     }
     for(int i = 0; i < 10; i++){
-        QString kue = QString::number(numbers_words[i].word_answer_number);;
-        ui->textBrowser->insertPlainText(kue + " ");
-    }
-    ui->textBrowser->insertPlainText("\n");
-    for(int i = 0; i < 10; i++){
         numbers_words[i].word_1_number = rand() % 100 + 1;
         for(int j = 0; j < 10; j ++){
             if(numbers_words[j].word_answer_number == numbers_words[i].word_1_number){
@@ -58,11 +52,6 @@ void Random::FillStart(){
             }
         }
     }
-    for(int i = 0; i < 10; i++){
-        QString kue = QString::number(numbers_words[i].word_1_number);;
-        ui->textBrowser->insertPlainText(kue + " ");
-    }
-    ui->textBrowser->insertPlainText("\n");
     for(int i = 0; i < 10; i++){
         numbers_words[i].word_2_number = rand() % 100 + 1;
         for(int j = 0; j < 10; j ++){
@@ -76,11 +65,6 @@ void Random::FillStart(){
             }
         }
     }
-    for(int i = 0; i < 10; i++){
-        QString kue = QString::number(numbers_words[i].word_2_number);;
-        ui->textBrowser->insertPlainText(kue + " ");
-    }
-    ui->textBrowser->insertPlainText("\n");
     for(int i = 0; i < 10; i++){
         numbers_words[i].word_3_number = rand() % 100 + 1;
         for(int j = 0; j < 10; j ++){
@@ -100,10 +84,6 @@ void Random::FillStart(){
     }
     for (int i = 0; i < 10; i++){
         mas_answers[i] = 0;
-    }
-    for(int i = 0; i < 10; i++){
-        QString kue = QString::number(numbers_words[i].word_3_number);;
-        ui->textBrowser->insertPlainText(kue + " ");
     }
 }
 
@@ -131,6 +111,7 @@ void Random::on_start_Button_clicked()
     ui->back_to_menu_Button->setHidden(1);
     ui->start_Button->setHidden(1);
     ui->next_Button->setHidden(0);
+    ui->groupBox->setHidden(0);
     RunTest();
 }
 
@@ -161,10 +142,16 @@ void Random::RunTest(){
 }
 
 void Random::ENGtoRUS(){
+    QSqlQuery query_eng_to_rus;
+    query_eng_to_rus.exec(QStringLiteral("SELECT id, English, Russian FROM Words WHERE id = %1").arg(numbers_words[counter].word_answer_number));
+
     ui->text_question->setText("Переведи с английского на русский слово ");
+    while (query_eng_to_rus.next()){
+        ui->text_word->setText(query_eng_to_rus.value(1).toString());
+    }
+
     int variants[4];
     srand(time(nullptr));
-    ui->textBrowser->insertPlainText("\n");
     for(int i = 0; i < 4; i ++){
         variants[i] = rand() % 4 + 1;
         for(int j = 0; j < i; j ++){
@@ -174,31 +161,59 @@ void Random::ENGtoRUS(){
             }
         }
     }
-    /*ui->textBrowser->insertPlainText("\n");
-    for(int i = 0; i < 4; i++){
-        QString kue = QString::number(variants[i]);;
-        ui->textBrowser->insertPlainText(kue + " ");
-    }
-    ui->textBrowser->insertPlainText("\n");*/
+
+    QString word;
     for(int i = 0; i < 4; i ++){
+        switch(i){
+            case 0:
+                query_eng_to_rus.exec(QStringLiteral("SELECT id, English, Russian FROM Words WHERE id = %1").arg(numbers_words[counter].word_answer_number));
+                while (query_eng_to_rus.next()){
+                    word = query_eng_to_rus.value(2).toString();
+                }
+                break;
+            case 1:
+                query_eng_to_rus.exec(QStringLiteral("SELECT id, English, Russian FROM Words WHERE id = %1").arg(numbers_words[counter].word_1_number));
+                while (query_eng_to_rus.next()){
+                    word = query_eng_to_rus.value(2).toString();
+                }
+                break;
+            case 2:
+                query_eng_to_rus.exec(QStringLiteral("SELECT id, English, Russian FROM Words WHERE id = %1").arg(numbers_words[counter].word_2_number));
+                while (query_eng_to_rus.next()){
+                    word = query_eng_to_rus.value(2).toString();
+                }
+                break;
+            case 3:
+                query_eng_to_rus.exec(QStringLiteral("SELECT id, English, Russian FROM Words WHERE id = %1").arg(numbers_words[counter].word_2_number));
+                while (query_eng_to_rus.next()){
+                    word = query_eng_to_rus.value(2).toString();
+                }
+                break;
+        }
         switch(variants[i]){
-            case 1: ui->word_1->setText(w[i]);
+            case 1: ui->word_1->setText(word);
                 break;
-            case 2: ui->word_2->setText(w[i]);
+            case 2: ui->word_2->setText(word);
                 break;
-            case 3: ui->word_3->setText(w[i]);
+            case 3: ui->word_3->setText(word);
                 break;
-            case 4: ui->word_4->setText(w[i]);
+            case 4: ui->word_4->setText(word);
                 break;
         }
     }
 }
 
 void Random::RUStoENG(){
+    QSqlQuery query_rus_to_eng;
+    query_rus_to_eng.exec(QStringLiteral("SELECT id, English, Russian FROM Words WHERE id = %1").arg(numbers_words[counter].word_answer_number));
+
     ui->text_question->setText("Переведи с русского на английский слово ");
+    while (query_rus_to_eng.next()){
+        ui->text_word->setText(query_rus_to_eng.value(2).toString());
+    }
+
     int variants[4];
     srand(time(nullptr));
-    ui->textBrowser->insertPlainText("\n");
     for(int i = 0; i < 4; i ++){
         variants[i] = rand() % 4 + 1;
         for(int j = 0; j < i; j ++){
@@ -208,62 +223,66 @@ void Random::RUStoENG(){
             }
         }
     }
-    ui->textBrowser->insertPlainText("\n");
-    for(int i = 0; i < 4; i++){
-        QString kue = QString::number(variants[i]);;
-        ui->textBrowser->insertPlainText(kue + " ");
-    }
-    ui->textBrowser->insertPlainText("\n");
+
+    QString word;
     for(int i = 0; i < 4; i ++){
+        switch(i){
+            case 0:
+                query_rus_to_eng.exec(QStringLiteral("SELECT id, English, Russian FROM Words WHERE id = %1").arg(numbers_words[counter].word_answer_number));
+                while (query_rus_to_eng.next()){
+                    word = query_rus_to_eng.value(1).toString();
+                }
+                break;
+            case 1:
+                query_rus_to_eng.exec(QStringLiteral("SELECT id, English, Russian FROM Words WHERE id = %1").arg(numbers_words[counter].word_1_number));
+                while (query_rus_to_eng.next()){
+                    word = query_rus_to_eng.value(1).toString();
+                }
+                break;
+            case 2:
+                query_rus_to_eng.exec(QStringLiteral("SELECT id, English, Russian FROM Words WHERE id = %1").arg(numbers_words[counter].word_2_number));
+                while (query_rus_to_eng.next()){
+                    word = query_rus_to_eng.value(1).toString();
+                }
+                break;
+            case 3:
+                query_rus_to_eng.exec(QStringLiteral("SELECT id, English, Russian FROM Words WHERE id = %1").arg(numbers_words[counter].word_2_number));
+                while (query_rus_to_eng.next()){
+                    word = query_rus_to_eng.value(1).toString();
+                }
+                break;
+        }
         switch(variants[i]){
-            case 1: ui->word_1->setText(w[i]);
+            case 1: ui->word_1->setText(word);
                 break;
-            case 2: ui->word_2->setText(w[i]);
+            case 2: ui->word_2->setText(word);
                 break;
-            case 3: ui->word_3->setText(w[i]);
+            case 3: ui->word_3->setText(word);
                 break;
-            case 4: ui->word_4->setText(w[i]);
+            case 4: ui->word_4->setText(word);
                 break;
         }
     }
 }
 
 void Random::ResultShow(){
-   // ui->done_Button->setText(ui->word_1->text());
-   /* QSqlDatabase db;
-    db = QSqlDatabase::addDatabase("QSQLITE");
-    db.setDatabaseName("/home/svetlana/Word-Flow/Word-Flow/Words.db3");
-    db.open();
-
-    QSqlQuery query;
-    query.exec("SELECT id, english, russian FROM Words");
-
-    while (query.next())
-    {
-        if (query.value(0) < 101){
-            QString english = query.value(1).toString();
-            QString russian = query.value(2).toString();
-            ui->textBrowser->insertPlainText(english+" - "+russian+"\n");
-        }
-    } */
     ui->text_word->setHidden(1);
-    ui->textBrowser->setHidden(1);
     ui->next_Button->setHidden(1);
     ui->text_question->setHidden(1);
     ui->done_Button->setHidden(0);
+    ui->groupBox->setHidden(1);
+
 }
 
 void Random::on_done_Button_clicked()
 {
     this->close();
     ui->text_word->setHidden(0);
-    ui->textBrowser->setHidden(0);
     ui->next_Button->setHidden(1);
     ui->text_question->setHidden(0);
     ui->done_Button->setHidden(1);
     ui->start_Button->setHidden(0);
     ui->back_to_menu_Button->setHidden(0);
-    ui->textBrowser->clear();
     ui->text_word->setText("");
     ui->text_question->setText("");
     counter = 0;
