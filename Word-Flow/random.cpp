@@ -4,6 +4,8 @@
 #include <QSqlQuery>
 #include <time.h>
 #include <QMessageBox>
+#include <QDebug>
+#include <QButtonGroup>
 
 Random::Random(QWidget *parent) :
     QDialog(parent),
@@ -162,6 +164,8 @@ void Random::ENGtoRUS(){
         }
     }
 
+    //qDebug() << numbers_words[counter].word_answer_number << " " << numbers_words[counter].word_1_number << " " << numbers_words[counter].word_2_number << " " << numbers_words[counter].word_3_number;
+
     QString word;
     for(int i = 0; i < 4; i ++){
         switch(i){
@@ -184,7 +188,7 @@ void Random::ENGtoRUS(){
                 }
                 break;
             case 3:
-                query_eng_to_rus.exec(QStringLiteral("SELECT id, English, Russian FROM Words WHERE id = %1").arg(numbers_words[counter].word_2_number));
+                query_eng_to_rus.exec(QStringLiteral("SELECT id, English, Russian FROM Words WHERE id = %1").arg(numbers_words[counter].word_3_number));
                 while (query_eng_to_rus.next()){
                     word = query_eng_to_rus.value(2).toString();
                 }
@@ -246,7 +250,7 @@ void Random::RUStoENG(){
                 }
                 break;
             case 3:
-                query_rus_to_eng.exec(QStringLiteral("SELECT id, English, Russian FROM Words WHERE id = %1").arg(numbers_words[counter].word_2_number));
+                query_rus_to_eng.exec(QStringLiteral("SELECT id, English, Russian FROM Words WHERE id = %1").arg(numbers_words[counter].word_3_number));
                 while (query_rus_to_eng.next()){
                     word = query_rus_to_eng.value(1).toString();
                 }

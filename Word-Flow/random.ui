@@ -25,6 +25,9 @@
    <property name="title">
     <string/>
    </property>
+   <property name="checkable">
+    <bool>false</bool>
+   </property>
    <widget class="QWidget" name="">
     <property name="geometry">
      <rect>
