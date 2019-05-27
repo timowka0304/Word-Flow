@@ -1,4 +1,4 @@
-#include "newword.h"
+в#include "newword.h"
 #include "ui_newword.h"
 #include <QMessageBox>
 #include <QRegExpValidator>
