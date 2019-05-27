@@ -33,16 +33,8 @@ SOURCES += \
     verbsmenu.cpp \
     userdicmenu.cpp \
     allmenu.cpp \
-<<<<<<< HEAD
     newword.cpp \
     random.cpp
-||||||| merged common ancestors
-    newword.cpp
-=======
-    newword.cpp \
-    testnouns.cpp \
-    progresswindow.cpp
->>>>>>> dev
 
 HEADERS += \
         mainwindow.h \
@@ -52,16 +44,8 @@ HEADERS += \
     verbsmenu.h \
     userdicmenu.h \
     allmenu.h \
-<<<<<<< HEAD
     newword.h \
     random.h
-||||||| merged common ancestors
-    newword.h
-=======
-    newword.h \
-    testnouns.h \
-    progresswindow.h
->>>>>>> dev
 
 FORMS += \
         mainwindow.ui \
@@ -71,16 +55,8 @@ FORMS += \
     verbsmenu.ui \
     userdicmenu.ui \
     allmenu.ui \
-<<<<<<< HEAD
     newword.ui \
     random.ui
-||||||| merged common ancestors
-    newword.ui
-=======
-    newword.ui \
-    testnouns.ui \
-    progresswindow.ui
->>>>>>> dev
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
