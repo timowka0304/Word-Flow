@@ -132,7 +132,6 @@ void Random::on_next_Button_clicked()
     }
     qDebug() << group.checkedId();
     qDebug() << group.checkedButton();
-
     counter++;
     RunTest();
 }
