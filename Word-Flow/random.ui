@@ -31,49 +31,85 @@
    <widget class="QWidget" name="">
     <property name="geometry">
      <rect>
-      <x>0</x>
-      <y>20</y>
-      <width>551</width>
+      <x>6</x>
+      <y>21</y>
+      <width>541</width>
       <height>201</height>
      </rect>
     </property>
     <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
       <layout class="QVBoxLayout" name="verticalLayout">
-       <property name="leftMargin">
-        <number>5</number>
-       </property>
        <item>
         <widget class="QRadioButton" name="word_1">
          <property name="text">
-          <string>RadioButton</string>
+          <string>1 вар</string>
          </property>
         </widget>
        </item>
        <item>
         <widget class="QRadioButton" name="word_2">
          <property name="text">
-          <string>RadioButton</string>
+          <string>2 вар</string>
          </property>
         </widget>
        </item>
       </layout>
      </item>
      <item>
+      <widget class="QLabel" name="msg_text">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+         <horstretch>1</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="sizeIncrement">
+        <size>
+         <width>0</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="layoutDirection">
+        <enum>Qt::LeftToRight</enum>
+       </property>
+       <property name="autoFillBackground">
+        <bool>false</bool>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::NoFrame</enum>
+       </property>
+       <property name="text">
+        <string>текст по итогу</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+       <property name="wordWrap">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
       <layout class="QVBoxLayout" name="verticalLayout_2">
-       <property name="leftMargin">
-        <number>160</number>
-       </property>
-       <property name="rightMargin">
-        <number>5</number>
-       </property>
        <item>
         <widget class="QRadioButton" name="word_3">
          <property name="layoutDirection">
           <enum>Qt::RightToLeft</enum>
          </property>
          <property name="text">
-          <string>RadioButton</string>
+          <string>3 вар</string>
          </property>
         </widget>
        </item>
@@ -83,7 +119,7 @@
           <enum>Qt::RightToLeft</enum>
          </property>
          <property name="text">
-          <string>RadioButton</string>
+          <string>4 вар</string>
          </property>
         </widget>
        </item>
@@ -92,13 +128,13 @@
     </layout>
    </widget>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>20</x>
      <y>30</y>
      <width>551</width>
-     <height>91</height>
+     <height>97</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -115,6 +151,27 @@
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="mark_text">
+      <property name="font">
+       <font>
+        <pointsize>15</pointsize>
+        <weight>75</weight>
+        <italic>true</italic>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>ТЫ ПО ИТОГУ</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+      <property name="wordWrap">
+       <bool>true</bool>
       </property>
      </widget>
     </item>
@@ -138,7 +195,7 @@
     </item>
    </layout>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>19</x>
@@ -177,6 +234,27 @@
      </widget>
     </item>
    </layout>
+  </widget>
+  <widget class="QLabel" name="number_of_page">
+   <property name="geometry">
+    <rect>
+     <x>530</x>
+     <y>10</y>
+     <width>54</width>
+     <height>17</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>10</pointsize>
+     <weight>75</weight>
+     <italic>true</italic>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>номер</string>
+   </property>
   </widget>
  </widget>
  <resources/>

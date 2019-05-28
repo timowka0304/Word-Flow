@@ -19,6 +19,9 @@ Random::Random(QWidget *parent) :
     ui->text_word->setText("");
     ui->text_question->setText("");
     ui->groupBox->setHidden(1);
+    ui->msg_text->setHidden(1);
+    ui->number_of_page->setHidden(1);
+    ui->mark_text->setHidden(1);
     QSqlDatabase db;
     db = QSqlDatabase::addDatabase("QSQLITE");
     db.setDatabaseName("/home/timowka0304/Word-Flow/Word-Flow/Words.db3");
@@ -105,16 +108,20 @@ void Random::on_start_Button_clicked()
       case QMessageBox::Yes:
          msgBox.close();
          FillStart();
+         ui->back_to_menu_Button->setHidden(1);
+         ui->start_Button->setHidden(1);
+         ui->next_Button->setHidden(0);
+         ui->groupBox->setHidden(0);
+         ui->word_1->setHidden(0);
+         ui->word_2->setHidden(0);
+         ui->word_3->setHidden(0);
+         ui->word_4->setHidden(0);
+         RunTest();
          break;
       default:
          msgBox.close();
          break;
     }
-    ui->back_to_menu_Button->setHidden(1);
-    ui->start_Button->setHidden(1);
-    ui->next_Button->setHidden(0);
-    ui->groupBox->setHidden(0);
-    RunTest();
 }
 
 void Random::on_back_to_menu_Button_clicked()
@@ -130,14 +137,47 @@ void Random::on_next_Button_clicked()
     for(int i = 0; i < allButtons.size(); ++i){
             group.addButton(allButtons[i],i);
     }
-    qDebug() << group.checkedId();
-    qDebug() << group.checkedButton();
-    counter++;
-    RunTest();
+    if (group.checkedId() == -1){
+        QMessageBox msgBox;
+        msgBox.setText("Так не пойдет! Выберите вариант ответа!");
+        msgBox.setIcon(QMessageBox::Warning);
+        msgBox.setStandardButtons(QMessageBox::Ok);
+        int ret = msgBox.exec();
+           switch (ret) {
+           case QMessageBox::Ok:
+             msgBox.close();
+             break;
+          default:
+             msgBox.close();
+             break;
+        }
+    } else {
+        QString needed_eng, needed_rus;
+        QString choosen = group.button(group.checkedId())->text();
+        QSqlQuery query;
+        query.exec(QStringLiteral("SELECT id, English, Russian FROM Words WHERE id = %1").arg(numbers_words[counter].word_answer_number));
+        while (query.next()){
+            needed_eng = query.value(1).toString();
+            needed_rus = query.value(2).toString();
+        }
+        if ((choosen == needed_eng) or (choosen == needed_rus)){
+            mas_answers[counter] = 1;
+            Warning(1, needed_eng, needed_rus);
+        } else {
+            Warning(0, needed_eng, needed_rus);
+        }
+
+        qDebug() << choosen << " " << needed_eng << " " << needed_rus;
+        group.button(group.checkedId())->click();
+        counter++;
+        RunTest();
+    }
 }
 
 void Random::RunTest(){
     if(counter != 10){
+        ui->number_of_page->setHidden(0);
+        ui->number_of_page->setText(QStringLiteral("%1 / 10").arg(counter+1));
         if(numbers_words[counter].question_number == 1){
             ENGtoRUS();
         }
@@ -277,12 +317,38 @@ void Random::RUStoENG(){
 }
 
 void Random::ResultShow(){
+    ui->number_of_page->setHidden(1);
     ui->text_word->setHidden(1);
     ui->next_Button->setHidden(1);
     ui->text_question->setHidden(1);
     ui->done_Button->setHidden(0);
-    ui->groupBox->setHidden(1);
-
+    ui->groupBox->setHidden(0);
+    ui->word_1->setHidden(1);
+    ui->word_2->setHidden(1);
+    ui->word_3->setHidden(1);
+    ui->word_4->setHidden(1);
+    ui->msg_text->setHidden(0);
+    ui->mark_text->setHidden(0);
+    int sum = 0;
+    for (int i = 0; i < 10; i++){
+        sum += mas_answers[i];
+    }
+    int proc;
+    if (sum <= 3) proc = 0;
+    if ((sum > 3) and (sum <= 7)) proc = 1;
+    if (sum > 7) proc = 2;
+    switch (proc) {
+        case 0:
+            ui->mark_text->setText("Плохо, конечно, но не отчаивайся! Попробуй запомнить слова лучше!");
+            break;
+        case 1:
+            ui->mark_text->setText("Хороший результат! Еще немного и ты будешь знать все слова!");
+            break;
+        case 2:
+            ui->mark_text->setText("Товарищ, Полиглот, Вам точно нужна наша помощь? Вы и без нас хорошо справляетесь! Отлично!");
+            break;
+    }
+    ui->msg_text->setText(QStringLiteral("Ты верно ответил на %1 из 10\nТы успешен в запоминании сущестительных на %2%").arg(sum).arg(sum*10));
 }
 
 void Random::on_done_Button_clicked()
@@ -296,6 +362,41 @@ void Random::on_done_Button_clicked()
     ui->back_to_menu_Button->setHidden(0);
     ui->text_word->setText("");
     ui->text_question->setText("");
+    ui->msg_text->setHidden(1);
+    ui->mark_text->setHidden(1);
     counter = 0;
     emit NounsMenu();
+}
+
+void Random::Warning(int flag, QString eng, QString rus){
+    QMessageBox msgBox;
+    msgBox.setWindowTitle("Твой выбор");
+    int ret;
+    if (flag == 0){
+        msgBox.setText(QStringLiteral("Не верно!\n\nЗапомни:\n%1 = %2").arg(eng).arg(rus));
+        msgBox.setIcon(QMessageBox::Warning);
+        msgBox.setStandardButtons(QMessageBox::Ok);
+        ret = msgBox.exec();
+        switch (ret) {
+           case QMessageBox::Ok:
+             msgBox.close();
+             break;
+           default:
+              msgBox.close();
+              break;
+        }
+    } else {
+        msgBox.setText(QStringLiteral("Верно!\n\nПовторим:\n%1 = %2").arg(eng).arg(rus));
+        msgBox.setIcon(QMessageBox::Information);
+        msgBox.setStandardButtons(QMessageBox::Ok);
+        ret = msgBox.exec();
+        switch (ret) {
+           case QMessageBox::Ok:
+             msgBox.close();
+             break;
+           default:
+              msgBox.close();
+              break;
+        }
+    }
 }
