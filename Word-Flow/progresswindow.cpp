@@ -10,7 +10,7 @@ ProgressWindow::ProgressWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
-    db.setDatabaseName( "/home/timowka0304/Word-Flow/Word-Flow/Progress.db3");
+    db.setDatabaseName( "/home/nikita/Рабочий стол/курсовая/Word-Flow/Word-Flow/Words.db3");
     db.open();
     QSqlQuery query;
     query.exec("SELECT * FROM Progress");
