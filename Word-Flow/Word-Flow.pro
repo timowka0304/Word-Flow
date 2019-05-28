@@ -26,8 +26,8 @@ CONFIG += c++11
 
 SOURCES += \
         main.cpp \
-        mainwindow.cpp \
     mainmenu.cpp \
+        mainwindow.cpp \
     nounsmenu.cpp \
     adjmenu.cpp \
     verbsmenu.cpp \
@@ -37,6 +37,7 @@ SOURCES += \
     random.cpp
 
 HEADERS += \
+    mainmenu.h \
         mainwindow.h \
     mainmenu.h \
     nounsmenu.h \
@@ -48,6 +49,7 @@ HEADERS += \
     random.h
 
 FORMS += \
+    mainmenu.ui \
         mainwindow.ui \
     mainmenu.ui \
     nounsmenu.ui \

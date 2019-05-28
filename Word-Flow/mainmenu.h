@@ -1,7 +1,7 @@
 #ifndef MAINMENU_H
 #define MAINMENU_H
 
-#include <QDialog>
+#include <QMainWindow>
 #include "nounsmenu.h"
 #include "adjmenu.h"
 #include "verbsmenu.h"
@@ -13,7 +13,7 @@ namespace Ui {
 class MainMenu;
 }
 
-class MainMenu : public QDialog
+class MainMenu : public QMainWindow
 {
     Q_OBJECT
 
@@ -34,6 +34,12 @@ private slots:
 
     void on_all_category_button_clicked();
 
+    void on_progress_Button_clicked();
+
+    void on_actionText_triggered();
+
+    void on_actionExit_triggered();
+
 private:
     Ui::MainMenu *ui;
     NounsMenu *nounsmenu;
@@ -45,3 +51,6 @@ private:
 };
 
 #endif // MAINMENU_H
+
+
+
