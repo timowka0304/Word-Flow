@@ -60,7 +60,6 @@ FORMS += \
     userdicmenu.ui \
     allmenu.ui \
     newword.ui \
-    random.ui \
     progresswindow.ui
 
 # Default rules for deployment.

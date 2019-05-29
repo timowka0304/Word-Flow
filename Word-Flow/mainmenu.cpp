@@ -82,6 +82,7 @@ void MainMenu::on_progress_Button_clicked()
     this->close();
     progresswindow->show();
 }
+<<<<<<< HEAD
 
 void MainMenu::on_actionText_triggered()
 {
