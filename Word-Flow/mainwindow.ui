@@ -13,6 +13,10 @@
   <property name="windowTitle">
    <string>Word-Flow</string>
   </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>353a9a937bc4945eed556e5617806aab.png</normaloff>353a9a937bc4945eed556e5617806aab.png</iconset>
+  </property>
   <widget class="QWidget" name="centralWidget">
    <widget class="QWidget" name="verticalLayoutWidget">
     <property name="geometry">

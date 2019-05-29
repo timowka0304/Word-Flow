@@ -17,6 +17,7 @@ MainMenu::MainMenu(QWidget *parent) :
     allmenu = new AllMenu;
     connect(allmenu, &AllMenu::MainMenu, this, &MainMenu::show);
     ui->setupUi(this);
+    setWindowIcon(QIcon(":/353a9a937bc4945eed556e5617806aab.png"));
 }
 
 MainMenu::~MainMenu()

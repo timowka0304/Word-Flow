@@ -10,6 +10,7 @@ VerbsMenu::VerbsMenu(QWidget *parent) :
     ui->setupUi(this);
     ui->textBrowser->setHidden(1);
     ui->hide_dic_Button->setHidden(1);
+    setWindowIcon(QIcon(":/353a9a937bc4945eed556e5617806aab.png"));
 }
 
 VerbsMenu::~VerbsMenu()

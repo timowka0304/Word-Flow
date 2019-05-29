@@ -26,6 +26,7 @@ Random::Random(QWidget *parent) :
     db = QSqlDatabase::addDatabase("QSQLITE");
     db.setDatabaseName("/home/timowka0304/Word-Flow/Word-Flow/Words.db3");
     db.open();
+    setWindowIcon(QIcon(":/353a9a937bc4945eed556e5617806aab.png"));
 }
 
 Random::~Random()

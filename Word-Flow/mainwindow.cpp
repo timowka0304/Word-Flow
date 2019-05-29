@@ -13,6 +13,7 @@ MainWindow::MainWindow(QWidget *parent) :
     effect->setBlurRadius(10.0);
     effect->setColor(Qt::darkCyan);
     ui->label->setGraphicsEffect(effect);
+    setWindowIcon(QIcon(":/353a9a937bc4945eed556e5617806aab.png"));
 }
 
 MainWindow::~MainWindow()

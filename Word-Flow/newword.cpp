@@ -14,6 +14,7 @@ NewWord::NewWord(QWidget *parent) :
     ui->rus_new_word->setValidator (new QRegExpValidator (rus_v, this));
     ui->eng_new_word->clear();
     ui->rus_new_word->clear();
+    setWindowIcon(QIcon(":/353a9a937bc4945eed556e5617806aab.png"));
 }
 
 NewWord::~NewWord()
