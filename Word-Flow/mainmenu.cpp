@@ -1,5 +1,5 @@
 #include "mainmenu.h"
-#include "ui_Mainmenu.h"
+#include "ui_mainmenu.h"
 #include <QMessageBox>
 
 MainMenu::MainMenu(QWidget *parent) :
