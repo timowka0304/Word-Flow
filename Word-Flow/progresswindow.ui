@@ -27,6 +27,13 @@
      <widget class="QTableView" name="tableView"/>
     </item>
     <item>
+     <widget class="QPushButton" name="clear_db_Button">
+      <property name="text">
+       <string>Отчистить</string>
+      </property>
+     </widget>
+    </item>
+    <item>
      <widget class="QPushButton" name="back_to_menu_Button">
       <property name="text">
        <string>В меню</string>
