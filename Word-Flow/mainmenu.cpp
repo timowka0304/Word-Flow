@@ -3,7 +3,7 @@
 #include <QMessageBox>
 
 MainMenu::MainMenu(QWidget *parent) :
-    QDialog(parent),
+    QMainWindow(parent),
     ui(new Ui::MainMenu)
 {
     nounsmenu = new NounsMenu;
@@ -81,4 +81,43 @@ void MainMenu::on_progress_Button_clicked()
 {
     this->close();
     progresswindow->show();
+}
+
+void MainMenu::on_actionText_triggered()
+{
+    QMessageBox msgBox;
+    msgBox.setText("Программа “Word-Flow” предназначена для эффективного запоминания простейших базовых слов английского языка. Программа позволяет запоминать иностранные слова пользователю, желающему улучшить знания простейших слов английского языка, сидя за ПК или ноутбуком под дистрибутивами Linux. Пользователю предлагается выбрать одну из четырех предложенных категорий для заучивания слов: “Существительные”, “Глаголы”, “Прилагательные”, “Общий раздел” или же воспользоваться “Пользовательским словарем”");
+    msgBox.setIcon(QMessageBox::Information);
+    msgBox.setStandardButtons(QMessageBox::Ok);
+    msgBox.setDefaultButton(QMessageBox::Ok);
+    int ret = msgBox.exec();
+       switch (ret) {
+      case QMessageBox::Ok:
+         msgBox.close();
+         break;
+      default:
+         msgBox.close();
+         break;
+    }
+}
+
+void MainMenu::on_actionExit_triggered()
+{
+    QMessageBox msgBox;
+    msgBox.setText("Вы уверены, что хотите выйти из приложения?");
+    msgBox.setIcon(QMessageBox::Question);
+    msgBox.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
+    msgBox.setDefaultButton(QMessageBox::Yes);
+    int ret = msgBox.exec();
+       switch (ret) {
+       case QMessageBox::No:
+         msgBox.close();
+         break;
+      case QMessageBox::Yes:
+         this->close();
+         break;
+      default:
+         msgBox.close();
+         break;
+    }
 }
