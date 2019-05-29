@@ -17,7 +17,7 @@ signals:
 public:
     explicit ProgressWindow(QWidget *parent = nullptr);
     ~ProgressWindow();
-    void Show();
+    void Show_db();
 
 private slots:
     void on_back_to_menu_Button_clicked();

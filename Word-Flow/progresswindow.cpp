@@ -10,7 +10,7 @@ ProgressWindow::ProgressWindow(QWidget *parent) :
     ui(new Ui::ProgressWindow)
 {
     ui->setupUi(this);
-    Show();
+    Show_db();
 }
 
 ProgressWindow::~ProgressWindow()
@@ -18,7 +18,7 @@ ProgressWindow::~ProgressWindow()
     delete ui;
 }
 
-void ProgressWindow::Show()
+void ProgressWindow::Show_db()
 {
     QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
     db.setDatabaseName( "/home/timowka0304/Word-Flow/Word-Flow/Progress.db3");
@@ -60,7 +60,7 @@ void ProgressWindow::on_clear_db_Button_clicked()
       case QMessageBox::Yes:
          QSqlQuery query;
          query.exec("DELETE FROM Progress");
-         Show();
+         Show_db();
          break;
     }
 }
