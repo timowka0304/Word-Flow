@@ -331,7 +331,7 @@ void Random::ResultShow(){
     ui->word_4->setHidden(1);
     ui->msg_text->setHidden(0);
     ui->mark_text->setHidden(0);
-    int sum = 0;
+    sum = 0;
     for (int i = 0; i < 10; i++){
         sum += mas_answers[i];
     }
@@ -355,6 +355,14 @@ void Random::ResultShow(){
 
 void Random::on_done_Button_clicked()
 {
+    QSqlDatabase db;
+    db = QSqlDatabase::addDatabase("QSQLITE");
+    db.setDatabaseName("/home/timowka0304/Word-Flow/Word-Flow/Progress.db3");
+    db.open();
+
+    QSqlQuery query;
+    query.exec(QStringLiteral("INSERT INTO Progress VALUES (%1, %2, 10)").arg(sum*10).arg(sum));
+
     this->close();
     ui->text_word->setHidden(0);
     ui->next_Button->setHidden(1);

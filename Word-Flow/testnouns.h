@@ -36,6 +36,7 @@ public:
     void ENGtoRUS();
     void RUStoENG();
     void Warning(int flag, QString eng, QString rus);
+    int sum = 0;
 
 private slots:
     void on_start_Button_clicked();
