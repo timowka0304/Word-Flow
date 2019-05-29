@@ -3,6 +3,7 @@
 
 #include <QDialog>
 #include <QString>
+#include <QSqlDatabase>
 
 struct Numbers{
     int question_number;
@@ -47,6 +48,7 @@ private slots:
 
 private:
     Ui::Random *ui;
+    QSqlDatabase db;
 };
 
 #endif // RANDOM_H
