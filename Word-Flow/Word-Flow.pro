@@ -34,7 +34,8 @@ SOURCES += \
     userdicmenu.cpp \
     allmenu.cpp \
     newword.cpp \
-    random.cpp
+    random.cpp \
+    progresswindow.cpp
 
 HEADERS += \
     mainmenu.h \
@@ -46,7 +47,8 @@ HEADERS += \
     userdicmenu.h \
     allmenu.h \
     newword.h \
-    random.h
+    random.h \
+    progresswindow.h
 
 FORMS += \
     mainmenu.ui \
@@ -58,7 +60,8 @@ FORMS += \
     userdicmenu.ui \
     allmenu.ui \
     newword.ui \
-    random.ui
+    random.ui \
+    progresswindow.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
