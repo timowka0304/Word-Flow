@@ -2,7 +2,7 @@
 #define NOUNSMENU_H
 
 #include <QDialog>
-#include "random.h"
+#include "testnouns.h"
 
 namespace Ui {
 class NounsMenu;

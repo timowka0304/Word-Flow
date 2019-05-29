@@ -1,4 +1,4 @@
-﻿#include "random.h"
+﻿#include "testnouns.h"
 #include "ui_random.h"
 #include <QtSql/QSqlDatabase>
 #include <QSqlQuery>
