@@ -21,7 +21,7 @@ ProgressWindow::~ProgressWindow()
 void ProgressWindow::Show_db()
 {
     QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
-    db.setDatabaseName( "/home/timowka0304/Word-Flow/Word-Flow/Progress.db3");
+    db.setDatabaseName( "/home/svetlana/Word-Flow/Word-Flow/Progress.db3");
     db.open();
     QSqlQuery query;
     query.exec("SELECT * FROM Progress");

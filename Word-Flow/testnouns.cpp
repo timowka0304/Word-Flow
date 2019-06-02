@@ -1,5 +1,5 @@
 ﻿#include "testnouns.h"
-#include "ui_random.h"
+#include "ui_testnouns.h"
 #include <QtSql/QSqlDatabase>
 #include <QSqlQuery>
 #include <time.h>
