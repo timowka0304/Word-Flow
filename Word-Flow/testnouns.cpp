@@ -149,7 +149,7 @@ void Random::on_next_Button_clicked()
         }
     } else {
         db = QSqlDatabase::addDatabase("QSQLITE");
-        db.setDatabaseName("/home/timowka0304/Word-Flow/Word-Flow/Words.db3");
+        db.setDatabaseName("/home/svetlana/Word-Flow/Word-Flow/Words.db3");
         db.open();
         QString needed_eng, needed_rus;
         QString choosen = group.button(group.checkedId())->text();
@@ -191,7 +191,7 @@ void Random::RunTest(){
 
 void Random::ENGtoRUS(){
     db = QSqlDatabase::addDatabase("QSQLITE");
-    db.setDatabaseName("/home/timowka0304/Word-Flow/Word-Flow/Words.db3");
+    db.setDatabaseName("/home/svetlana/Word-Flow/Word-Flow/Words.db3");
     db.open();
     QSqlQuery query_eng_to_rus;
     query_eng_to_rus.exec(QStringLiteral("SELECT id, English, Russian FROM Words WHERE id = %1").arg(numbers_words[counter].word_answer_number));
@@ -255,7 +255,7 @@ void Random::ENGtoRUS(){
 
 void Random::RUStoENG(){
     db = QSqlDatabase::addDatabase("QSQLITE");
-    db.setDatabaseName("/home/timowka0304/Word-Flow/Word-Flow/Words.db3");
+    db.setDatabaseName("/home/svetlana/Word-Flow/Word-Flow/Words.db3");
     db.open();
     QSqlQuery query_rus_to_eng;
     query_rus_to_eng.exec(QStringLiteral("SELECT id, English, Russian FROM Words WHERE id = %1").arg(numbers_words[counter].word_answer_number));
@@ -335,19 +335,28 @@ void Random::ResultShow(){
     for (int i = 0; i < 10; i++){
         sum += mas_answers[i];
     }
-    int proc;
+    int proc, h;
     if (sum <= 3) proc = 0;
     if ((sum > 3) and (sum <= 7)) proc = 1;
     if (sum > 7) proc = 2;
     switch (proc) {
         case 0:
-            ui->mark_text->setText("Плохо, конечно, но не отчаивайся! Попробуй запомнить слова лучше!");
+            h = rand()%3;
+            if (h == 0) ui->mark_text->setText("Плохо, конечно, но не отчаивайся! Попробуй запомнить слова лучше!");
+            if (h == 1) ui->mark_text->setText("Не расстраивайся. Еще не все потеряно! Всегда есть возможность попробовать снова!");
+            if (h == 2) ui->mark_text->setText("Результат так себе. Видимо ты не старался! Приходи, когда повторишь слова!");
             break;
         case 1:
-            ui->mark_text->setText("Хороший результат! Еще немного и ты будешь знать все слова!");
+            h = rand()%3;
+            if (h == 0) ui->mark_text->setText("Хороший результат! Еще немного и ты будешь знать все слова!");
+            if (h == 1) ui->mark_text->setText("Вы неплохо справились! Продолжайте в том же духе!");
+            if (h == 2) ui->mark_text->setText("Еще чуть-чуть и Вы будете у цели!");
             break;
         case 2:
-            ui->mark_text->setText("Товарищ, Полиглот, Вам точно нужна наша помощь? Вы и без нас хорошо справляетесь! Отлично!");
+            h = rand()%3;
+            if (h == 0) ui->mark_text->setText("Товарищ, Полиглот, Вам точно нужна наша помощь? Вы и без нас хорошо справляетесь! Отлично!");
+            if (h == 1) ui->mark_text->setText("Вы отлично спавились!");
+            if (h == 2) ui->mark_text->setText("Отлично! Вы достихли успеха в запоминании слов!");
             break;
     }
     ui->msg_text->setText(QStringLiteral("Ты верно ответил на %1 из 10\nТы успешен в запоминании сущестительных на %2%").arg(sum).arg(sum*10));
@@ -357,7 +366,7 @@ void Random::on_done_Button_clicked()
 {
     QSqlDatabase db;
     db = QSqlDatabase::addDatabase("QSQLITE");
-    db.setDatabaseName("/home/timowka0304/Word-Flow/Word-Flow/Progress.db3");
+    db.setDatabaseName("/home/svetlana/Word-Flow/Word-Flow/Progress.db3");
     db.open();
 
     QSqlQuery query;
