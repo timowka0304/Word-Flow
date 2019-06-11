@@ -10,6 +10,12 @@ UserDicMenu::UserDicMenu(QWidget *parent) :
     ui->setupUi(this);
     ui->textBrowser->setHidden(1);
     ui->hide_dic_Button->setHidden(1);
+    ui->dic_show_Button->setFocusPolicy(Qt::FocusPolicy::NoFocus);
+    ui->lets_test_Button->setFocusPolicy(Qt::FocusPolicy::NoFocus);
+    ui->menu_back_Button->setFocusPolicy(Qt::FocusPolicy::NoFocus);
+    ui->hide_dic_Button->setFocusPolicy(Qt::FocusPolicy::NoFocus);
+    ui->add_Button->setFocusPolicy(Qt::FocusPolicy::NoFocus);
+    ui->delete_Button->setFocusPolicy(Qt::FocusPolicy::NoFocus);
 }
 
 UserDicMenu::~UserDicMenu()

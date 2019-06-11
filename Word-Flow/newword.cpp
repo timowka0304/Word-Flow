@@ -14,6 +14,10 @@ NewWord::NewWord(QWidget *parent) :
     ui->rus_new_word->setValidator (new QRegExpValidator (rus_v, this));
     ui->eng_new_word->clear();
     ui->rus_new_word->clear();
+    ui->save_Button->setFocusPolicy(Qt::FocusPolicy::NoFocus);
+    ui->cancel_Button->setFocusPolicy(Qt::FocusPolicy::NoFocus);
+    ui->eng_new_word->setFocusPolicy(Qt::FocusPolicy::NoFocus);
+    ui->rus_new_word->setFocusPolicy(Qt::FocusPolicy::NoFocus);
 }
 
 NewWord::~NewWord()
