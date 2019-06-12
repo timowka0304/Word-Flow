@@ -18,7 +18,7 @@ MainMenu::MainMenu(QWidget *parent) :
     connect(allmenu, &AllMenu::MainMenu, this, &MainMenu::show);
     progresswindow = new ProgressWindow;
     connect(progresswindow, &ProgressWindow::MainMenu, this, &MainMenu::show);
-    ui->setupUi(this);
+    //ui->setupUi(this);
 }
 
 MainMenu::~MainMenu()
