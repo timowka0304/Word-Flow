@@ -10,6 +10,10 @@ AllMenu::AllMenu(QWidget *parent) :
     ui->setupUi(this);
     ui->textBrowser->setHidden(1);
     ui->hide_dic_Button->setHidden(1);
+    ui->dic_show_Button->setFocusPolicy(Qt::FocusPolicy::NoFocus);
+    ui->lets_test_Button->setFocusPolicy(Qt::FocusPolicy::NoFocus);
+    ui->menu_back_Button->setFocusPolicy(Qt::FocusPolicy::NoFocus);
+    ui->hide_dic_Button->setFocusPolicy(Qt::FocusPolicy::NoFocus);
 }
 
 AllMenu::~AllMenu()
@@ -35,7 +39,7 @@ void AllMenu::on_dic_show_Button_clicked()
 
     QSqlDatabase db;
     db = QSqlDatabase::addDatabase("QSQLITE");
-    db.setDatabaseName("/home/svetlana/Word-Flow/Word-Flow/Words.db3");
+    db.setDatabaseName("/home/timowka0304/Word-Flow/Word-Flow/Words.db3");
     db.open();
 
     QSqlQuery query;
