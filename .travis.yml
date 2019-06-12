@@ -1,2 +1,16 @@
-language: rust 
-cache: cargo
+language: C
+
+compiler:
+- clang
+- gcc
+
+os:
+- linux
+- osx
+
+before_script: 
+
+script:
+- Make
+
+
