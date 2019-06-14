@@ -7,6 +7,8 @@ VerbsMenu::VerbsMenu(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::VerbsMenu)
 {
+    testverbs = new TestVerbs;
+    connect(testverbs, &TestVerbs::VerbsMenu, this, &VerbsMenu::show);
     ui->setupUi(this);
     ui->textBrowser->setHidden(1);
     ui->hide_dic_Button->setHidden(1);
@@ -62,4 +64,10 @@ void VerbsMenu::on_hide_dic_Button_clicked()
     ui->hide_dic_Button->setHidden(1);
     ui->textBrowser->clear();
     ui->dic_show_Button->setHidden(0);
+}
+
+void VerbsMenu::on_lets_test_Button_clicked()
+{
+    this->close();
+    testverbs->show();
 }

@@ -2,6 +2,7 @@
 #define VERBSMENU_H
 
 #include <QDialog>
+#include "testverbs.h"
 
 namespace Ui {
 class VerbsMenu;
@@ -25,8 +26,11 @@ private slots:
 
     void on_hide_dic_Button_clicked();
 
+    void on_lets_test_Button_clicked();
+
 private:
     Ui::VerbsMenu *ui;
+    TestVerbs *testverbs;
 };
 
 #endif // VERBSMENU_H
