@@ -2,6 +2,7 @@
 #define ADJMENU_H
 
 #include <QDialog>
+#include "testadj.h"
 
 namespace Ui {
 class AdjMenu;
@@ -25,8 +26,11 @@ private slots:
 
     void on_hide_dic_Button_clicked();
 
+    void on_lets_test_Button_clicked();
+
 private:
     Ui::AdjMenu *ui;
+    TestAdj *testadj;
 };
 
 #endif // ADJMENU_H

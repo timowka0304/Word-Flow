@@ -1,5 +1,5 @@
-﻿#include "testnouns.h"
-#include "ui_testnouns.h"
+#include "testadj.h"
+#include "ui_testadj.h"
 #include <QtSql/QSqlDatabase>
 #include <QSqlQuery>
 #include <time.h>
@@ -7,9 +7,9 @@
 #include <QDebug>
 #include <QButtonGroup>
 
-Random::Random(QWidget *parent) :
+TestAdj::TestAdj(QWidget *parent) :
     QDialog(parent),
-    ui(new Ui::Random)
+    ui(new Ui::TestAdj)
 {
     ui->setupUi(this);
     ui->back_to_menu_Button->setHidden(0);
@@ -22,21 +22,20 @@ Random::Random(QWidget *parent) :
     ui->msg_text->setHidden(1);
     ui->number_of_page->setHidden(1);
     ui->mark_text->setHidden(1);
-    setWindowIcon(QIcon(":/new/prefix1/353a9a937bc4945eed556e5617806aab.png"));
 }
 
-Random::~Random()
+TestAdj::~TestAdj()
 {
     delete ui;
 }
 
-void Random::FillStart(){
+void TestAdj::FillStart(){
     srand(time(nullptr));
     for(int i = 0; i < 10; i++){
         numbers_words[i].question_number = rand() % 2 + 1;
     }
     for(int i = 0; i < 10; i ++){
-        numbers_words[i].word_answer_number = rand() % 100 + 1;
+        numbers_words[i].word_answer_number = 101 + rand() % 100 + 1;
         for(int j = 0; j < i; j ++){
             if(numbers_words[j].word_answer_number == numbers_words[i].word_answer_number){
                 i --;
@@ -46,7 +45,7 @@ void Random::FillStart(){
 
     }
     for(int i = 0; i < 10; i++){
-        numbers_words[i].word_1_number = rand() % 100 + 1;
+        numbers_words[i].word_1_number = 101 + rand() % 100 + 1;
         for(int j = 0; j < 10; j ++){
             if(numbers_words[j].word_answer_number == numbers_words[i].word_1_number){
                 i --;
@@ -55,7 +54,7 @@ void Random::FillStart(){
         }
     }
     for(int i = 0; i < 10; i++){
-        numbers_words[i].word_2_number = rand() % 100 + 1;
+        numbers_words[i].word_2_number = 101 + rand() % 100 + 1;
         for(int j = 0; j < 10; j ++){
             if(numbers_words[j].word_answer_number == numbers_words[i].word_2_number){
                 i --;
@@ -68,7 +67,7 @@ void Random::FillStart(){
         }
     }
     for(int i = 0; i < 10; i++){
-        numbers_words[i].word_3_number = rand() % 100 + 1;
+        numbers_words[i].word_3_number = 101 + rand() % 100 + 1;
         for(int j = 0; j < 10; j ++){
             if(numbers_words[j].word_answer_number == numbers_words[i].word_3_number){
                 i --;
@@ -89,7 +88,7 @@ void Random::FillStart(){
     }
 }
 
-void Random::on_start_Button_clicked()
+void TestAdj::on_start_Button_clicked()
 {
     srand(time(nullptr));
     QMessageBox msgBox;
@@ -121,13 +120,13 @@ void Random::on_start_Button_clicked()
     }
 }
 
-void Random::on_back_to_menu_Button_clicked()
+void TestAdj::on_back_to_menu_Button_clicked()
 {
     this->close();
-    emit NounsMenu();
+    emit AdjMenu();
 }
 
-void Random::on_next_Button_clicked()
+void TestAdj::on_next_Button_clicked()
 {
     QButtonGroup group;
     QList<QRadioButton *> allButtons = ui->groupBox->findChildren<QRadioButton *>();
@@ -167,13 +166,12 @@ void Random::on_next_Button_clicked()
         } else {
             Warning(0, needed_eng, needed_rus);
         }
-        //allButtons[group.checkedId()]->focusPolicy(Qt::NoFocus);
         counter++;
         RunTest();
     }
 }
 
-void Random::RunTest(){
+void TestAdj::RunTest(){
     if(counter != 10){
         ui->number_of_page->setHidden(0);
         ui->number_of_page->setText(QStringLiteral("%1 / 10").arg(counter+1));
@@ -189,7 +187,7 @@ void Random::RunTest(){
     }
 }
 
-void Random::ENGtoRUS(){
+void TestAdj::ENGtoRUS(){
     db = QSqlDatabase::addDatabase("QSQLITE");
     db.setDatabaseName("/home/svetlana/Word-Flow/Word-Flow/Words.db3");
     db.open();
@@ -253,7 +251,7 @@ void Random::ENGtoRUS(){
     }
 }
 
-void Random::RUStoENG(){
+void TestAdj::RUStoENG(){
     db = QSqlDatabase::addDatabase("QSQLITE");
     db.setDatabaseName("/home/svetlana/Word-Flow/Word-Flow/Words.db3");
     db.open();
@@ -318,7 +316,7 @@ void Random::RUStoENG(){
     }
 }
 
-void Random::ResultShow(){
+void TestAdj::ResultShow(){
     ui->number_of_page->setHidden(1);
     ui->text_word->setHidden(1);
     ui->next_Button->setHidden(1);
@@ -359,10 +357,10 @@ void Random::ResultShow(){
             if (h == 2) ui->mark_text->setText("Отлично! Вы достихли успеха в запоминании слов!");
             break;
     }
-    ui->msg_text->setText(QStringLiteral("Ты верно ответил на %1 из 10\nТы успешен в запоминании сущестительных на %2%").arg(sum).arg(sum*10));
+    ui->msg_text->setText(QStringLiteral("Ты верно ответил на %1 из 10\nТы успешен в запоминании прилагательных на %2%").arg(sum).arg(sum*10));
 }
 
-void Random::on_done_Button_clicked()
+void TestAdj::on_done_Button_clicked()
 {
     QSqlDatabase db;
     db = QSqlDatabase::addDatabase("QSQLITE");
@@ -385,10 +383,10 @@ void Random::on_done_Button_clicked()
     ui->groupBox->setHidden(1);
     ui->mark_text->setHidden(1);
     counter = 0;
-    emit NounsMenu();
+    emit AdjMenu();
 }
 
-void Random::Warning(int flag, QString eng, QString rus){
+void TestAdj::Warning(int flag, QString eng, QString rus){
     QMessageBox msgBox;
     msgBox.setWindowTitle("Твой выбор");
     int ret;

@@ -30,6 +30,7 @@ SOURCES += \
         mainwindow.cpp \
     nounsmenu.cpp \
     adjmenu.cpp \
+    testadj.cpp \
     verbsmenu.cpp \
     userdicmenu.cpp \
     allmenu.cpp \
@@ -43,6 +44,7 @@ HEADERS += \
     mainmenu.h \
     nounsmenu.h \
     adjmenu.h \
+    testadj.h \
     verbsmenu.h \
     userdicmenu.h \
     allmenu.h \
@@ -56,6 +58,7 @@ FORMS += \
     mainmenu.ui \
     nounsmenu.ui \
     adjmenu.ui \
+    testadj.ui \
     verbsmenu.ui \
     userdicmenu.ui \
     allmenu.ui \

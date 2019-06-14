@@ -2,11 +2,14 @@
 #include "ui_adjmenu.h"
 #include <QtSql/QSqlDatabase>
 #include <QSqlQuery>
+#include <QMessageBox>
 
 AdjMenu::AdjMenu(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::AdjMenu)
 {
+    testadj = new TestAdj;
+    connect(testadj, &TestAdj::AdjMenu, this, &AdjMenu::show);
     ui->setupUi(this);
     ui->textBrowser->setHidden(1);
     ui->hide_dic_Button->setHidden(1);
@@ -40,7 +43,7 @@ void AdjMenu::on_dic_show_Button_clicked()
 
     QSqlDatabase db;
     db = QSqlDatabase::addDatabase("QSQLITE");
-    db.setDatabaseName("/home/timowka0304/Word-Flow/Word-Flow/Words.db3");
+    db.setDatabaseName("/home/svetlana/Word-Flow/Word-Flow/Words.db3");
     db.open();
 
     QSqlQuery query;
@@ -62,4 +65,10 @@ void AdjMenu::on_hide_dic_Button_clicked()
     ui->hide_dic_Button->setHidden(1);
     ui->textBrowser->clear();
     ui->dic_show_Button->setHidden(0);
+}
+
+void AdjMenu::on_lets_test_Button_clicked()
+{
+    this->close();
+    testadj->show();
 }
