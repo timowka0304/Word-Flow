@@ -14,6 +14,7 @@ AllMenu::AllMenu(QWidget *parent) :
     ui->lets_test_Button->setFocusPolicy(Qt::FocusPolicy::NoFocus);
     ui->menu_back_Button->setFocusPolicy(Qt::FocusPolicy::NoFocus);
     ui->hide_dic_Button->setFocusPolicy(Qt::FocusPolicy::NoFocus);
+    setWindowIcon(QIcon(":/new/prefix1/353a9a937bc4945eed556e5617806aab.png"));
 }
 
 AllMenu::~AllMenu()

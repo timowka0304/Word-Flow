@@ -14,6 +14,7 @@ ProgressWindow::ProgressWindow(QWidget *parent) :
     ui->clear_db_Button->setFocusPolicy(Qt::FocusPolicy::NoFocus);
     ui->back_to_menu_Button->setFocusPolicy(Qt::FocusPolicy::NoFocus);
     Show_db();
+    setWindowIcon(QIcon(":/new/prefix1/353a9a937bc4945eed556e5617806aab.png"));
 }
 
 ProgressWindow::~ProgressWindow()

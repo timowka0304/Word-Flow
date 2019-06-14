@@ -22,6 +22,7 @@ Random::Random(QWidget *parent) :
     ui->msg_text->setHidden(1);
     ui->number_of_page->setHidden(1);
     ui->mark_text->setHidden(1);
+    setWindowIcon(QIcon(":/new/prefix1/353a9a937bc4945eed556e5617806aab.png"));
 }
 
 Random::~Random()

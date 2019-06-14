@@ -18,6 +18,7 @@ NewWord::NewWord(QWidget *parent) :
     ui->cancel_Button->setFocusPolicy(Qt::FocusPolicy::NoFocus);
     ui->eng_new_word->setFocusPolicy(Qt::FocusPolicy::NoFocus);
     ui->rus_new_word->setFocusPolicy(Qt::FocusPolicy::NoFocus);
+    setWindowIcon(QIcon(":/new/prefix1/353a9a937bc4945eed556e5617806aab.png"));
 }
 
 NewWord::~NewWord()
