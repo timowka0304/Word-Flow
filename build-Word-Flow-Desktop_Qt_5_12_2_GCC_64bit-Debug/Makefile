@@ -57,6 +57,9 @@ SOURCES       = ../Word-Flow/main.cpp \
 		../Word-Flow/mainwindow.cpp \
 		../Word-Flow/nounsmenu.cpp \
 		../Word-Flow/adjmenu.cpp \
+		../Word-Flow/testadj.cpp \
+		../Word-Flow/testall.cpp \
+		../Word-Flow/testverbs.cpp \
 		../Word-Flow/verbsmenu.cpp \
 		../Word-Flow/userdicmenu.cpp \
 		../Word-Flow/allmenu.cpp \
@@ -67,6 +70,9 @@ SOURCES       = ../Word-Flow/main.cpp \
 		moc_mainwindow.cpp \
 		moc_nounsmenu.cpp \
 		moc_adjmenu.cpp \
+		moc_testadj.cpp \
+		moc_testall.cpp \
+		moc_testverbs.cpp \
 		moc_verbsmenu.cpp \
 		moc_userdicmenu.cpp \
 		moc_allmenu.cpp \
@@ -78,6 +84,9 @@ OBJECTS       = main.o \
 		mainwindow.o \
 		nounsmenu.o \
 		adjmenu.o \
+		testadj.o \
+		testall.o \
+		testverbs.o \
 		verbsmenu.o \
 		userdicmenu.o \
 		allmenu.o \
@@ -89,6 +98,9 @@ OBJECTS       = main.o \
 		moc_mainwindow.o \
 		moc_nounsmenu.o \
 		moc_adjmenu.o \
+		moc_testadj.o \
+		moc_testall.o \
+		moc_testverbs.o \
 		moc_verbsmenu.o \
 		moc_userdicmenu.o \
 		moc_allmenu.o \
@@ -292,6 +304,9 @@ DIST          = ../../../../Qt/5.12.2/gcc_64/mkspecs/features/spec_pre.prf \
 		../Word-Flow/mainmenu.h \
 		../Word-Flow/nounsmenu.h \
 		../Word-Flow/adjmenu.h \
+		../Word-Flow/testadj.h \
+		../Word-Flow/testall.h \
+		../Word-Flow/testverbs.h \
 		../Word-Flow/verbsmenu.h \
 		../Word-Flow/userdicmenu.h \
 		../Word-Flow/allmenu.h \
@@ -302,6 +317,9 @@ DIST          = ../../../../Qt/5.12.2/gcc_64/mkspecs/features/spec_pre.prf \
 		../Word-Flow/mainwindow.cpp \
 		../Word-Flow/nounsmenu.cpp \
 		../Word-Flow/adjmenu.cpp \
+		../Word-Flow/testadj.cpp \
+		../Word-Flow/testall.cpp \
+		../Word-Flow/testverbs.cpp \
 		../Word-Flow/verbsmenu.cpp \
 		../Word-Flow/userdicmenu.cpp \
 		../Word-Flow/allmenu.cpp \
@@ -316,7 +334,7 @@ TARGET        = Word-Flow
 first: all
 ####### Build rules
 
-Word-Flow: ui_mainmenu.h ui_mainwindow.h ui_nounsmenu.h ui_adjmenu.h ui_verbsmenu.h ui_userdicmenu.h ui_allmenu.h ui_newword.h ui_progresswindow.h ui_testnouns.h $(OBJECTS)  
+Word-Flow: ui_mainmenu.h ui_mainwindow.h ui_nounsmenu.h ui_adjmenu.h ui_testadj.h ui_testall.h ui_testverbs.h ui_verbsmenu.h ui_userdicmenu.h ui_allmenu.h ui_newword.h ui_progresswindow.h ui_testnouns.h $(OBJECTS)  
 	$(LINK) $(LFLAGS) -o $(TARGET) $(OBJECTS) $(OBJCOMP) $(LIBS)
 
 Makefile: ../Word-Flow/Word-Flow.pro ../../../../Qt/5.12.2/gcc_64/mkspecs/linux-g++/qmake.conf ../../../../Qt/5.12.2/gcc_64/mkspecs/features/spec_pre.prf \
@@ -732,9 +750,9 @@ distdir: FORCE
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents ../Word-Flow/icon.qrc $(DISTDIR)/
 	$(COPY_FILE) --parents ../../../../Qt/5.12.2/gcc_64/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../Word-Flow/mainmenu.h ../Word-Flow/mainwindow.h ../Word-Flow/mainmenu.h ../Word-Flow/nounsmenu.h ../Word-Flow/adjmenu.h ../Word-Flow/verbsmenu.h ../Word-Flow/userdicmenu.h ../Word-Flow/allmenu.h ../Word-Flow/newword.h ../Word-Flow/progresswindow.h ../Word-Flow/testnouns.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../Word-Flow/main.cpp ../Word-Flow/mainmenu.cpp ../Word-Flow/mainwindow.cpp ../Word-Flow/nounsmenu.cpp ../Word-Flow/adjmenu.cpp ../Word-Flow/verbsmenu.cpp ../Word-Flow/userdicmenu.cpp ../Word-Flow/allmenu.cpp ../Word-Flow/newword.cpp ../Word-Flow/progresswindow.cpp ../Word-Flow/testnouns.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../Word-Flow/mainmenu.ui ../Word-Flow/mainwindow.ui ../Word-Flow/mainmenu.ui ../Word-Flow/nounsmenu.ui ../Word-Flow/adjmenu.ui ../Word-Flow/verbsmenu.ui ../Word-Flow/userdicmenu.ui ../Word-Flow/allmenu.ui ../Word-Flow/newword.ui ../Word-Flow/progresswindow.ui ../Word-Flow/testnouns.ui $(DISTDIR)/
+	$(COPY_FILE) --parents ../Word-Flow/mainmenu.h ../Word-Flow/mainwindow.h ../Word-Flow/mainmenu.h ../Word-Flow/nounsmenu.h ../Word-Flow/adjmenu.h ../Word-Flow/testadj.h ../Word-Flow/testall.h ../Word-Flow/testverbs.h ../Word-Flow/verbsmenu.h ../Word-Flow/userdicmenu.h ../Word-Flow/allmenu.h ../Word-Flow/newword.h ../Word-Flow/progresswindow.h ../Word-Flow/testnouns.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../Word-Flow/main.cpp ../Word-Flow/mainmenu.cpp ../Word-Flow/mainwindow.cpp ../Word-Flow/nounsmenu.cpp ../Word-Flow/adjmenu.cpp ../Word-Flow/testadj.cpp ../Word-Flow/testall.cpp ../Word-Flow/testverbs.cpp ../Word-Flow/verbsmenu.cpp ../Word-Flow/userdicmenu.cpp ../Word-Flow/allmenu.cpp ../Word-Flow/newword.cpp ../Word-Flow/progresswindow.cpp ../Word-Flow/testnouns.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../Word-Flow/mainmenu.ui ../Word-Flow/mainwindow.ui ../Word-Flow/mainmenu.ui ../Word-Flow/nounsmenu.ui ../Word-Flow/adjmenu.ui ../Word-Flow/testadj.ui ../Word-Flow/testall.ui ../Word-Flow/testverbs.ui ../Word-Flow/verbsmenu.ui ../Word-Flow/userdicmenu.ui ../Word-Flow/allmenu.ui ../Word-Flow/newword.ui ../Word-Flow/progresswindow.ui ../Word-Flow/testnouns.ui $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -772,9 +790,9 @@ compiler_moc_predefs_clean:
 moc_predefs.h: ../../../../Qt/5.12.2/gcc_64/mkspecs/features/data/dummy.cpp
 	g++ -pipe -g -std=gnu++11 -Wall -W -dM -E -o moc_predefs.h ../../../../Qt/5.12.2/gcc_64/mkspecs/features/data/dummy.cpp
 
-compiler_moc_header_make_all: moc_mainmenu.cpp moc_mainwindow.cpp moc_mainmenu.cpp moc_nounsmenu.cpp moc_adjmenu.cpp moc_verbsmenu.cpp moc_userdicmenu.cpp moc_allmenu.cpp moc_newword.cpp moc_progresswindow.cpp moc_testnouns.cpp
+compiler_moc_header_make_all: moc_mainmenu.cpp moc_mainwindow.cpp moc_mainmenu.cpp moc_nounsmenu.cpp moc_adjmenu.cpp moc_testadj.cpp moc_testall.cpp moc_testverbs.cpp moc_verbsmenu.cpp moc_userdicmenu.cpp moc_allmenu.cpp moc_newword.cpp moc_progresswindow.cpp moc_testnouns.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_mainmenu.cpp moc_mainwindow.cpp moc_mainmenu.cpp moc_nounsmenu.cpp moc_adjmenu.cpp moc_verbsmenu.cpp moc_userdicmenu.cpp moc_allmenu.cpp moc_newword.cpp moc_progresswindow.cpp moc_testnouns.cpp
+	-$(DEL_FILE) moc_mainmenu.cpp moc_mainwindow.cpp moc_mainmenu.cpp moc_nounsmenu.cpp moc_adjmenu.cpp moc_testadj.cpp moc_testall.cpp moc_testverbs.cpp moc_verbsmenu.cpp moc_userdicmenu.cpp moc_allmenu.cpp moc_newword.cpp moc_progresswindow.cpp moc_testnouns.cpp
 moc_mainmenu.cpp: ../Word-Flow/mainmenu.h \
 		../../../../Qt/5.12.2/gcc_64/include/QtWidgets/QMainWindow \
 		../../../../Qt/5.12.2/gcc_64/include/QtWidgets/qmainwindow.h \
@@ -892,10 +910,13 @@ moc_mainmenu.cpp: ../Word-Flow/mainmenu.h \
 		../../../../Qt/5.12.2/gcc_64/include/QtSql/qtsqlglobal.h \
 		../../../../Qt/5.12.2/gcc_64/include/QtSql/qtsql-config.h \
 		../Word-Flow/adjmenu.h \
+		../Word-Flow/testadj.h \
 		../Word-Flow/verbsmenu.h \
+		../Word-Flow/testverbs.h \
 		../Word-Flow/userdicmenu.h \
 		../Word-Flow/newword.h \
 		../Word-Flow/allmenu.h \
+		../Word-Flow/testall.h \
 		../Word-Flow/progresswindow.h \
 		moc_predefs.h \
 		../../../../Qt/5.12.2/gcc_64/bin/moc
@@ -1019,10 +1040,13 @@ moc_mainwindow.cpp: ../Word-Flow/mainwindow.h \
 		../../../../Qt/5.12.2/gcc_64/include/QtSql/qtsqlglobal.h \
 		../../../../Qt/5.12.2/gcc_64/include/QtSql/qtsql-config.h \
 		../Word-Flow/adjmenu.h \
+		../Word-Flow/testadj.h \
 		../Word-Flow/verbsmenu.h \
+		../Word-Flow/testverbs.h \
 		../Word-Flow/userdicmenu.h \
 		../Word-Flow/newword.h \
 		../Word-Flow/allmenu.h \
+		../Word-Flow/testall.h \
 		../Word-Flow/progresswindow.h \
 		moc_predefs.h \
 		../../../../Qt/5.12.2/gcc_64/bin/moc
@@ -1145,10 +1169,13 @@ moc_mainmenu.cpp: ../Word-Flow/mainmenu.h \
 		../../../../Qt/5.12.2/gcc_64/include/QtSql/qtsqlglobal.h \
 		../../../../Qt/5.12.2/gcc_64/include/QtSql/qtsql-config.h \
 		../Word-Flow/adjmenu.h \
+		../Word-Flow/testadj.h \
 		../Word-Flow/verbsmenu.h \
+		../Word-Flow/testverbs.h \
 		../Word-Flow/userdicmenu.h \
 		../Word-Flow/newword.h \
 		../Word-Flow/allmenu.h \
+		../Word-Flow/testall.h \
 		../Word-Flow/progresswindow.h \
 		moc_predefs.h \
 		../../../../Qt/5.12.2/gcc_64/bin/moc
@@ -1374,9 +1401,357 @@ moc_adjmenu.cpp: ../Word-Flow/adjmenu.h \
 		../../../../Qt/5.12.2/gcc_64/include/QtCore/qfiledevice.h \
 		../../../../Qt/5.12.2/gcc_64/include/QtGui/qvector2d.h \
 		../../../../Qt/5.12.2/gcc_64/include/QtGui/qtouchdevice.h \
+		../Word-Flow/testadj.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/QString \
+		../../../../Qt/5.12.2/gcc_64/include/QtSql/QSqlDatabase \
+		../../../../Qt/5.12.2/gcc_64/include/QtSql/qsqldatabase.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtSql/qtsqlglobal.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtSql/qtsql-config.h \
 		moc_predefs.h \
 		../../../../Qt/5.12.2/gcc_64/bin/moc
 	/home/nikita/Qt/5.12.2/gcc_64/bin/moc $(DEFINES) --include '/home/nikita/Рабочий стол/курсовая/Word-Flow/build-Word-Flow-Desktop_Qt_5_12_2_GCC_64bit-Debug/moc_predefs.h' -I/home/nikita/Qt/5.12.2/gcc_64/mkspecs/linux-g++ -I'/home/nikita/Рабочий стол/курсовая/Word-Flow/Word-Flow' -I/home/nikita/Qt/5.12.2/gcc_64/include -I/home/nikita/Qt/5.12.2/gcc_64/include/QtWidgets -I/home/nikita/Qt/5.12.2/gcc_64/include/QtGui -I/home/nikita/Qt/5.12.2/gcc_64/include/QtSql -I/home/nikita/Qt/5.12.2/gcc_64/include/QtCore -I. -I/usr/include/c++/7 -I/usr/include/x86_64-linux-gnu/c++/7 -I/usr/include/c++/7/backward -I/usr/lib/gcc/x86_64-linux-gnu/7/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../Word-Flow/adjmenu.h -o moc_adjmenu.cpp
+
+moc_testadj.cpp: ../Word-Flow/testadj.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtWidgets/QDialog \
+		../../../../Qt/5.12.2/gcc_64/include/QtWidgets/qdialog.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtWidgets/qtwidgetsglobal.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qtguiglobal.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qglobal.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qconfig-bootstrapped.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qconfig.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qtcore-config.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qsystemdetection.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qprocessordetection.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qcompilerdetection.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qtypeinfo.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qsysinfo.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qlogging.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qflags.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qatomic.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qbasicatomic.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qatomic_bootstrap.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qgenericatomic.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qatomic_cxx11.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qatomic_msvc.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qglobalstatic.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qmutex.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qnumeric.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qversiontagging.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qtgui-config.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtWidgets/qtwidgets-config.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtWidgets/qwidget.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qwindowdefs.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qobjectdefs.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qnamespace.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qwindowdefs_win.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qobject.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qstring.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qchar.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qbytearray.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qrefcount.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qarraydata.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qstringliteral.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qstringalgorithms.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qstringview.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qstringbuilder.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qlist.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qalgorithms.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qiterator.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qhashfunctions.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qpair.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qbytearraylist.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qstringlist.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qregexp.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qstringmatcher.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qcoreevent.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qscopedpointer.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qmetatype.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qvarlengtharray.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qcontainerfwd.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qobject_impl.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qmargins.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qpaintdevice.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qrect.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qsize.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qpoint.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qpalette.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qcolor.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qrgb.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qrgba64.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qbrush.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qvector.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qmatrix.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qpolygon.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qregion.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qdatastream.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qiodevice.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qline.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qtransform.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qpainterpath.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qimage.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qpixelformat.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qpixmap.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qsharedpointer.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qshareddata.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qhash.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qfont.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qfontmetrics.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qfontinfo.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtWidgets/qsizepolicy.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qcursor.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qkeysequence.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qevent.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qvariant.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qmap.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qdebug.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qtextstream.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qlocale.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qset.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qcontiguouscache.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qurl.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qurlquery.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qfile.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qfiledevice.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qvector2d.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qtouchdevice.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/QString \
+		../../../../Qt/5.12.2/gcc_64/include/QtSql/QSqlDatabase \
+		../../../../Qt/5.12.2/gcc_64/include/QtSql/qsqldatabase.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtSql/qtsqlglobal.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtSql/qtsql-config.h \
+		moc_predefs.h \
+		../../../../Qt/5.12.2/gcc_64/bin/moc
+	/home/nikita/Qt/5.12.2/gcc_64/bin/moc $(DEFINES) --include '/home/nikita/Рабочий стол/курсовая/Word-Flow/build-Word-Flow-Desktop_Qt_5_12_2_GCC_64bit-Debug/moc_predefs.h' -I/home/nikita/Qt/5.12.2/gcc_64/mkspecs/linux-g++ -I'/home/nikita/Рабочий стол/курсовая/Word-Flow/Word-Flow' -I/home/nikita/Qt/5.12.2/gcc_64/include -I/home/nikita/Qt/5.12.2/gcc_64/include/QtWidgets -I/home/nikita/Qt/5.12.2/gcc_64/include/QtGui -I/home/nikita/Qt/5.12.2/gcc_64/include/QtSql -I/home/nikita/Qt/5.12.2/gcc_64/include/QtCore -I. -I/usr/include/c++/7 -I/usr/include/x86_64-linux-gnu/c++/7 -I/usr/include/c++/7/backward -I/usr/lib/gcc/x86_64-linux-gnu/7/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../Word-Flow/testadj.h -o moc_testadj.cpp
+
+moc_testall.cpp: ../Word-Flow/testall.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtWidgets/QDialog \
+		../../../../Qt/5.12.2/gcc_64/include/QtWidgets/qdialog.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtWidgets/qtwidgetsglobal.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qtguiglobal.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qglobal.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qconfig-bootstrapped.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qconfig.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qtcore-config.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qsystemdetection.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qprocessordetection.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qcompilerdetection.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qtypeinfo.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qsysinfo.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qlogging.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qflags.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qatomic.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qbasicatomic.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qatomic_bootstrap.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qgenericatomic.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qatomic_cxx11.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qatomic_msvc.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qglobalstatic.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qmutex.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qnumeric.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qversiontagging.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qtgui-config.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtWidgets/qtwidgets-config.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtWidgets/qwidget.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qwindowdefs.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qobjectdefs.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qnamespace.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qwindowdefs_win.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qobject.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qstring.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qchar.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qbytearray.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qrefcount.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qarraydata.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qstringliteral.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qstringalgorithms.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qstringview.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qstringbuilder.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qlist.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qalgorithms.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qiterator.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qhashfunctions.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qpair.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qbytearraylist.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qstringlist.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qregexp.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qstringmatcher.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qcoreevent.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qscopedpointer.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qmetatype.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qvarlengtharray.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qcontainerfwd.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qobject_impl.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qmargins.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qpaintdevice.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qrect.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qsize.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qpoint.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qpalette.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qcolor.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qrgb.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qrgba64.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qbrush.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qvector.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qmatrix.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qpolygon.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qregion.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qdatastream.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qiodevice.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qline.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qtransform.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qpainterpath.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qimage.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qpixelformat.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qpixmap.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qsharedpointer.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qshareddata.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qhash.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qfont.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qfontmetrics.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qfontinfo.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtWidgets/qsizepolicy.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qcursor.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qkeysequence.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qevent.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qvariant.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qmap.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qdebug.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qtextstream.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qlocale.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qset.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qcontiguouscache.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qurl.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qurlquery.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qfile.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qfiledevice.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qvector2d.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qtouchdevice.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/QString \
+		../../../../Qt/5.12.2/gcc_64/include/QtSql/QSqlDatabase \
+		../../../../Qt/5.12.2/gcc_64/include/QtSql/qsqldatabase.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtSql/qtsqlglobal.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtSql/qtsql-config.h \
+		moc_predefs.h \
+		../../../../Qt/5.12.2/gcc_64/bin/moc
+	/home/nikita/Qt/5.12.2/gcc_64/bin/moc $(DEFINES) --include '/home/nikita/Рабочий стол/курсовая/Word-Flow/build-Word-Flow-Desktop_Qt_5_12_2_GCC_64bit-Debug/moc_predefs.h' -I/home/nikita/Qt/5.12.2/gcc_64/mkspecs/linux-g++ -I'/home/nikita/Рабочий стол/курсовая/Word-Flow/Word-Flow' -I/home/nikita/Qt/5.12.2/gcc_64/include -I/home/nikita/Qt/5.12.2/gcc_64/include/QtWidgets -I/home/nikita/Qt/5.12.2/gcc_64/include/QtGui -I/home/nikita/Qt/5.12.2/gcc_64/include/QtSql -I/home/nikita/Qt/5.12.2/gcc_64/include/QtCore -I. -I/usr/include/c++/7 -I/usr/include/x86_64-linux-gnu/c++/7 -I/usr/include/c++/7/backward -I/usr/lib/gcc/x86_64-linux-gnu/7/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../Word-Flow/testall.h -o moc_testall.cpp
+
+moc_testverbs.cpp: ../Word-Flow/testverbs.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtWidgets/QDialog \
+		../../../../Qt/5.12.2/gcc_64/include/QtWidgets/qdialog.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtWidgets/qtwidgetsglobal.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qtguiglobal.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qglobal.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qconfig-bootstrapped.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qconfig.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qtcore-config.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qsystemdetection.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qprocessordetection.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qcompilerdetection.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qtypeinfo.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qsysinfo.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qlogging.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qflags.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qatomic.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qbasicatomic.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qatomic_bootstrap.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qgenericatomic.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qatomic_cxx11.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qatomic_msvc.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qglobalstatic.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qmutex.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qnumeric.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qversiontagging.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qtgui-config.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtWidgets/qtwidgets-config.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtWidgets/qwidget.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qwindowdefs.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qobjectdefs.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qnamespace.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qwindowdefs_win.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qobject.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qstring.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qchar.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qbytearray.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qrefcount.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qarraydata.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qstringliteral.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qstringalgorithms.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qstringview.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qstringbuilder.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qlist.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qalgorithms.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qiterator.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qhashfunctions.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qpair.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qbytearraylist.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qstringlist.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qregexp.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qstringmatcher.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qcoreevent.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qscopedpointer.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qmetatype.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qvarlengtharray.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qcontainerfwd.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qobject_impl.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qmargins.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qpaintdevice.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qrect.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qsize.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qpoint.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qpalette.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qcolor.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qrgb.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qrgba64.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qbrush.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qvector.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qmatrix.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qpolygon.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qregion.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qdatastream.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qiodevice.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qline.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qtransform.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qpainterpath.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qimage.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qpixelformat.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qpixmap.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qsharedpointer.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qshareddata.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qhash.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qfont.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qfontmetrics.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qfontinfo.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtWidgets/qsizepolicy.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qcursor.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qkeysequence.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qevent.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qvariant.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qmap.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qdebug.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qtextstream.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qlocale.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qset.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qcontiguouscache.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qurl.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qurlquery.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qfile.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qfiledevice.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qvector2d.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qtouchdevice.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/QString \
+		../../../../Qt/5.12.2/gcc_64/include/QtSql/QSqlDatabase \
+		../../../../Qt/5.12.2/gcc_64/include/QtSql/qsqldatabase.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtSql/qtsqlglobal.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtSql/qtsql-config.h \
+		moc_predefs.h \
+		../../../../Qt/5.12.2/gcc_64/bin/moc
+	/home/nikita/Qt/5.12.2/gcc_64/bin/moc $(DEFINES) --include '/home/nikita/Рабочий стол/курсовая/Word-Flow/build-Word-Flow-Desktop_Qt_5_12_2_GCC_64bit-Debug/moc_predefs.h' -I/home/nikita/Qt/5.12.2/gcc_64/mkspecs/linux-g++ -I'/home/nikita/Рабочий стол/курсовая/Word-Flow/Word-Flow' -I/home/nikita/Qt/5.12.2/gcc_64/include -I/home/nikita/Qt/5.12.2/gcc_64/include/QtWidgets -I/home/nikita/Qt/5.12.2/gcc_64/include/QtGui -I/home/nikita/Qt/5.12.2/gcc_64/include/QtSql -I/home/nikita/Qt/5.12.2/gcc_64/include/QtCore -I. -I/usr/include/c++/7 -I/usr/include/x86_64-linux-gnu/c++/7 -I/usr/include/c++/7/backward -I/usr/lib/gcc/x86_64-linux-gnu/7/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../Word-Flow/testverbs.h -o moc_testverbs.cpp
 
 moc_verbsmenu.cpp: ../Word-Flow/verbsmenu.h \
 		../../../../Qt/5.12.2/gcc_64/include/QtWidgets/QDialog \
@@ -1483,6 +1858,12 @@ moc_verbsmenu.cpp: ../Word-Flow/verbsmenu.h \
 		../../../../Qt/5.12.2/gcc_64/include/QtCore/qfiledevice.h \
 		../../../../Qt/5.12.2/gcc_64/include/QtGui/qvector2d.h \
 		../../../../Qt/5.12.2/gcc_64/include/QtGui/qtouchdevice.h \
+		../Word-Flow/testverbs.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/QString \
+		../../../../Qt/5.12.2/gcc_64/include/QtSql/QSqlDatabase \
+		../../../../Qt/5.12.2/gcc_64/include/QtSql/qsqldatabase.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtSql/qtsqlglobal.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtSql/qtsql-config.h \
 		moc_predefs.h \
 		../../../../Qt/5.12.2/gcc_64/bin/moc
 	/home/nikita/Qt/5.12.2/gcc_64/bin/moc $(DEFINES) --include '/home/nikita/Рабочий стол/курсовая/Word-Flow/build-Word-Flow-Desktop_Qt_5_12_2_GCC_64bit-Debug/moc_predefs.h' -I/home/nikita/Qt/5.12.2/gcc_64/mkspecs/linux-g++ -I'/home/nikita/Рабочий стол/курсовая/Word-Flow/Word-Flow' -I/home/nikita/Qt/5.12.2/gcc_64/include -I/home/nikita/Qt/5.12.2/gcc_64/include/QtWidgets -I/home/nikita/Qt/5.12.2/gcc_64/include/QtGui -I/home/nikita/Qt/5.12.2/gcc_64/include/QtSql -I/home/nikita/Qt/5.12.2/gcc_64/include/QtCore -I. -I/usr/include/c++/7 -I/usr/include/x86_64-linux-gnu/c++/7 -I/usr/include/c++/7/backward -I/usr/lib/gcc/x86_64-linux-gnu/7/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../Word-Flow/verbsmenu.h -o moc_verbsmenu.cpp
@@ -1702,6 +2083,12 @@ moc_allmenu.cpp: ../Word-Flow/allmenu.h \
 		../../../../Qt/5.12.2/gcc_64/include/QtCore/qfiledevice.h \
 		../../../../Qt/5.12.2/gcc_64/include/QtGui/qvector2d.h \
 		../../../../Qt/5.12.2/gcc_64/include/QtGui/qtouchdevice.h \
+		../Word-Flow/testall.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/QString \
+		../../../../Qt/5.12.2/gcc_64/include/QtSql/QSqlDatabase \
+		../../../../Qt/5.12.2/gcc_64/include/QtSql/qsqldatabase.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtSql/qtsqlglobal.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtSql/qtsql-config.h \
 		moc_predefs.h \
 		../../../../Qt/5.12.2/gcc_64/bin/moc
 	/home/nikita/Qt/5.12.2/gcc_64/bin/moc $(DEFINES) --include '/home/nikita/Рабочий стол/курсовая/Word-Flow/build-Word-Flow-Desktop_Qt_5_12_2_GCC_64bit-Debug/moc_predefs.h' -I/home/nikita/Qt/5.12.2/gcc_64/mkspecs/linux-g++ -I'/home/nikita/Рабочий стол/курсовая/Word-Flow/Word-Flow' -I/home/nikita/Qt/5.12.2/gcc_64/include -I/home/nikita/Qt/5.12.2/gcc_64/include/QtWidgets -I/home/nikita/Qt/5.12.2/gcc_64/include/QtGui -I/home/nikita/Qt/5.12.2/gcc_64/include/QtSql -I/home/nikita/Qt/5.12.2/gcc_64/include/QtCore -I. -I/usr/include/c++/7 -I/usr/include/x86_64-linux-gnu/c++/7 -I/usr/include/c++/7/backward -I/usr/lib/gcc/x86_64-linux-gnu/7/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../Word-Flow/allmenu.h -o moc_allmenu.cpp
@@ -2042,9 +2429,9 @@ compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
-compiler_uic_make_all: ui_mainmenu.h ui_mainwindow.h ui_mainmenu.h ui_nounsmenu.h ui_adjmenu.h ui_verbsmenu.h ui_userdicmenu.h ui_allmenu.h ui_newword.h ui_progresswindow.h ui_testnouns.h
+compiler_uic_make_all: ui_mainmenu.h ui_mainwindow.h ui_mainmenu.h ui_nounsmenu.h ui_adjmenu.h ui_testadj.h ui_testall.h ui_testverbs.h ui_verbsmenu.h ui_userdicmenu.h ui_allmenu.h ui_newword.h ui_progresswindow.h ui_testnouns.h
 compiler_uic_clean:
-	-$(DEL_FILE) ui_mainmenu.h ui_mainwindow.h ui_mainmenu.h ui_nounsmenu.h ui_adjmenu.h ui_verbsmenu.h ui_userdicmenu.h ui_allmenu.h ui_newword.h ui_progresswindow.h ui_testnouns.h
+	-$(DEL_FILE) ui_mainmenu.h ui_mainwindow.h ui_mainmenu.h ui_nounsmenu.h ui_adjmenu.h ui_testadj.h ui_testall.h ui_testverbs.h ui_verbsmenu.h ui_userdicmenu.h ui_allmenu.h ui_newword.h ui_progresswindow.h ui_testnouns.h
 ui_mainmenu.h: ../Word-Flow/mainmenu.ui \
 		../../../../Qt/5.12.2/gcc_64/bin/uic
 	/home/nikita/Qt/5.12.2/gcc_64/bin/uic ../Word-Flow/mainmenu.ui -o ui_mainmenu.h
@@ -2064,6 +2451,18 @@ ui_nounsmenu.h: ../Word-Flow/nounsmenu.ui \
 ui_adjmenu.h: ../Word-Flow/adjmenu.ui \
 		../../../../Qt/5.12.2/gcc_64/bin/uic
 	/home/nikita/Qt/5.12.2/gcc_64/bin/uic ../Word-Flow/adjmenu.ui -o ui_adjmenu.h
+
+ui_testadj.h: ../Word-Flow/testadj.ui \
+		../../../../Qt/5.12.2/gcc_64/bin/uic
+	/home/nikita/Qt/5.12.2/gcc_64/bin/uic ../Word-Flow/testadj.ui -o ui_testadj.h
+
+ui_testall.h: ../Word-Flow/testall.ui \
+		../../../../Qt/5.12.2/gcc_64/bin/uic
+	/home/nikita/Qt/5.12.2/gcc_64/bin/uic ../Word-Flow/testall.ui -o ui_testall.h
+
+ui_testverbs.h: ../Word-Flow/testverbs.ui \
+		../../../../Qt/5.12.2/gcc_64/bin/uic
+	/home/nikita/Qt/5.12.2/gcc_64/bin/uic ../Word-Flow/testverbs.ui -o ui_testverbs.h
 
 ui_verbsmenu.h: ../Word-Flow/verbsmenu.ui \
 		../../../../Qt/5.12.2/gcc_64/bin/uic
@@ -2217,10 +2616,13 @@ main.o: ../Word-Flow/main.cpp ../Word-Flow/mainwindow.h \
 		../../../../Qt/5.12.2/gcc_64/include/QtSql/qtsqlglobal.h \
 		../../../../Qt/5.12.2/gcc_64/include/QtSql/qtsql-config.h \
 		../Word-Flow/adjmenu.h \
+		../Word-Flow/testadj.h \
 		../Word-Flow/verbsmenu.h \
+		../Word-Flow/testverbs.h \
 		../Word-Flow/userdicmenu.h \
 		../Word-Flow/newword.h \
 		../Word-Flow/allmenu.h \
+		../Word-Flow/testall.h \
 		../Word-Flow/progresswindow.h \
 		../../../../Qt/5.12.2/gcc_64/include/QtWidgets/QApplication \
 		../../../../Qt/5.12.2/gcc_64/include/QtWidgets/qapplication.h \
@@ -2348,10 +2750,13 @@ mainmenu.o: ../Word-Flow/mainmenu.cpp ../Word-Flow/mainmenu.h \
 		../../../../Qt/5.12.2/gcc_64/include/QtSql/qtsqlglobal.h \
 		../../../../Qt/5.12.2/gcc_64/include/QtSql/qtsql-config.h \
 		../Word-Flow/adjmenu.h \
+		../Word-Flow/testadj.h \
 		../Word-Flow/verbsmenu.h \
+		../Word-Flow/testverbs.h \
 		../Word-Flow/userdicmenu.h \
 		../Word-Flow/newword.h \
 		../Word-Flow/allmenu.h \
+		../Word-Flow/testall.h \
 		../Word-Flow/progresswindow.h \
 		ui_mainmenu.h \
 		../../../../Qt/5.12.2/gcc_64/include/QtCore/QVariant \
@@ -2494,10 +2899,13 @@ mainwindow.o: ../Word-Flow/mainwindow.cpp ../Word-Flow/mainwindow.h \
 		../../../../Qt/5.12.2/gcc_64/include/QtSql/qtsqlglobal.h \
 		../../../../Qt/5.12.2/gcc_64/include/QtSql/qtsql-config.h \
 		../Word-Flow/adjmenu.h \
+		../Word-Flow/testadj.h \
 		../Word-Flow/verbsmenu.h \
+		../Word-Flow/testverbs.h \
 		../Word-Flow/userdicmenu.h \
 		../Word-Flow/newword.h \
 		../Word-Flow/allmenu.h \
+		../Word-Flow/testall.h \
 		../Word-Flow/progresswindow.h \
 		ui_mainwindow.h \
 		../../../../Qt/5.12.2/gcc_64/include/QtCore/QVariant \
@@ -2776,6 +3184,12 @@ adjmenu.o: ../Word-Flow/adjmenu.cpp ../Word-Flow/adjmenu.h \
 		../../../../Qt/5.12.2/gcc_64/include/QtCore/qfiledevice.h \
 		../../../../Qt/5.12.2/gcc_64/include/QtGui/qvector2d.h \
 		../../../../Qt/5.12.2/gcc_64/include/QtGui/qtouchdevice.h \
+		../Word-Flow/testadj.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/QString \
+		../../../../Qt/5.12.2/gcc_64/include/QtSql/QSqlDatabase \
+		../../../../Qt/5.12.2/gcc_64/include/QtSql/qsqldatabase.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtSql/qtsqlglobal.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtSql/qtsql-config.h \
 		ui_adjmenu.h \
 		../../../../Qt/5.12.2/gcc_64/include/QtCore/QVariant \
 		../../../../Qt/5.12.2/gcc_64/include/QtWidgets/QApplication \
@@ -2806,13 +3220,371 @@ adjmenu.o: ../Word-Flow/adjmenu.cpp ../Word-Flow/adjmenu.h \
 		../../../../Qt/5.12.2/gcc_64/include/QtGui/qpen.h \
 		../../../../Qt/5.12.2/gcc_64/include/QtWidgets/QVBoxLayout \
 		../../../../Qt/5.12.2/gcc_64/include/QtWidgets/QWidget \
+		../../../../Qt/5.12.2/gcc_64/include/QtSql/QSqlQuery \
+		../../../../Qt/5.12.2/gcc_64/include/QtSql/qsqlquery.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtWidgets/QMessageBox \
+		../../../../Qt/5.12.2/gcc_64/include/QtWidgets/qmessagebox.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o adjmenu.o ../Word-Flow/adjmenu.cpp
+
+testadj.o: ../Word-Flow/testadj.cpp ../Word-Flow/testadj.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtWidgets/QDialog \
+		../../../../Qt/5.12.2/gcc_64/include/QtWidgets/qdialog.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtWidgets/qtwidgetsglobal.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qtguiglobal.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qglobal.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qconfig-bootstrapped.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qconfig.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qtcore-config.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qsystemdetection.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qprocessordetection.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qcompilerdetection.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qtypeinfo.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qsysinfo.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qlogging.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qflags.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qatomic.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qbasicatomic.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qatomic_bootstrap.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qgenericatomic.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qatomic_cxx11.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qatomic_msvc.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qglobalstatic.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qmutex.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qnumeric.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qversiontagging.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qtgui-config.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtWidgets/qtwidgets-config.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtWidgets/qwidget.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qwindowdefs.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qobjectdefs.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qnamespace.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qwindowdefs_win.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qobject.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qstring.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qchar.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qbytearray.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qrefcount.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qarraydata.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qstringliteral.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qstringalgorithms.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qstringview.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qstringbuilder.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qlist.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qalgorithms.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qiterator.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qhashfunctions.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qpair.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qbytearraylist.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qstringlist.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qregexp.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qstringmatcher.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qcoreevent.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qscopedpointer.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qmetatype.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qvarlengtharray.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qcontainerfwd.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qobject_impl.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qmargins.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qpaintdevice.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qrect.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qsize.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qpoint.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qpalette.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qcolor.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qrgb.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qrgba64.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qbrush.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qvector.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qmatrix.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qpolygon.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qregion.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qdatastream.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qiodevice.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qline.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qtransform.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qpainterpath.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qimage.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qpixelformat.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qpixmap.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qsharedpointer.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qshareddata.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qhash.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qfont.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qfontmetrics.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qfontinfo.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtWidgets/qsizepolicy.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qcursor.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qkeysequence.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qevent.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qvariant.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qmap.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qdebug.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qtextstream.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qlocale.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qset.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qcontiguouscache.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qurl.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qurlquery.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qfile.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qfiledevice.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qvector2d.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qtouchdevice.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/QString \
 		../../../../Qt/5.12.2/gcc_64/include/QtSql/QSqlDatabase \
 		../../../../Qt/5.12.2/gcc_64/include/QtSql/qsqldatabase.h \
 		../../../../Qt/5.12.2/gcc_64/include/QtSql/qtsqlglobal.h \
 		../../../../Qt/5.12.2/gcc_64/include/QtSql/qtsql-config.h \
+		ui_testadj.h \
 		../../../../Qt/5.12.2/gcc_64/include/QtSql/QSqlQuery \
-		../../../../Qt/5.12.2/gcc_64/include/QtSql/qsqlquery.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o adjmenu.o ../Word-Flow/adjmenu.cpp
+		../../../../Qt/5.12.2/gcc_64/include/QtSql/qsqlquery.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtWidgets/QMessageBox \
+		../../../../Qt/5.12.2/gcc_64/include/QtWidgets/qmessagebox.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/QDebug \
+		../../../../Qt/5.12.2/gcc_64/include/QtWidgets/QButtonGroup \
+		../../../../Qt/5.12.2/gcc_64/include/QtWidgets/qbuttongroup.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o testadj.o ../Word-Flow/testadj.cpp
+
+testall.o: ../Word-Flow/testall.cpp ../Word-Flow/testall.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtWidgets/QDialog \
+		../../../../Qt/5.12.2/gcc_64/include/QtWidgets/qdialog.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtWidgets/qtwidgetsglobal.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qtguiglobal.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qglobal.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qconfig-bootstrapped.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qconfig.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qtcore-config.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qsystemdetection.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qprocessordetection.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qcompilerdetection.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qtypeinfo.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qsysinfo.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qlogging.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qflags.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qatomic.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qbasicatomic.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qatomic_bootstrap.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qgenericatomic.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qatomic_cxx11.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qatomic_msvc.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qglobalstatic.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qmutex.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qnumeric.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qversiontagging.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qtgui-config.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtWidgets/qtwidgets-config.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtWidgets/qwidget.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qwindowdefs.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qobjectdefs.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qnamespace.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qwindowdefs_win.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qobject.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qstring.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qchar.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qbytearray.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qrefcount.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qarraydata.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qstringliteral.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qstringalgorithms.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qstringview.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qstringbuilder.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qlist.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qalgorithms.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qiterator.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qhashfunctions.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qpair.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qbytearraylist.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qstringlist.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qregexp.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qstringmatcher.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qcoreevent.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qscopedpointer.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qmetatype.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qvarlengtharray.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qcontainerfwd.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qobject_impl.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qmargins.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qpaintdevice.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qrect.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qsize.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qpoint.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qpalette.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qcolor.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qrgb.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qrgba64.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qbrush.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qvector.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qmatrix.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qpolygon.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qregion.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qdatastream.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qiodevice.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qline.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qtransform.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qpainterpath.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qimage.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qpixelformat.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qpixmap.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qsharedpointer.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qshareddata.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qhash.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qfont.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qfontmetrics.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qfontinfo.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtWidgets/qsizepolicy.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qcursor.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qkeysequence.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qevent.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qvariant.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qmap.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qdebug.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qtextstream.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qlocale.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qset.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qcontiguouscache.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qurl.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qurlquery.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qfile.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qfiledevice.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qvector2d.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qtouchdevice.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/QString \
+		../../../../Qt/5.12.2/gcc_64/include/QtSql/QSqlDatabase \
+		../../../../Qt/5.12.2/gcc_64/include/QtSql/qsqldatabase.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtSql/qtsqlglobal.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtSql/qtsql-config.h \
+		ui_testall.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtSql/QSqlQuery \
+		../../../../Qt/5.12.2/gcc_64/include/QtSql/qsqlquery.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtWidgets/QMessageBox \
+		../../../../Qt/5.12.2/gcc_64/include/QtWidgets/qmessagebox.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/QDebug \
+		../../../../Qt/5.12.2/gcc_64/include/QtWidgets/QButtonGroup \
+		../../../../Qt/5.12.2/gcc_64/include/QtWidgets/qbuttongroup.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o testall.o ../Word-Flow/testall.cpp
+
+testverbs.o: ../Word-Flow/testverbs.cpp ../Word-Flow/testverbs.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtWidgets/QDialog \
+		../../../../Qt/5.12.2/gcc_64/include/QtWidgets/qdialog.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtWidgets/qtwidgetsglobal.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qtguiglobal.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qglobal.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qconfig-bootstrapped.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qconfig.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qtcore-config.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qsystemdetection.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qprocessordetection.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qcompilerdetection.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qtypeinfo.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qsysinfo.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qlogging.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qflags.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qatomic.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qbasicatomic.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qatomic_bootstrap.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qgenericatomic.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qatomic_cxx11.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qatomic_msvc.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qglobalstatic.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qmutex.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qnumeric.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qversiontagging.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qtgui-config.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtWidgets/qtwidgets-config.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtWidgets/qwidget.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qwindowdefs.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qobjectdefs.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qnamespace.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qwindowdefs_win.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qobject.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qstring.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qchar.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qbytearray.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qrefcount.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qarraydata.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qstringliteral.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qstringalgorithms.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qstringview.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qstringbuilder.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qlist.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qalgorithms.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qiterator.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qhashfunctions.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qpair.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qbytearraylist.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qstringlist.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qregexp.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qstringmatcher.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qcoreevent.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qscopedpointer.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qmetatype.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qvarlengtharray.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qcontainerfwd.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qobject_impl.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qmargins.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qpaintdevice.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qrect.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qsize.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qpoint.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qpalette.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qcolor.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qrgb.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qrgba64.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qbrush.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qvector.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qmatrix.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qpolygon.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qregion.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qdatastream.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qiodevice.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qline.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qtransform.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qpainterpath.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qimage.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qpixelformat.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qpixmap.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qsharedpointer.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qshareddata.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qhash.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qfont.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qfontmetrics.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qfontinfo.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtWidgets/qsizepolicy.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qcursor.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qkeysequence.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qevent.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qvariant.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qmap.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qdebug.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qtextstream.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qlocale.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qset.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qcontiguouscache.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qurl.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qurlquery.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qfile.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qfiledevice.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qvector2d.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qtouchdevice.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/QString \
+		../../../../Qt/5.12.2/gcc_64/include/QtSql/QSqlDatabase \
+		../../../../Qt/5.12.2/gcc_64/include/QtSql/qsqldatabase.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtSql/qtsqlglobal.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtSql/qtsql-config.h \
+		ui_testverbs.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtSql/QSqlQuery \
+		../../../../Qt/5.12.2/gcc_64/include/QtSql/qsqlquery.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtWidgets/QMessageBox \
+		../../../../Qt/5.12.2/gcc_64/include/QtWidgets/qmessagebox.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/QDebug \
+		../../../../Qt/5.12.2/gcc_64/include/QtWidgets/QButtonGroup \
+		../../../../Qt/5.12.2/gcc_64/include/QtWidgets/qbuttongroup.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o testverbs.o ../Word-Flow/testverbs.cpp
 
 verbsmenu.o: ../Word-Flow/verbsmenu.cpp ../Word-Flow/verbsmenu.h \
 		../../../../Qt/5.12.2/gcc_64/include/QtWidgets/QDialog \
@@ -2919,6 +3691,12 @@ verbsmenu.o: ../Word-Flow/verbsmenu.cpp ../Word-Flow/verbsmenu.h \
 		../../../../Qt/5.12.2/gcc_64/include/QtCore/qfiledevice.h \
 		../../../../Qt/5.12.2/gcc_64/include/QtGui/qvector2d.h \
 		../../../../Qt/5.12.2/gcc_64/include/QtGui/qtouchdevice.h \
+		../Word-Flow/testverbs.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/QString \
+		../../../../Qt/5.12.2/gcc_64/include/QtSql/QSqlDatabase \
+		../../../../Qt/5.12.2/gcc_64/include/QtSql/qsqldatabase.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtSql/qtsqlglobal.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtSql/qtsql-config.h \
 		ui_verbsmenu.h \
 		../../../../Qt/5.12.2/gcc_64/include/QtCore/QVariant \
 		../../../../Qt/5.12.2/gcc_64/include/QtWidgets/QApplication \
@@ -2949,10 +3727,6 @@ verbsmenu.o: ../Word-Flow/verbsmenu.cpp ../Word-Flow/verbsmenu.h \
 		../../../../Qt/5.12.2/gcc_64/include/QtGui/qpen.h \
 		../../../../Qt/5.12.2/gcc_64/include/QtWidgets/QVBoxLayout \
 		../../../../Qt/5.12.2/gcc_64/include/QtWidgets/QWidget \
-		../../../../Qt/5.12.2/gcc_64/include/QtSql/QSqlDatabase \
-		../../../../Qt/5.12.2/gcc_64/include/QtSql/qsqldatabase.h \
-		../../../../Qt/5.12.2/gcc_64/include/QtSql/qtsqlglobal.h \
-		../../../../Qt/5.12.2/gcc_64/include/QtSql/qtsql-config.h \
 		../../../../Qt/5.12.2/gcc_64/include/QtSql/QSqlQuery \
 		../../../../Qt/5.12.2/gcc_64/include/QtSql/qsqlquery.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o verbsmenu.o ../Word-Flow/verbsmenu.cpp
@@ -3200,6 +3974,12 @@ allmenu.o: ../Word-Flow/allmenu.cpp ../Word-Flow/allmenu.h \
 		../../../../Qt/5.12.2/gcc_64/include/QtCore/qfiledevice.h \
 		../../../../Qt/5.12.2/gcc_64/include/QtGui/qvector2d.h \
 		../../../../Qt/5.12.2/gcc_64/include/QtGui/qtouchdevice.h \
+		../Word-Flow/testall.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/QString \
+		../../../../Qt/5.12.2/gcc_64/include/QtSql/QSqlDatabase \
+		../../../../Qt/5.12.2/gcc_64/include/QtSql/qsqldatabase.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtSql/qtsqlglobal.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtSql/qtsql-config.h \
 		ui_allmenu.h \
 		../../../../Qt/5.12.2/gcc_64/include/QtCore/QVariant \
 		../../../../Qt/5.12.2/gcc_64/include/QtWidgets/QApplication \
@@ -3230,10 +4010,6 @@ allmenu.o: ../Word-Flow/allmenu.cpp ../Word-Flow/allmenu.h \
 		../../../../Qt/5.12.2/gcc_64/include/QtGui/qpen.h \
 		../../../../Qt/5.12.2/gcc_64/include/QtWidgets/QVBoxLayout \
 		../../../../Qt/5.12.2/gcc_64/include/QtWidgets/QWidget \
-		../../../../Qt/5.12.2/gcc_64/include/QtSql/QSqlDatabase \
-		../../../../Qt/5.12.2/gcc_64/include/QtSql/qsqldatabase.h \
-		../../../../Qt/5.12.2/gcc_64/include/QtSql/qtsqlglobal.h \
-		../../../../Qt/5.12.2/gcc_64/include/QtSql/qtsql-config.h \
 		../../../../Qt/5.12.2/gcc_64/include/QtSql/QSqlQuery \
 		../../../../Qt/5.12.2/gcc_64/include/QtSql/qsqlquery.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o allmenu.o ../Word-Flow/allmenu.cpp
@@ -3647,6 +4423,32 @@ testnouns.o: ../Word-Flow/testnouns.cpp ../Word-Flow/testnouns.h \
 		../../../../Qt/5.12.2/gcc_64/include/QtSql/qtsqlglobal.h \
 		../../../../Qt/5.12.2/gcc_64/include/QtSql/qtsql-config.h \
 		ui_testnouns.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/QVariant \
+		../../../../Qt/5.12.2/gcc_64/include/QtWidgets/QApplication \
+		../../../../Qt/5.12.2/gcc_64/include/QtWidgets/qapplication.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qcoreapplication.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qeventloop.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtWidgets/qdesktopwidget.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qguiapplication.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qinputmethod.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtWidgets/QGroupBox \
+		../../../../Qt/5.12.2/gcc_64/include/QtWidgets/qgroupbox.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtWidgets/qframe.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtWidgets/QHBoxLayout \
+		../../../../Qt/5.12.2/gcc_64/include/QtWidgets/qboxlayout.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtWidgets/qlayout.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtWidgets/qlayoutitem.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtWidgets/qgridlayout.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtWidgets/QLabel \
+		../../../../Qt/5.12.2/gcc_64/include/QtWidgets/qlabel.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtWidgets/QPushButton \
+		../../../../Qt/5.12.2/gcc_64/include/QtWidgets/qpushbutton.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtWidgets/qabstractbutton.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qicon.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtWidgets/QRadioButton \
+		../../../../Qt/5.12.2/gcc_64/include/QtWidgets/qradiobutton.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtWidgets/QVBoxLayout \
+		../../../../Qt/5.12.2/gcc_64/include/QtWidgets/QWidget \
 		../../../../Qt/5.12.2/gcc_64/include/QtSql/QSqlQuery \
 		../../../../Qt/5.12.2/gcc_64/include/QtSql/qsqlquery.h \
 		../../../../Qt/5.12.2/gcc_64/include/QtWidgets/QMessageBox \
@@ -3670,6 +4472,15 @@ moc_nounsmenu.o: moc_nounsmenu.cpp
 
 moc_adjmenu.o: moc_adjmenu.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_adjmenu.o moc_adjmenu.cpp
+
+moc_testadj.o: moc_testadj.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_testadj.o moc_testadj.cpp
+
+moc_testall.o: moc_testall.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_testall.o moc_testall.cpp
+
+moc_testverbs.o: moc_testverbs.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_testverbs.o moc_testverbs.cpp
 
 moc_verbsmenu.o: moc_verbsmenu.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_verbsmenu.o moc_verbsmenu.cpp
