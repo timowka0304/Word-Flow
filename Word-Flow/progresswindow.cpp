@@ -10,6 +10,7 @@ ProgressWindow::ProgressWindow(QWidget *parent) :
     ui(new Ui::ProgressWindow)
 {
     ui->setupUi(this);
+    this->setFixedSize(600, 400);
     ui->tableView->setFocusPolicy(Qt::FocusPolicy::NoFocus);
     ui->clear_db_Button->setFocusPolicy(Qt::FocusPolicy::NoFocus);
     ui->back_to_menu_Button->setFocusPolicy(Qt::FocusPolicy::NoFocus);
@@ -25,7 +26,7 @@ ProgressWindow::~ProgressWindow()
 void ProgressWindow::Show_db()
 {
     QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
-    db.setDatabaseName( "/home/svetlana/Word-Flow/Word-Flow/Progress.db3");
+    db.setDatabaseName( "/home/timowka0304/Word-Flow/Word-Flow/Progress.db3");
     db.open();
     QSqlQuery query;
     query.exec("SELECT * FROM Progress");

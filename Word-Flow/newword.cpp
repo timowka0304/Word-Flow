@@ -10,6 +10,7 @@ NewWord::NewWord(QWidget *parent) :
     QRegExp eng_v("[A-Za-z]*");
     QRegExp rus_v("[А-Яа-я]*");
     ui->setupUi(this);
+    this->setFixedSize(600, 400);
     ui->eng_new_word->setValidator (new QRegExpValidator (eng_v, this));
     ui->rus_new_word->setValidator (new QRegExpValidator (rus_v, this));
     ui->eng_new_word->clear();

@@ -19,6 +19,7 @@ MainMenu::MainMenu(QWidget *parent) :
     progresswindow = new ProgressWindow;
     connect(progresswindow, &ProgressWindow::MainMenu, this, &MainMenu::show);
     ui->setupUi(this);
+    this->setFixedSize(600, 400);
     setWindowIcon(QIcon(":/new/prefix1/353a9a937bc4945eed556e5617806aab.png"));
 }
 

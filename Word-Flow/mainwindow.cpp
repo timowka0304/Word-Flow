@@ -8,6 +8,7 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     mainmenu = new MainMenu;
     ui->setupUi(this);
+    this->setFixedSize(600, 400);
     QGraphicsDropShadowEffect *effect = new QGraphicsDropShadowEffect(this);
     effect->setOffset(-5, 5);
     effect->setBlurRadius(10.0);

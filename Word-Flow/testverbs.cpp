@@ -12,6 +12,7 @@ TestVerbs::TestVerbs(QWidget *parent) :
     ui(new Ui::TestVerbs)
 {
     ui->setupUi(this);
+    this->setFixedSize(600, 400);
     ui->back_to_menu_Button->setHidden(0);
     ui->start_Button->setHidden(0);
     ui->next_Button->setHidden(1);
@@ -150,7 +151,7 @@ void TestVerbs::on_next_Button_clicked()
         }
     } else {
         db = QSqlDatabase::addDatabase("QSQLITE");
-        db.setDatabaseName("/home/svetlana/Word-Flow/Word-Flow/Words.db3");
+        db.setDatabaseName("/home/timowka0304/Word-Flow/Word-Flow/Words.db3");
         db.open();
         QString needed_eng, needed_rus;
         QString choosen = group.button(group.checkedId())->text();
@@ -191,7 +192,7 @@ void TestVerbs::RunTest(){
 
 void TestVerbs::ENGtoRUS(){
     db = QSqlDatabase::addDatabase("QSQLITE");
-    db.setDatabaseName("/home/svetlana/Word-Flow/Word-Flow/Words.db3");
+    db.setDatabaseName("/home/timowka0304/Word-Flow/Word-Flow/Words.db3");
     db.open();
     QSqlQuery query_eng_to_rus;
     query_eng_to_rus.exec(QStringLiteral("SELECT id, English, Russian FROM Words WHERE id = %1").arg(numbers_words[counter].word_answer_number));
@@ -255,7 +256,7 @@ void TestVerbs::ENGtoRUS(){
 
 void TestVerbs::RUStoENG(){
     db = QSqlDatabase::addDatabase("QSQLITE");
-    db.setDatabaseName("/home/svetlana/Word-Flow/Word-Flow/Words.db3");
+    db.setDatabaseName("/home/timowka0304/Word-Flow/Word-Flow/Words.db3");
     db.open();
     QSqlQuery query_rus_to_eng;
     query_rus_to_eng.exec(QStringLiteral("SELECT id, English, Russian FROM Words WHERE id = %1").arg(numbers_words[counter].word_answer_number));

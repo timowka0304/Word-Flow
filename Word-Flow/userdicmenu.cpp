@@ -8,6 +8,7 @@ UserDicMenu::UserDicMenu(QWidget *parent) :
     newword = new NewWord;
     connect(newword, &NewWord::UserDicMenu, this, &UserDicMenu::show);
     ui->setupUi(this);
+    this->setFixedSize(600, 400);
     ui->textBrowser->setHidden(1);
     ui->hide_dic_Button->setHidden(1);
     ui->dic_show_Button->setFocusPolicy(Qt::FocusPolicy::NoFocus);
