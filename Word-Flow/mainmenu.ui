@@ -112,7 +112,7 @@
   </widget>
   <action name="actionText">
    <property name="text">
-    <string>Информаия</string>
+    <string>Информация</string>
    </property>
   </action>
   <action name="actionExit">
