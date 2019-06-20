@@ -5,6 +5,7 @@
 #include <QSqlTableModel>
 #include <QMessageBox>
 #include <QFileSystemWatcher>
+#include <QDebug>
 
 ProgressWindow::ProgressWindow(QWidget *parent) :
     QDialog(parent),
@@ -31,6 +32,9 @@ void ProgressWindow::Show_db()
     db.open();
     QSqlQuery query;
     query.exec("SELECT * FROM Progress");
+
+    int size = 0 ;
+    while (query.next()) size++; //подсчет кол-ва строк (размер)
 
     QSqlTableModel *model =new QSqlTableModel;
     model->setTable("Progress");
