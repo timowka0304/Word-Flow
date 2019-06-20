@@ -7,6 +7,8 @@ UserDicMenu::UserDicMenu(QWidget *parent) :
 {
     newword = new NewWord;
     connect(newword, &NewWord::UserDicMenu, this, &UserDicMenu::show);
+    delword = new DelWord;
+    connect(delword, &DelWord::UserDicMenu, this, &UserDicMenu::show);
     ui->setupUi(this);
     this->setFixedSize(600, 400);
     ui->textBrowser->setHidden(1);
@@ -39,4 +41,10 @@ void UserDicMenu::on_add_Button_clicked()
 {
     this->close();
     newword->show();
+}
+
+void UserDicMenu::on_delete_Button_clicked()
+{
+    this->close();
+    delword->show();
 }

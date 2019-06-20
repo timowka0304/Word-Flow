@@ -38,7 +38,8 @@ SOURCES += \
     allmenu.cpp \
     newword.cpp \
     progresswindow.cpp \
-    testnouns.cpp
+    testnouns.cpp \
+    delword.cpp
 
 HEADERS += \
     mainmenu.h \
@@ -54,7 +55,8 @@ HEADERS += \
     allmenu.h \
     newword.h \
     progresswindow.h \
-    testnouns.h
+    testnouns.h \
+    delword.h
 
 FORMS += \
     mainmenu.ui \
@@ -70,7 +72,8 @@ FORMS += \
     allmenu.ui \
     newword.ui \
     progresswindow.ui \
-    testnouns.ui
+    testnouns.ui \
+    delword.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
