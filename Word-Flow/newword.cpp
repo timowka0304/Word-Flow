@@ -2,23 +2,24 @@
 #include "ui_newword.h"
 #include <QMessageBox>
 #include <QRegExpValidator>
+#include <QtSql/QSqlDatabase>
+#include <QSqlQuery>
+#include <QDebug>
 
 NewWord::NewWord(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::NewWord)
 {
-    QRegExp eng_v("[A-Za-z]*");
-    QRegExp rus_v("[А-Яа-я]*");
     ui->setupUi(this);
-    this->setFixedSize(600, 400);
+    this->setFixedSize(400, 300);
+    QRegExp eng_v("[a-z]*");
+    QRegExp rus_v("[а-я]*");
     ui->eng_new_word->setValidator (new QRegExpValidator (eng_v, this));
     ui->rus_new_word->setValidator (new QRegExpValidator (rus_v, this));
     ui->eng_new_word->clear();
     ui->rus_new_word->clear();
     ui->save_Button->setFocusPolicy(Qt::FocusPolicy::NoFocus);
     ui->cancel_Button->setFocusPolicy(Qt::FocusPolicy::NoFocus);
-    ui->eng_new_word->setFocusPolicy(Qt::FocusPolicy::NoFocus);
-    ui->rus_new_word->setFocusPolicy(Qt::FocusPolicy::NoFocus);
     setWindowIcon(QIcon(":/new/prefix1/353a9a937bc4945eed556e5617806aab.png"));
 }
 
@@ -52,6 +53,15 @@ void NewWord::on_save_Button_clicked()
         }
     }
     else {
+
+        QSqlDatabase db;
+        db = QSqlDatabase::addDatabase("QSQLITE");
+        db.setDatabaseName("/home/timowka0304/Word-Flow/Word-Flow/UserDic.db3");
+        db.open();
+
+        QSqlQuery query;
+        query.exec(QStringLiteral("INSERT INTO UsersWords (English, Russian, valid) VALUES ('%1', '%2', 1)").arg(ui->eng_new_word->text()).arg(ui->rus_new_word->text()));
+        qDebug() << ui->eng_new_word->text();
         QMessageBox msgBox;
         msgBox.setText("Слова успешно добавлены!");
         msgBox.setIcon(QMessageBox::Information);
@@ -61,6 +71,8 @@ void NewWord::on_save_Button_clicked()
            switch (ret) {
            case QMessageBox::Ok:
              msgBox.close();
+             ui->eng_new_word->clear();
+             ui->rus_new_word->clear();
              break;
           default:
              msgBox.close();

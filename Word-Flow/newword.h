@@ -2,6 +2,7 @@
 #define NEWWORD_H
 
 #include <QDialog>
+#include <QSqlDatabase>
 
 namespace Ui {
 class NewWord;
@@ -25,6 +26,7 @@ private slots:
 
 private:
     Ui::NewWord *ui;
+    QSqlDatabase db;
 };
 
 #endif // NEWWORD_H
