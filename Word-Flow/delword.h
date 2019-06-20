@@ -17,6 +17,7 @@ signals:
 public:
     explicit DelWord(QWidget *parent = nullptr);
     ~DelWord();
+    void Show_db();
 
 private slots:
     void on_del_Button_clicked();
