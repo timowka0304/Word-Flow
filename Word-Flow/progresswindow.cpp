@@ -4,6 +4,7 @@
 #include <QSqlQuery>
 #include <QSqlTableModel>
 #include <QMessageBox>
+#include <QFileSystemWatcher>
 
 ProgressWindow::ProgressWindow(QWidget *parent) :
     QDialog(parent),
@@ -47,6 +48,7 @@ void ProgressWindow::Show_db()
 void ProgressWindow::on_back_to_menu_Button_clicked()
 {
     this->close();
+    Show_db();
     emit MainMenu();
 }
 

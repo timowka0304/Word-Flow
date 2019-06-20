@@ -82,6 +82,7 @@ void MainMenu::on_all_category_button_clicked()
 void MainMenu::on_progress_Button_clicked()
 {
     this->close();
+    progresswindow->Show_db();
     progresswindow->show();
 }
 
