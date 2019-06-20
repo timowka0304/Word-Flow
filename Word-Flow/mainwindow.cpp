@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include <QGraphicsDropShadowEffect>
+#include <QDesktopWidget>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -8,6 +9,8 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     mainmenu = new MainMenu;
     ui->setupUi(this);
+    QDesktopWidget *pDescwidget=QApplication::desktop();
+    move(pDescwidget->width()/2-width()/2, pDescwidget->height()/2-height()/2);
     this->setFixedSize(600, 400);
     QGraphicsDropShadowEffect *effect = new QGraphicsDropShadowEffect(this);
     effect->setOffset(-5, 5);

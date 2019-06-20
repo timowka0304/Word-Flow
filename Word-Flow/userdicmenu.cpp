@@ -1,5 +1,6 @@
 #include "userdicmenu.h"
 #include "ui_userdicmenu.h"
+#include <QDesktopWidget>
 
 UserDicMenu::UserDicMenu(QWidget *parent) :
     QDialog(parent),
@@ -10,6 +11,8 @@ UserDicMenu::UserDicMenu(QWidget *parent) :
     delword = new DelWord;
     connect(delword, &DelWord::UserDicMenu, this, &UserDicMenu::show);
     ui->setupUi(this);
+    QDesktopWidget *pDescwidget=QApplication::desktop();
+    move(pDescwidget->width()/2-width()/2, pDescwidget->height()/2-height()/2);
     this->setFixedSize(600, 400);
     ui->textBrowser->setHidden(1);
     ui->hide_dic_Button->setHidden(1);

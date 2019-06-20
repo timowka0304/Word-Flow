@@ -3,6 +3,7 @@
 #include <QtSql/QSqlDatabase>
 #include <QSqlQuery>
 #include <QMessageBox>
+#include <QDesktopWidget>
 
 NounsMenu::NounsMenu(QWidget *parent) :
     QDialog(parent),
@@ -11,6 +12,8 @@ NounsMenu::NounsMenu(QWidget *parent) :
     random = new Random;
     connect(random, &Random::NounsMenu, this, &NounsMenu::show);
     ui->setupUi(this);
+    QDesktopWidget *pDescwidget=QApplication::desktop();
+    move(pDescwidget->width()/2-width()/2, pDescwidget->height()/2-height()/2);
     this->setFixedSize(600, 400);
     ui->textBrowser->setHidden(1);
     ui->hide_dic_Button->setHidden(1);

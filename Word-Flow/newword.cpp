@@ -5,12 +5,15 @@
 #include <QtSql/QSqlDatabase>
 #include <QSqlQuery>
 #include <QDebug>
+#include <QDesktopWidget>
 
 NewWord::NewWord(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::NewWord)
 {
     ui->setupUi(this);
+    QDesktopWidget *pDescwidget=QApplication::desktop();
+    move(pDescwidget->width()/2-width()/2, pDescwidget->height()/2-height()/2);
     this->setFixedSize(400, 300);
     QRegExp eng_v("[a-z]*");
     QRegExp rus_v("[а-я]*");

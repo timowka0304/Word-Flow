@@ -3,12 +3,15 @@
 #include <QtSql/QSqlDatabase>
 #include <QSqlQuery>
 #include <QSqlTableModel>
+#include <QDesktopWidget>
 
 DelWord::DelWord(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::DelWord)
 {
     ui->setupUi(this);
+    QDesktopWidget *pDescwidget=QApplication::desktop();
+    move(pDescwidget->width()/2-width()/2, pDescwidget->height()/2-height()/2);
     this->setFixedSize(400, 300);
     Show_db();
 }

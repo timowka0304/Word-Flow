@@ -6,12 +6,15 @@
 #include <QMessageBox>
 #include <QDebug>
 #include <QButtonGroup>
+#include <QDesktopWidget>
 
 TestAdj::TestAdj(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::TestAdj)
 {
     ui->setupUi(this);
+    QDesktopWidget *pDescwidget=QApplication::desktop();
+    move(pDescwidget->width()/2-width()/2, pDescwidget->height()/2-height()/2);
     this->setFixedSize(600, 400);
     ui->back_to_menu_Button->setHidden(0);
     ui->start_Button->setHidden(0);
@@ -365,7 +368,7 @@ void TestAdj::on_done_Button_clicked()
 {
     QSqlDatabase db;
     db = QSqlDatabase::addDatabase("QSQLITE");
-    db.setDatabaseName("/home/svetlana/Word-Flow/Word-Flow//Progress.db3");
+    db.setDatabaseName("/home/timowka0304/Word-Flow/Word-Flow/Progress.db3");
     db.open();
 
     QSqlQuery query;

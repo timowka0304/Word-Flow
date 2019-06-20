@@ -4,14 +4,16 @@
 #include <QSqlQuery>
 #include <QSqlTableModel>
 #include <QMessageBox>
-#include <QFileSystemWatcher>
 #include <QDebug>
+#include <QDesktopWidget>
 
 ProgressWindow::ProgressWindow(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::ProgressWindow)
 {
     ui->setupUi(this);
+    QDesktopWidget *pDescwidget=QApplication::desktop();
+    move(pDescwidget->width()/2-width()/2, pDescwidget->height()/2-height()/2);
     this->setFixedSize(600, 400);
     ui->tableView->setFocusPolicy(Qt::FocusPolicy::NoFocus);
     ui->clear_db_Button->setFocusPolicy(Qt::FocusPolicy::NoFocus);

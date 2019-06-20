@@ -2,6 +2,7 @@
 #include "ui_allmenu.h"
 #include <QtSql/QSqlDatabase>
 #include <QSqlQuery>
+#include <QDesktopWidget>
 
 AllMenu::AllMenu(QWidget *parent) :
     QDialog(parent),
@@ -10,6 +11,8 @@ AllMenu::AllMenu(QWidget *parent) :
     testall = new TestAll;
     connect(testall, &TestAll::AllMenu, this, &AllMenu::show);
     ui->setupUi(this);
+    QDesktopWidget *pDescwidget=QApplication::desktop();
+    move(pDescwidget->width()/2-width()/2, pDescwidget->height()/2-height()/2);
     this->setFixedSize(600, 400);
     ui->textBrowser->setHidden(1);
     ui->hide_dic_Button->setHidden(1);
