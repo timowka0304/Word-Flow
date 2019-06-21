@@ -39,7 +39,7 @@ void TestAdj::FillStart(){
         numbers_words[i].question_number = rand() % 2 + 1;
     }
     for(int i = 0; i < 10; i ++){
-        numbers_words[i].word_answer_number = 101 + rand() % 100 + 1;
+        numbers_words[i].word_answer_number = 100 + rand() % 100 + 1;
         for(int j = 0; j < i; j ++){
             if(numbers_words[j].word_answer_number == numbers_words[i].word_answer_number){
                 i --;
@@ -49,7 +49,7 @@ void TestAdj::FillStart(){
 
     }
     for(int i = 0; i < 10; i++){
-        numbers_words[i].word_1_number = 101 + rand() % 100 + 1;
+        numbers_words[i].word_1_number = 100 + rand() % 100 + 1;
         for(int j = 0; j < 10; j ++){
             if(numbers_words[j].word_answer_number == numbers_words[i].word_1_number){
                 i --;
@@ -58,7 +58,7 @@ void TestAdj::FillStart(){
         }
     }
     for(int i = 0; i < 10; i++){
-        numbers_words[i].word_2_number = 101 + rand() % 100 + 1;
+        numbers_words[i].word_2_number = 100 + rand() % 100 + 1;
         for(int j = 0; j < 10; j ++){
             if(numbers_words[j].word_answer_number == numbers_words[i].word_2_number){
                 i --;
@@ -71,7 +71,7 @@ void TestAdj::FillStart(){
         }
     }
     for(int i = 0; i < 10; i++){
-        numbers_words[i].word_3_number = 101 + rand() % 100 + 1;
+        numbers_words[i].word_3_number = 100 + rand() % 100 + 1;
         for(int j = 0; j < 10; j ++){
             if(numbers_words[j].word_answer_number == numbers_words[i].word_3_number){
                 i --;
