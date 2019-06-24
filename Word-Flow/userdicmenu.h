@@ -27,6 +27,10 @@ private slots:
 
     void on_delete_Button_clicked();
 
+    void on_dic_show_Button_clicked();
+
+    void on_hide_dic_Button_clicked();
+
 private:
     Ui::UserDicMenu *ui;
     NewWord *newword;

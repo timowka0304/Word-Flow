@@ -1,6 +1,8 @@
 #include "userdicmenu.h"
 #include "ui_userdicmenu.h"
 #include <QDesktopWidget>
+#include <QtSql/QSqlDatabase>
+#include <QSqlQuery>
 
 UserDicMenu::UserDicMenu(QWidget *parent) :
     QDialog(parent),
@@ -42,12 +44,53 @@ void UserDicMenu::on_menu_back_Button_clicked()
 
 void UserDicMenu::on_add_Button_clicked()
 {
+    ui->textBrowser->setHidden(1);
+    ui->hide_dic_Button->setHidden(1);
+    ui->textBrowser->clear();
+    ui->dic_show_Button->setHidden(0);
     this->close();
     newword->show();
 }
 
 void UserDicMenu::on_delete_Button_clicked()
 {
+    ui->textBrowser->setHidden(1);
+    ui->hide_dic_Button->setHidden(1);
+    ui->textBrowser->clear();
+    ui->dic_show_Button->setHidden(0);
     this->close();
     delword->show();
+}
+
+void UserDicMenu::on_dic_show_Button_clicked()
+{
+    ui->hide_dic_Button->setHidden(0);
+    ui->textBrowser->setHidden(0);
+    ui->dic_show_Button->setHidden(1);
+
+    QSqlDatabase db;
+    db = QSqlDatabase::addDatabase("QSQLITE");
+    db.setDatabaseName("/home/timowka0304/Word-Flow/Word-Flow/UserDic.db3");
+    db.open();
+
+    QSqlQuery query;
+    query.exec("SELECT id, English, Russian, valid FROM UsersWords");
+
+    while (query.next())
+    {
+        if (query.value(3) == 1)
+        {
+            QString english = query.value(1).toString();
+            QString russian = query.value(2).toString();
+            ui->textBrowser->insertPlainText(english+" - "+russian+"\n");
+        }
+    }
+}
+
+void UserDicMenu::on_hide_dic_Button_clicked()
+{
+    ui->textBrowser->setHidden(1);
+    ui->hide_dic_Button->setHidden(1);
+    ui->textBrowser->clear();
+    ui->dic_show_Button->setHidden(0);
 }
