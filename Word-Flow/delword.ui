@@ -13,7 +13,7 @@
   <property name="windowTitle">
    <string>Удаление слова</string>
   </property>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>10</x>
@@ -30,6 +30,15 @@
       </property>
       <property name="alternatingRowColors">
        <bool>false</bool>
+      </property>
+      <property name="selectionMode">
+       <enum>QAbstractItemView::SingleSelection</enum>
+      </property>
+      <property name="selectionBehavior">
+       <enum>QAbstractItemView::SelectRows</enum>
+      </property>
+      <property name="textElideMode">
+       <enum>Qt::ElideLeft</enum>
       </property>
       <property name="sortingEnabled">
        <bool>false</bool>
