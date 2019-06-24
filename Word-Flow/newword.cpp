@@ -4,7 +4,6 @@
 #include <QRegExpValidator>
 #include <QtSql/QSqlDatabase>
 #include <QSqlQuery>
-#include <QDebug>
 #include <QDesktopWidget>
 
 NewWord::NewWord(QWidget *parent) :
@@ -64,7 +63,6 @@ void NewWord::on_save_Button_clicked()
 
         QSqlQuery query;
         query.exec(QStringLiteral("INSERT INTO UsersWords (English, Russian, valid) VALUES ('%1', '%2', 1)").arg(ui->eng_new_word->text()).arg(ui->rus_new_word->text()));
-        qDebug() << ui->eng_new_word->text();
         QMessageBox msgBox;
         msgBox.setText("Слова успешно добавлены!");
         msgBox.setIcon(QMessageBox::Information);
