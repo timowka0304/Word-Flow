@@ -4,6 +4,7 @@
 #include <QDialog>
 #include "newword.h"
 #include "delword.h"
+#include "testuser.h"
 
 namespace Ui {
 class UserDicMenu;
@@ -31,10 +32,13 @@ private slots:
 
     void on_hide_dic_Button_clicked();
 
+    void on_lets_test_Button_clicked();
+
 private:
     Ui::UserDicMenu *ui;
     NewWord *newword;
     DelWord *delword;
+    TestUser *testuser;
 };
 
 #endif // USERDICMENU_H

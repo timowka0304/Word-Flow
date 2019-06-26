@@ -12,6 +12,8 @@ UserDicMenu::UserDicMenu(QWidget *parent) :
     connect(newword, &NewWord::UserDicMenu, this, &UserDicMenu::show);
     delword = new DelWord;
     connect(delword, &DelWord::UserDicMenu, this, &UserDicMenu::show);
+    testuser = new TestUser;
+    connect(testuser, &TestUser::UserDicMenu, this, &UserDicMenu::show);
     ui->setupUi(this);
     QDesktopWidget *pDescwidget=QApplication::desktop();
     move(pDescwidget->width()/2-width()/2, pDescwidget->height()/2-height()/2);
@@ -94,4 +96,10 @@ void UserDicMenu::on_hide_dic_Button_clicked()
     ui->hide_dic_Button->setHidden(1);
     ui->textBrowser->clear();
     ui->dic_show_Button->setHidden(0);
+}
+
+void UserDicMenu::on_lets_test_Button_clicked()
+{
+    this->close();
+    testuser->show();
 }
