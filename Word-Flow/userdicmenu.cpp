@@ -58,6 +58,7 @@ void UserDicMenu::on_delete_Button_clicked()
     ui->hide_dic_Button->setHidden(1);
     ui->textBrowser->clear();
     ui->dic_show_Button->setHidden(0);
+    delword->Show_db();
     this->close();
     delword->show();
 }
