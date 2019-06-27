@@ -91,11 +91,14 @@ void Random::FillStart(){
     for (int i = 0; i < 10; i++){
         mas_answers[i] = 0;
     }
+    for (int i = 0; i < 10; i++){
+        qDebug() << numbers_words[i].word_1_number << numbers_words[i].word_2_number << numbers_words[i].word_3_number;
+    }
 }
 
 void Random::on_start_Button_clicked()
 {
-    srand(time(nullptr));
+    srand(time_t(nullptr));
     QMessageBox msgBox;
     msgBox.setText("Вы уверены, что хотите начать тест?");
     msgBox.setIcon(QMessageBox::Question);
@@ -270,7 +273,7 @@ void Random::RUStoENG(){
     }
 
     int variants[4];
-    srand(time(nullptr));
+    srand(time_t(nullptr));
     for(int i = 0; i < 4; i ++){
         variants[i] = rand() % 4 + 1;
         for(int j = 0; j < i; j ++){
