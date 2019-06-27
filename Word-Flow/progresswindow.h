@@ -24,8 +24,13 @@ private slots:
 
     void on_clear_db_Button_clicked();
 
+    void on_max_Button_clicked();
+
+    void on_min_Button_clicked();
+
 private:
     Ui::ProgressWindow *ui;
+   int size;
 };
 
 #endif // PROGRESSWINDOW_H

@@ -18,6 +18,8 @@ ProgressWindow::ProgressWindow(QWidget *parent) :
     ui->tableView->setFocusPolicy(Qt::FocusPolicy::NoFocus);
     ui->clear_db_Button->setFocusPolicy(Qt::FocusPolicy::NoFocus);
     ui->back_to_menu_Button->setFocusPolicy(Qt::FocusPolicy::NoFocus);
+    ui->max_Button->setFocusPolicy(Qt::FocusPolicy::NoFocus);
+    ui->min_Button->setFocusPolicy(Qt::FocusPolicy::NoFocus);
     Show_db();
     setWindowIcon(QIcon(":/new/prefix1/353a9a937bc4945eed556e5617806aab.png"));
 }
@@ -34,8 +36,7 @@ void ProgressWindow::Show_db()
     db.open();
     QSqlQuery query;
     query.exec("SELECT * FROM Progress");
-
-    int size = 0 ;
+    size = 0;
     while (query.next()) size++; //подсчет кол-ва строк (размер)
 
     QSqlTableModel *model =new QSqlTableModel;
@@ -74,6 +75,55 @@ void ProgressWindow::on_clear_db_Button_clicked()
          QSqlQuery query;
          query.exec("DELETE FROM Progress");
          Show_db();
+         break;
+    }
+}
+
+void ProgressWindow::on_max_Button_clicked()
+{
+    QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
+    db.setDatabaseName( "/home/timowka0304/Word-Flow/Word-Flow/Progress.db3");
+    db.open();
+    QSqlQuery query;
+    int true_a;
+    query.exec("SELECT max(true) FROM Progress");
+    while (query.next()){
+        true_a = query.value(0).toInt();
+    }
+    QMessageBox msgBox;
+    msgBox.setText(QStringLiteral("Лучший результат из %1:\n%2% процентов - %3/10 правильно").arg(size).arg(true_a*10).arg(true_a));
+    msgBox.setIcon(QMessageBox::Information);
+    msgBox.setStandardButtons(QMessageBox::Ok);
+    msgBox.setDefaultButton(QMessageBox::Ok);
+    int ret = msgBox.exec();
+       switch (ret) {
+       case QMessageBox::Ok:
+         msgBox.close();
+         break;
+    }
+
+}
+
+void ProgressWindow::on_min_Button_clicked()
+{
+    QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
+    db.setDatabaseName( "/home/timowka0304/Word-Flow/Word-Flow/Progress.db3");
+    db.open();
+    QSqlQuery query;
+    int true_a;
+    query.exec("SELECT min(true) FROM Progress");
+    while (query.next()){
+        true_a = query.value(0).toInt();
+    }
+    QMessageBox msgBox;
+    msgBox.setText(QStringLiteral("Худший результат из %1:\n%2% процентов - %3/10 правильно").arg(size).arg(true_a*10).arg(true_a));
+    msgBox.setIcon(QMessageBox::Information);
+    msgBox.setStandardButtons(QMessageBox::Ok);
+    msgBox.setDefaultButton(QMessageBox::Ok);
+    int ret = msgBox.exec();
+       switch (ret) {
+       case QMessageBox::Ok:
+         msgBox.close();
          break;
     }
 }

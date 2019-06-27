@@ -37,6 +37,20 @@
      </widget>
     </item>
     <item>
+     <widget class="QPushButton" name="max_Button">
+      <property name="text">
+       <string>Лучший результат</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="min_Button">
+      <property name="text">
+       <string>Худший результат</string>
+      </property>
+     </widget>
+    </item>
+    <item>
      <widget class="QPushButton" name="clear_db_Button">
       <property name="text">
        <string>Отчистить</string>
