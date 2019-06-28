@@ -102,17 +102,30 @@ void TestUser::FillStart(){
     db.setDatabaseName( "/home/timowka0304/Word-Flow/Word-Flow/UserDic.db3");
     db.open();
     QSqlQuery query;
-    query.exec("SELECT valid FROM UsersWords WHERE valid = 1");
+    query.exec("SELECT id FROM UsersWords WHERE valid = 1");
     int size = 0 ;
     while (query.next())
         size++;
-
-    srand(time_t(nullptr));
+    int *mas = new int [size];
+    query.exec("SELECT id FROM UsersWords WHERE valid = 1");
+    int i = 0;
+    qDebug() << "id";
+    while (query.next()){
+        mas[i] = query.value(0).toInt();
+        qDebug() << i << " - " << mas[i];
+        i++;
+    } //заполнение массива с id существющих слов
+    srand(time(nullptr));
     for(int i = 0; i < 10; i++){
         numbers_words[i].question_number = rand() % 2 + 1;
     }
+    qDebug() << "заполнение";
+    for(int i = 0; i < 10; i++){
+        int r = rand() % size + 0;
+        qDebug() << r << " - " << mas[r];
+    }
     for(int i = 0; i < 10; i ++){
-        numbers_words[i].word_answer_number = rand() % size + 1;
+        numbers_words[i].word_answer_number = mas[rand() % size + 0];
         for(int j = 0; j < i; j ++){
             if(numbers_words[j].word_answer_number == numbers_words[i].word_answer_number){
                 i --;
@@ -122,7 +135,7 @@ void TestUser::FillStart(){
 
     }
     for(int i = 0; i < 10; i++){
-        numbers_words[i].word_1_number = rand() % size + 1;
+        numbers_words[i].word_1_number = mas[rand() % size + 0];
         for(int j = 0; j < 10; j ++){
             if(numbers_words[j].word_answer_number == numbers_words[i].word_1_number){
                 i --;
@@ -131,7 +144,7 @@ void TestUser::FillStart(){
         }
     }
     for(int i = 0; i < 10; i++){
-        numbers_words[i].word_2_number = rand() % size + 1;
+        numbers_words[i].word_2_number = mas[rand() % size + 0];
         for(int j = 0; j < 10; j ++){
             if(numbers_words[j].word_answer_number == numbers_words[i].word_2_number){
                 i --;
@@ -144,7 +157,7 @@ void TestUser::FillStart(){
         }
     }
     for(int i = 0; i < 10; i++){
-        numbers_words[i].word_3_number = rand() % size + 1;
+        numbers_words[i].word_3_number = mas[rand() % size + 0];
         for(int j = 0; j < 10; j ++){
             if(numbers_words[j].word_answer_number == numbers_words[i].word_3_number){
                 i --;
@@ -163,6 +176,7 @@ void TestUser::FillStart(){
     for (int i = 0; i < 10; i++){
         mas_answers[i] = 0;
     }
+    qDebug() << "res:";
     for (int i = 0; i < 10; i++){
         qDebug() <<  numbers_words[i].question_number << numbers_words[i].word_answer_number << numbers_words[i].word_1_number << numbers_words[i].word_2_number << numbers_words[i].word_3_number;
     }
