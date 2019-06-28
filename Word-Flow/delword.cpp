@@ -15,6 +15,9 @@ DelWord::DelWord(QWidget *parent) :
     QDesktopWidget *pDescwidget=QApplication::desktop();
     move(pDescwidget->width()/2-width()/2, pDescwidget->height()/2-height()/2);
     this->setFixedSize(400, 300);
+    ui->del_Button->setFocusPolicy(Qt::FocusPolicy::NoFocus);
+    ui->back_to_menu_Button->setFocusPolicy(Qt::FocusPolicy::NoFocus);
+    ui->tableView->setFocusPolicy(Qt::FocusPolicy::NoFocus);
     setWindowIcon(QIcon(":/new/prefix1/353a9a937bc4945eed556e5617806aab.png"));
     Show_db();
 }
