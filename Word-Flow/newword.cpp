@@ -4,6 +4,7 @@
 #include <QRegExpValidator>
 #include <QtSql/QSqlDatabase>
 #include <QSqlQuery>
+#include <QDebug>
 #include <QDesktopWidget>
 
 NewWord::NewWord(QWidget *parent) :
@@ -55,30 +56,38 @@ void NewWord::on_save_Button_clicked()
         }
     }
     else {
-
         QSqlDatabase db;
         db = QSqlDatabase::addDatabase("QSQLITE");
         db.setDatabaseName("/home/timowka0304/Word-Flow/Word-Flow/UserDic.db3");
         db.open();
-
         QSqlQuery query;
-        query.exec(QStringLiteral("INSERT INTO UsersWords (English, Russian, valid) VALUES ('%1', '%2', 1)").arg(ui->eng_new_word->text()).arg(ui->rus_new_word->text()));
         QMessageBox msgBox;
-        msgBox.setText("Слова успешно добавлены!");
-        msgBox.setIcon(QMessageBox::Information);
-        msgBox.setStandardButtons(QMessageBox::Ok);
-        msgBox.setDefaultButton(QMessageBox::Ok);
-        int ret = msgBox.exec();
-           switch (ret) {
-           case QMessageBox::Ok:
-             msgBox.close();
-             ui->eng_new_word->clear();
-             ui->rus_new_word->clear();
-             break;
-          default:
-             msgBox.close();
-             break;
+        query.exec(QStringLiteral("SELECT English, Russian FROM UsersWords WHERE valid = 1 and Russian = '%1' or English = '%2'").arg(ui->rus_new_word->text()).arg(ui->eng_new_word->text()));
+        if(query.first()){
+            msgBox.setText("Такие слова уже есть в словаре! Добавьте что-нибудь другое!");
+            msgBox.setIcon(QMessageBox::Warning);
+            msgBox.setStandardButtons(QMessageBox::Ok);
+            msgBox.setDefaultButton(QMessageBox::Ok);
+            int ret = msgBox.exec();
+               switch (ret) {
+               case QMessageBox::Ok:
+                 msgBox.close();
+                 break;
+            }
+        } else {
+            query.exec(QStringLiteral("INSERT INTO UsersWords (English, Russian, valid) VALUES ('%1', '%2', 1)").arg(ui->eng_new_word->text()).arg(ui->rus_new_word->text()));
+            msgBox.setText("Слова успешно добавлены!");
+            msgBox.setIcon(QMessageBox::Information);
+            msgBox.setStandardButtons(QMessageBox::Ok);
+            msgBox.setDefaultButton(QMessageBox::Ok);
+            int ret = msgBox.exec();
+            switch (ret) {
+            case QMessageBox::Ok:
+                msgBox.close();
+                ui->eng_new_word->clear();
+                ui->rus_new_word->clear();
+                break;
+            }
         }
     }
-
 }
