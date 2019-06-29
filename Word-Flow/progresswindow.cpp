@@ -45,11 +45,13 @@ void ProgressWindow::Show_db()
     model->setHeaderData(0, Qt::Horizontal, QObject::tr("Процент успеха"));
     model->setHeaderData(1, Qt::Horizontal, QObject::tr("Правильно"));
     model->setHeaderData(2, Qt::Horizontal, QObject::tr("Всего"));
+    model->setHeaderData(3, Qt::Horizontal, QObject::tr("Категория"));
     model->select();
     ui->tableView->setModel(model);
     ui->tableView->horizontalHeader()->setSectionResizeMode(0, QHeaderView::Stretch);
     ui->tableView->horizontalHeader()->setSectionResizeMode(1, QHeaderView::Stretch);
     ui->tableView->horizontalHeader()->setSectionResizeMode(2, QHeaderView::Stretch);
+    ui->tableView->horizontalHeader()->setSectionResizeMode(3, QHeaderView::Stretch);
 }
 
 void ProgressWindow::on_back_to_menu_Button_clicked()
