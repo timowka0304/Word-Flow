@@ -17,7 +17,7 @@ TestAll::TestAll(QWidget *parent) :
     QDesktopWidget *pDescwidget=QApplication::desktop();
     move(pDescwidget->width()/2-width()/2, pDescwidget->height()/2-height()/2);
     this->setFixedSize(600, 400);
-    QPixmap myPixmap(":/new/prefix1/adjectives.png");
+    QPixmap myPixmap(":/new/prefix1/obsch.jpg");
     ui->label->setPixmap(myPixmap);
     ui->label->setHidden(0);
     ui->back_to_menu_Button->setHidden(0);
@@ -159,7 +159,7 @@ void TestAll::on_next_Button_clicked()
         }
     } else {
         db = QSqlDatabase::addDatabase("QSQLITE");
-        db.setDatabaseName("/home/nikita/Рабочий стол/курсовая/Word-Flow/Word-Flow/Words.db3");
+        db.setDatabaseName("/home/timowka0304/Word-Flow/Word-Flow/Words.db3");
         db.open();
         QString needed_eng, needed_rus;
         QString choosen = group.button(group.checkedId())->text();
@@ -199,7 +199,7 @@ void TestAll::RunTest(){
 
 void TestAll::ENGtoRUS(){
     db = QSqlDatabase::addDatabase("QSQLITE");
-    db.setDatabaseName("/home/nikita/Рабочий стол/курсовая/Word-Flow/Word-Flow/Words.db3");
+    db.setDatabaseName("/home/timowka0304/Word-Flow/Word-Flow/Words.db3");
     db.open();
     QSqlQuery query_eng_to_rus;
     query_eng_to_rus.exec(QStringLiteral("SELECT id, English, Russian FROM Words WHERE id = %1").arg(numbers_words[counter].word_answer_number));
@@ -263,7 +263,7 @@ void TestAll::ENGtoRUS(){
 
 void TestAll::RUStoENG(){
     db = QSqlDatabase::addDatabase("QSQLITE");
-    db.setDatabaseName("/home/nikita/Рабочий стол/курсовая/Word-Flow/Word-Flow/Words.db3");
+    db.setDatabaseName("/home/timowka0304/Word-Flow/Word-Flow/Words.db3");
     db.open();
     QSqlQuery query_rus_to_eng;
     query_rus_to_eng.exec(QStringLiteral("SELECT id, English, Russian FROM Words WHERE id = %1").arg(numbers_words[counter].word_answer_number));
@@ -374,7 +374,7 @@ void TestAll::on_done_Button_clicked()
 {
     QSqlDatabase db;
     db = QSqlDatabase::addDatabase("QSQLITE");
-    db.setDatabaseName("/home/nikita/Рабочий стол/курсовая/Word-Flow/Word-Flow/Progress.db3");
+    db.setDatabaseName("/home/timowka0304/Word-Flow/Word-Flow/Progress.db3");
     db.open();
 
     QSqlQuery query;

@@ -12,11 +12,8 @@ MainWindow::MainWindow(QWidget *parent) :
     QDesktopWidget *pDescwidget=QApplication::desktop();
     move(pDescwidget->width()/2-width()/2, pDescwidget->height()/2-height()/2);
     this->setFixedSize(600, 400);
-    QGraphicsDropShadowEffect *effect = new QGraphicsDropShadowEffect(this);
-    effect->setOffset(-5, 5);
-    effect->setBlurRadius(10.0);
-    effect->setColor(Qt::darkCyan);
-    ui->label->setGraphicsEffect(effect);
+    QPixmap myPixmap(":/new/prefix1/glavnaya.jpg");
+    ui->label->setPixmap(myPixmap);
     setWindowIcon(QIcon(":/new/prefix1/353a9a937bc4945eed556e5617806aab.png"));
 }
 
