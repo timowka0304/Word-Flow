@@ -17,6 +17,11 @@ TestAdj::TestAdj(QWidget *parent) :
     move(pDescwidget->width()/2-width()/2, pDescwidget->height()/2-height()/2);
     this->setFixedSize(600, 400);
     QPixmap myPixmap(":/new/prefix1/prilag.jpg");
+    ui->groupBox->setFocusPolicy(Qt::FocusPolicy::NoFocus);
+    ui->back_to_menu_Button->setFocusPolicy(Qt::FocusPolicy::NoFocus);
+    ui->next_Button->setFocusPolicy(Qt::FocusPolicy::NoFocus);
+    ui->done_Button->setFocusPolicy(Qt::FocusPolicy::NoFocus);
+    ui->start_Button->setFocusPolicy(Qt::FocusPolicy::NoFocus);
     ui->label->setPixmap(myPixmap);
     ui->label->setHidden(0);
     ui->back_to_menu_Button->setHidden(0);
@@ -175,6 +180,7 @@ void TestAdj::on_next_Button_clicked()
         } else {
             Warning(0, needed_eng, needed_rus);
         }
+
         counter++;
         RunTest();
     }
