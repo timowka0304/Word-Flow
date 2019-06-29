@@ -111,11 +111,17 @@
    <addaction name="menuFile"/>
   </widget>
   <action name="actionText">
+   <property name="icon">
+    <iconset theme=":/new/prefix1/img_324585.png"/>
+   </property>
    <property name="text">
     <string>Информация</string>
    </property>
   </action>
   <action name="actionExit">
+   <property name="icon">
+    <iconset theme=":/new/prefix1/img_359060.png"/>
+   </property>
    <property name="text">
     <string>Выход</string>
    </property>
