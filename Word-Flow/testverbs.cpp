@@ -13,6 +13,7 @@ TestVerbs::TestVerbs(QWidget *parent) :
     ui(new Ui::TestVerbs)
 {
     ui->setupUi(this);
+    setWindowFlags(Qt::Window | Qt::WindowTitleHint | Qt::CustomizeWindowHint);
     QDesktopWidget *pDescwidget=QApplication::desktop();
     move(pDescwidget->width()/2-width()/2, pDescwidget->height()/2-height()/2);
     this->setFixedSize(600, 400);

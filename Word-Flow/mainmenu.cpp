@@ -20,6 +20,7 @@ MainMenu::MainMenu(QWidget *parent) :
     progresswindow = new ProgressWindow;
     connect(progresswindow, &ProgressWindow::MainMenu, this, &MainMenu::show);
     ui->setupUi(this);
+    setWindowFlags(Qt::Window | Qt::WindowTitleHint | Qt::CustomizeWindowHint);
     QDesktopWidget *pDescwidget=QApplication::desktop();
     move(pDescwidget->width()/2-width()/2, pDescwidget->height()/2-height()/2);
     this->setFixedSize(600, 400);
