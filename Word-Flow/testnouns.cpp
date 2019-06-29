@@ -91,9 +91,6 @@ void Random::FillStart(){
     for (int i = 0; i < 10; i++){
         mas_answers[i] = 0;
     }
-    for (int i = 0; i < 10; i++){
-        qDebug() << numbers_words[i].word_1_number << numbers_words[i].word_2_number << numbers_words[i].word_3_number;
-    }
 }
 
 void Random::on_start_Button_clicked()
