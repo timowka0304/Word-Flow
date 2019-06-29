@@ -16,6 +16,9 @@ TestAdj::TestAdj(QWidget *parent) :
     QDesktopWidget *pDescwidget=QApplication::desktop();
     move(pDescwidget->width()/2-width()/2, pDescwidget->height()/2-height()/2);
     this->setFixedSize(600, 400);
+    QPixmap myPixmap(":/new/prefix1/adjectives.png");
+    ui->label->setPixmap(myPixmap);
+    ui->label->setHidden(0);
     ui->back_to_menu_Button->setHidden(0);
     ui->start_Button->setHidden(0);
     ui->next_Button->setHidden(1);
@@ -26,6 +29,7 @@ TestAdj::TestAdj(QWidget *parent) :
     ui->msg_text->setHidden(1);
     ui->number_of_page->setHidden(1);
     ui->mark_text->setHidden(1);
+    setWindowIcon(QIcon(":/new/prefix1/353a9a937bc4945eed556e5617806aab.png"));
 }
 
 TestAdj::~TestAdj()
@@ -108,6 +112,7 @@ void TestAdj::on_start_Button_clicked()
       case QMessageBox::Yes:
          msgBox.close();
          FillStart();
+         ui->label->setHidden(1);
          ui->back_to_menu_Button->setHidden(1);
          ui->start_Button->setHidden(1);
          ui->next_Button->setHidden(0);

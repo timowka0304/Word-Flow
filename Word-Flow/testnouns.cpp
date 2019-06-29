@@ -16,6 +16,9 @@ Random::Random(QWidget *parent) :
     QDesktopWidget *pDescwidget=QApplication::desktop();
     move(pDescwidget->width()/2-width()/2, pDescwidget->height()/2-height()/2);
     this->setFixedSize(600, 400);
+    QPixmap myPixmap(":/new/prefix1/adjectives.png");
+    ui->label->setPixmap(myPixmap);
+    ui->label->setHidden(0);
     ui->back_to_menu_Button->setHidden(0);
     ui->start_Button->setHidden(0);
     ui->next_Button->setHidden(1);
@@ -109,6 +112,7 @@ void Random::on_start_Button_clicked()
       case QMessageBox::Yes:
          msgBox.close();
          FillStart();
+         ui->label->setHidden(1);
          ui->back_to_menu_Button->setHidden(1);
          ui->start_Button->setHidden(1);
          ui->next_Button->setHidden(0);
