@@ -113,8 +113,14 @@
    <layout class="QHBoxLayout" name="horizontalLayout_2">
     <item>
      <widget class="QPushButton" name="back_to_menu_Button">
+      <property name="font">
+       <font>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
       <property name="text">
-       <string>В меню</string>
+       <string>Назад</string>
       </property>
      </widget>
     </item>
@@ -134,8 +140,14 @@
     </item>
     <item>
      <widget class="QPushButton" name="done_Button">
+      <property name="font">
+       <font>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
       <property name="text">
-       <string>Готов</string>
+       <string>Готово</string>
       </property>
      </widget>
     </item>
