@@ -374,7 +374,7 @@ void TestVerbs::on_done_Button_clicked()
     db.open();
 
     QSqlQuery query;
-    query.exec(QStringLiteral("INSERT INTO Progress VALUES (%1, %2, 10)").arg(sum*10).arg(sum));
+    query.exec(QStringLiteral("INSERT INTO Progress VALUES (%1, %2, 10, 'Глаголы')").arg(sum*10).arg(sum));
 
     this->close();
     ui->text_word->setHidden(0);
