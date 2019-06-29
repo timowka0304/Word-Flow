@@ -73,5 +73,6 @@ void VerbsMenu::on_hide_dic_Button_clicked()
 void VerbsMenu::on_lets_test_Button_clicked()
 {
     this->close();
+    on_hide_dic_Button_clicked();
     testverbs->show();
 }

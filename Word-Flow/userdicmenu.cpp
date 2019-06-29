@@ -101,5 +101,6 @@ void UserDicMenu::on_hide_dic_Button_clicked()
 void UserDicMenu::on_lets_test_Button_clicked()
 {
     this->close();
+    on_hide_dic_Button_clicked();
     testuser->show();
 }

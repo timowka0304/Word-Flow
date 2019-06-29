@@ -71,5 +71,6 @@ void AllMenu::on_hide_dic_Button_clicked()
 void AllMenu::on_lets_test_Button_clicked()
 {
     this->close();
+    on_hide_dic_Button_clicked();
     testall->show();
 }

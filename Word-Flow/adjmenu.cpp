@@ -74,5 +74,6 @@ void AdjMenu::on_hide_dic_Button_clicked()
 void AdjMenu::on_lets_test_Button_clicked()
 {
     this->close();
+    on_hide_dic_Button_clicked();
     testadj->show();
 }

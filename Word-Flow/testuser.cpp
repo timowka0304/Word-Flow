@@ -22,6 +22,7 @@ TestUser::TestUser(QWidget *parent) :
     ui->next_Button->setFocusPolicy(Qt::FocusPolicy::NoFocus);
     ui->done_Button->setFocusPolicy(Qt::FocusPolicy::NoFocus);
     ui->start_Button->setFocusPolicy(Qt::FocusPolicy::NoFocus);
+    ui->clean_Button->setHidden(1);
     ui->label->setPixmap(myPixmap);
     ui->label->setHidden(0);
     ui->back_to_menu_Button->setHidden(0);
@@ -381,6 +382,7 @@ void TestUser::on_done_Button_clicked()
     query.exec(QStringLiteral("INSERT INTO Progress VALUES (%1, %2, 10, 'Пользовательская')").arg(sum*10).arg(sum));
 
     this->close();
+    ui->label->setHidden(0);
     ui->text_word->setHidden(0);
     ui->next_Button->setHidden(1);
     ui->text_question->setHidden(0);
@@ -435,7 +437,7 @@ void TestUser::on_next_Button_clicked(){
     for(int i = 0; i < allButtons.size(); ++i){
             group.addButton(allButtons[i],i);
     }
-    if (group.checkedId() == -1){
+    if ((group.checkedId() == -1)||(group.checkedId() == 4)){
         QMessageBox msgBox;
         msgBox.setText("Так не пойдет! Выберите вариант ответа!");
         msgBox.setIcon(QMessageBox::Warning);
@@ -461,14 +463,13 @@ void TestUser::on_next_Button_clicked(){
             needed_eng = query.value(1).toString();
             needed_rus = query.value(2).toString();
         }
-
         if ((choosen == needed_eng) or (choosen == needed_rus)){
             mas_answers[counter] = 1;
             Warning(1, needed_eng, needed_rus);
         } else {
             Warning(0, needed_eng, needed_rus);
         }
-        //allButtons[group.checkedId()]->focusPolicy(Qt::NoFocus);
+        ui->clean_Button->setChecked(1);
         counter++;
         RunTest();
     }
