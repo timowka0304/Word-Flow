@@ -43,6 +43,10 @@ private slots:
 
     void on_start_Button_clicked();
 
+    void on_done_Button_clicked();
+
+    void on_next_Button_clicked();
+
 private:
     Ui::TestUser *ui;
     QSqlDatabase db;
