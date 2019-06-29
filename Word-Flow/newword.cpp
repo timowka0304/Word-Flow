@@ -58,7 +58,7 @@ void NewWord::on_save_Button_clicked()
     else {
         QSqlDatabase db;
         db = QSqlDatabase::addDatabase("QSQLITE");
-        db.setDatabaseName("/home/timowka0304/Word-Flow/Word-Flow/UserDic.db3");
+        db.setDatabaseName("/home/nikita/Рабочий стол/курсовая/Word-Flow/Word-Flow/UserDic.db3");
         db.open();
         QSqlQuery query;
         QMessageBox msgBox;

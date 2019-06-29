@@ -55,7 +55,7 @@ void TestUser::on_start_Button_clicked()
          break;
        case QMessageBox::Yes:{
            QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
-           db.setDatabaseName( "/home/timowka0304/Word-Flow/Word-Flow/UserDic.db3");
+           db.setDatabaseName( "/home/nikita/Рабочий стол/курсовая/Word-Flow/Word-Flow/UserDic.db3");
            db.open();
            QSqlQuery query;
            query.exec("SELECT valid FROM UsersWords WHERE valid = 1");
@@ -99,7 +99,7 @@ void TestUser::on_start_Button_clicked()
 
 void TestUser::FillStart(){
     QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
-    db.setDatabaseName("/home/timowka0304/Word-Flow/Word-Flow/UserDic.db3");
+    db.setDatabaseName("/home/nikita/Рабочий стол/курсовая/Word-Flow/Word-Flow/UserDic.db3");
     db.open();
     QSqlQuery query;
     query.exec("SELECT id FROM UsersWords WHERE valid = 1");
@@ -190,7 +190,7 @@ void TestUser::RunTest(){
 
 void TestUser::ENGtoRUS(){
     db = QSqlDatabase::addDatabase("QSQLITE");
-    db.setDatabaseName("/home/timowka0304/Word-Flow/Word-Flow/UserDic.db3");
+    db.setDatabaseName("/home/nikita/Рабочий стол/курсовая/Word-Flow/Word-Flow/UserDic.db3");
     db.open();
     QSqlQuery query_eng_to_rus;
     query_eng_to_rus.exec(QStringLiteral("SELECT id, English, Russian FROM UsersWords WHERE id = %1").arg(numbers_words[counter].word_answer_number));
@@ -254,7 +254,7 @@ void TestUser::ENGtoRUS(){
 
 void TestUser::RUStoENG(){
     db = QSqlDatabase::addDatabase("QSQLITE");
-    db.setDatabaseName("/home/timowka0304/Word-Flow/Word-Flow/UserDic.db3");
+    db.setDatabaseName("/home/nikita/Рабочий стол/курсовая/Word-Flow/Word-Flow/UserDic.db3");
     db.open();
     QSqlQuery query_rus_to_eng;
     query_rus_to_eng.exec(QStringLiteral("SELECT id, English, Russian FROM UsersWords WHERE id = %1").arg(numbers_words[counter].word_answer_number));
@@ -365,7 +365,7 @@ void TestUser::on_done_Button_clicked()
 {
     QSqlDatabase db;
     db = QSqlDatabase::addDatabase("QSQLITE");
-    db.setDatabaseName("/home/timowka0304/Word-Flow/Word-Flow/Progress.db3");
+    db.setDatabaseName("/home/nikita/Рабочий стол/курсовая/Word-Flow/Word-Flow/Progress.db3");
     db.open();
 
     QSqlQuery query;
@@ -442,7 +442,7 @@ void TestUser::on_next_Button_clicked(){
         }
     } else {
         db = QSqlDatabase::addDatabase("QSQLITE");
-        db.setDatabaseName("/home/timowka0304/Word-Flow/Word-Flow/UserDic.db3");
+        db.setDatabaseName("/home/nikita/Рабочий стол/курсовая/Word-Flow/Word-Flow/UserDic.db3");
         db.open();
         QString needed_eng, needed_rus;
         QString choosen = group.button(group.checkedId())->text();
