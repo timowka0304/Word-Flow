@@ -112,8 +112,9 @@
   </widget>
   <action name="actionText">
    <property name="icon">
-    <iconset theme=":/new/prefix1/img_324585.png">
-     <normaloff>.</normaloff>.</iconset>
+    <iconset>
+     <normaloff>.</normaloff>
+     <disabledon>:/new/prefix1/img_324585.png</disabledon>.</iconset>
    </property>
    <property name="text">
     <string>Информация</string>
@@ -121,8 +122,9 @@
   </action>
   <action name="actionExit">
    <property name="icon">
-    <iconset theme=":/new/prefix1/img_359060.png">
-     <normaloff>.</normaloff>.</iconset>
+    <iconset>
+     <normaloff>.</normaloff>
+     <disabledon>:/new/prefix1/img_359060.png</disabledon>.</iconset>
    </property>
    <property name="text">
     <string>Выход</string>
