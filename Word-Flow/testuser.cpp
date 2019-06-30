@@ -72,7 +72,7 @@ void TestUser::on_start_Button_clicked()
            int size = 0 ;
            while (query.next())
                size++;
-           if (size > 10){
+           if (size > 9){
                msgBox.close();
                FillStart();
                ui->label->setHidden(1);
@@ -122,13 +122,14 @@ void TestUser::FillStart(){
     int i = 0;
     while (query.next()){
         mas[i] = query.value(0).toInt();
+        qDebug() << "[" << i << "]" << mas[i];
         i++;
     } //заполнение массива с id существющих слов
+
     srand(time(nullptr));
     for(int i = 0; i < 10; i++){
         numbers_words[i].question_number = rand() % 2 + 1;
     }
-
     for(int i = 0; i < 10; i ++){
         numbers_words[i].word_answer_number = mas[rand() % size];
         for(int j = 0; j < i; j ++){
@@ -137,11 +138,10 @@ void TestUser::FillStart(){
                 break;
             }
         }
-
     }
     for(int i = 0; i < 10; i++){
         numbers_words[i].word_1_number =  mas[rand() % size];
-        for(int j = 0; j < 10; j ++){
+        for(int j = i; j < 10; j ++){
             if(numbers_words[j].word_answer_number == numbers_words[i].word_1_number){
                 i --;
                 break;
@@ -150,7 +150,7 @@ void TestUser::FillStart(){
     }
     for(int i = 0; i < 10; i++){
         numbers_words[i].word_2_number =  mas[rand() % size];
-        for(int j = 0; j < 10; j ++){
+        for(int j = i; j < 10; j ++){
             if(numbers_words[j].word_answer_number == numbers_words[i].word_2_number){
                 i --;
                 break;
@@ -163,7 +163,7 @@ void TestUser::FillStart(){
     }
     for(int i = 0; i < 10; i++){
         numbers_words[i].word_3_number =  mas[rand() % size];
-        for(int j = 0; j < 10; j ++){
+        for(int j = i; j < 10; j ++){
             if(numbers_words[j].word_answer_number == numbers_words[i].word_3_number){
                 i --;
                 break;
@@ -180,6 +180,9 @@ void TestUser::FillStart(){
     }
     for (int i = 0; i < 10; i++){
         mas_answers[i] = 0;
+    }
+    for (int i = 0; i < 10; i++){
+        qDebug() << numbers_words[i].question_number << numbers_words[i].word_answer_number << numbers_words[i].word_1_number << numbers_words[i].word_2_number << numbers_words[i].word_3_number;
     }
 }
 
