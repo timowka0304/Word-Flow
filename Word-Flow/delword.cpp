@@ -19,7 +19,7 @@ DelWord::DelWord(QWidget *parent) :
     ui->del_Button->setFocusPolicy(Qt::FocusPolicy::NoFocus);
     ui->back_to_menu_Button->setFocusPolicy(Qt::FocusPolicy::NoFocus);
     ui->tableView->setFocusPolicy(Qt::FocusPolicy::NoFocus);
-    setWindowIcon(QIcon(":/new/prefix1/картинки /353a9a937bc4945eed556e5617806aab.png"));
+    setWindowIcon(QIcon(":/new/prefix1/res/logo.png"));
     Show_db();
 }
 
@@ -30,7 +30,7 @@ DelWord::~DelWord()
 void DelWord::Show_db()
 {
     QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
-    db.setDatabaseName( "/home/timowka0304/Word-Flow/Word-Flow/UserDic.db3");
+    db.setDatabaseName( "/home/timowka0304/Word-Flow/Word-Flow/Word-Flow/UserDic.db3");
     db.open();
     QSqlQuery query;
     query.exec("SELECT UsersWords.English, UsersWords.Russian FROM UsersWords");
@@ -55,7 +55,7 @@ void DelWord::on_del_Button_clicked()
     QString choosen = ui->tableView->currentIndex().data(0).toString();
 
     QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
-    db.setDatabaseName( "/home/timowka0304/Word-Flow/Word-Flow/UserDic.db3");
+    db.setDatabaseName( "/home/timowka0304/Word-Flow/Word-Flow/Word-Flow/UserDic.db3");
     db.open();
     QSqlQuery query;
 

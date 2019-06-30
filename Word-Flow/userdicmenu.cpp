@@ -27,7 +27,7 @@ UserDicMenu::UserDicMenu(QWidget *parent) :
     ui->hide_dic_Button->setFocusPolicy(Qt::FocusPolicy::NoFocus);
     ui->add_Button->setFocusPolicy(Qt::FocusPolicy::NoFocus);
     ui->delete_Button->setFocusPolicy(Qt::FocusPolicy::NoFocus);
-    setWindowIcon(QIcon(":/new/prefix1/картинки /353a9a937bc4945eed556e5617806aab.png"));
+    setWindowIcon(QIcon(":/new/prefix1/res/logo.png"));
 }
 
 UserDicMenu::~UserDicMenu()
@@ -74,7 +74,7 @@ void UserDicMenu::on_dic_show_Button_clicked()
 
     QSqlDatabase db;
     db = QSqlDatabase::addDatabase("QSQLITE");
-    db.setDatabaseName("/home/timowka0304/Word-Flow/Word-Flow/UserDic.db3");
+    db.setDatabaseName("/home/timowka0304/Word-Flow/Word-Flow/Word-Flow/UserDic.db3");
     db.open();
 
     QSqlQuery query;

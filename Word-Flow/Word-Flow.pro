@@ -69,4 +69,4 @@ SOURCES += adjmenu.cpp \
            verbsmenu.cpp
 RESOURCES += \
     icon_and_pictures.qrc
-include( /home/svetlana/Word-Flow/common.pri )
+include( /home/timowka0304/Word-Flow/Word-Flow//common.pri )

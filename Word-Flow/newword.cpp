@@ -25,7 +25,7 @@ NewWord::NewWord(QWidget *parent) :
     ui->save_Button->setFocusPolicy(Qt::FocusPolicy::NoFocus);
     ui->cancel_Button->setFocusPolicy(Qt::FocusPolicy::NoFocus);
     ui->info_Button->setFocusPolicy(Qt::FocusPolicy::NoFocus);
-    setWindowIcon(QIcon(":/new/prefix1/картинки /353a9a937bc4945eed556e5617806aab.png"));
+    setWindowIcon(QIcon(":/new/prefix1/res/logo.png"));
 }
 
 NewWord::~NewWord()
@@ -60,7 +60,7 @@ void NewWord::on_save_Button_clicked()
     else {
         QSqlDatabase db;
         db = QSqlDatabase::addDatabase("QSQLITE");
-        db.setDatabaseName("/home/timowka0304/Word-Flow/Word-Flow/UserDic.db3");
+        db.setDatabaseName("/home/timowka0304/Word-Flow/Word-Flow/Word-Flow/UserDic.db3");
         db.open();
         QSqlQuery query;
         QMessageBox msgBox;

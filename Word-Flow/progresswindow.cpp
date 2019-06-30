@@ -22,7 +22,7 @@ ProgressWindow::ProgressWindow(QWidget *parent) :
     ui->max_Button->setFocusPolicy(Qt::FocusPolicy::NoFocus);
     ui->min_Button->setFocusPolicy(Qt::FocusPolicy::NoFocus);
     Show_db();
-    setWindowIcon(QIcon(":/new/prefix1/картинки /353a9a937bc4945eed556e5617806aab.png"));
+    setWindowIcon(QIcon(":/new/prefix1/res/logo.png"));
 }
 
 ProgressWindow::~ProgressWindow()
@@ -33,7 +33,7 @@ ProgressWindow::~ProgressWindow()
 void ProgressWindow::Show_db()
 {
     QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
-    db.setDatabaseName( "/home/timowka0304/Word-Flow/Word-Flow/Progress.db3");
+    db.setDatabaseName( "/home/timowka0304/Word-Flow/Word-Flow/Word-Flow/Progress.db3");
     db.open();
     QSqlQuery query;
     query.exec("SELECT * FROM Progress");
@@ -85,7 +85,7 @@ void ProgressWindow::on_clear_db_Button_clicked()
 void ProgressWindow::on_max_Button_clicked()
 {
     QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
-    db.setDatabaseName( "/home/timowka0304/Word-Flow/Word-Flow/Progress.db3");
+    db.setDatabaseName( "/home/timowka0304/Word-Flow/Word-Flow/Word-Flow/Progress.db3");
     db.open();
     QSqlQuery query;
     int true_a;
@@ -110,7 +110,7 @@ void ProgressWindow::on_max_Button_clicked()
 void ProgressWindow::on_min_Button_clicked()
 {
     QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
-    db.setDatabaseName( "/home/timowka0304/Word-Flow/Word-Flow/Progress.db3");
+    db.setDatabaseName( "/home/timowka0304/Word-Flow/Word-Flow/Word-Flow/Progress.db3");
     db.open();
     QSqlQuery query;
     int true_a;

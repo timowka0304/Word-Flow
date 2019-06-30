@@ -21,7 +21,7 @@ VerbsMenu::VerbsMenu(QWidget *parent) :
     ui->lets_test_Button->setFocusPolicy(Qt::FocusPolicy::NoFocus);
     ui->menu_back_Button->setFocusPolicy(Qt::FocusPolicy::NoFocus);
     ui->hide_dic_Button->setFocusPolicy(Qt::FocusPolicy::NoFocus);
-    setWindowIcon(QIcon(":/new/prefix1/картинки /353a9a937bc4945eed556e5617806aab.png"));
+    setWindowIcon(QIcon(":/new/prefix1/res/logo.png"));
 }
 
 VerbsMenu::~VerbsMenu()
@@ -47,7 +47,7 @@ void VerbsMenu::on_dic_show_Button_clicked()
 
     QSqlDatabase db;
     db = QSqlDatabase::addDatabase("QSQLITE");
-    db.setDatabaseName("/home/timowka0304/Word-Flow/Word-Flow/Words.db3");
+    db.setDatabaseName("/home/timowka0304/Word-Flow/Word-Flow/Word-Flow/Words.db3");
     db.open();
 
     QSqlQuery query;
