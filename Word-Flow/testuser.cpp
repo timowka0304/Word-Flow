@@ -209,7 +209,7 @@ void TestUser::ENGtoRUS(){
     QSqlQuery query_eng_to_rus;
     query_eng_to_rus.exec(QStringLiteral("SELECT id, English, Russian FROM UsersWords WHERE id = %1").arg(numbers_words[counter].word_answer_number));
 
-    ui->text_question->setText("Переведи с английского на русский слово ");
+    ui->text_question->setText("Переведите с английского на русский слово ");
     while (query_eng_to_rus.next()){
         ui->text_word->setText(query_eng_to_rus.value(1).toString());
     }
@@ -273,7 +273,7 @@ void TestUser::RUStoENG(){
     QSqlQuery query_rus_to_eng;
     query_rus_to_eng.exec(QStringLiteral("SELECT id, English, Russian FROM UsersWords WHERE id = %1").arg(numbers_words[counter].word_answer_number));
 
-    ui->text_question->setText("Переведи с русского на английский слово ");
+    ui->text_question->setText("Переведите с русского на английский слово ");
     while (query_rus_to_eng.next()){
         ui->text_word->setText(query_rus_to_eng.value(2).toString());
     }
@@ -355,24 +355,24 @@ void TestUser::ResultShow(){
     switch (proc) {
         case 0:
             h = rand()%3;
-            if (h == 0) ui->mark_text->setText("Плохо, конечно, но не отчаивайся! Попробуй запомнить слова лучше!");
-            if (h == 1) ui->mark_text->setText("Не расстраивайся. Еще не все потеряно! Всегда есть возможность попробовать снова!");
-            if (h == 2) ui->mark_text->setText("Результат так себе. Видимо ты не старался! Приходи, когда повторишь слова!");
+            if (h == 0) ui->mark_text->setText("Плохо, конечно, но не отчаивайтесь! Попробуйте запомнить слова лучше!");
+            if (h == 1) ui->mark_text->setText("Не расстраивайтесь. Еще не все потеряно! Всегда есть возможность попробовать снова!");
+            if (h == 2) ui->mark_text->setText("Результат так себе. Возвращайтесь, когда повторите слова!");
             break;
         case 1:
             h = rand()%3;
-            if (h == 0) ui->mark_text->setText("Хороший результат! Еще немного и ты будешь знать все слова!");
+            if (h == 0) ui->mark_text->setText("Хороший результат! Еще немного и Вы будете знать все слова!");
             if (h == 1) ui->mark_text->setText("Вы неплохо справились! Продолжайте в том же духе!");
             if (h == 2) ui->mark_text->setText("Еще чуть-чуть и Вы будете у цели!");
             break;
         case 2:
             h = rand()%3;
-            if (h == 0) ui->mark_text->setText("Товарищ, Полиглот, Вам точно нужна наша помощь? Вы и без нас хорошо справляетесь! Отлично!");
-            if (h == 1) ui->mark_text->setText("Вы отлично спавились!");
+            if (h == 0) ui->mark_text->setText("Товарищ Полиглот, Вам точно нужна наша помощь? Вы и без нас хорошо справляетесь! Отлично!");
+            if (h == 1) ui->mark_text->setText("Вы отлично справились!");
             if (h == 2) ui->mark_text->setText("Отлично! Вы достихли успеха в запоминании слов!");
             break;
     }
-    ui->msg_text->setText(QStringLiteral("Ты верно ответил на %1 из 10\nТы успешен в запоминании своих слов на %2%").arg(sum).arg(sum*10));
+    ui->msg_text->setText(QStringLiteral("Вы верно ответили на %1 из 10\nВы успешны в запоминании своих слов на %2%").arg(sum).arg(sum*10));
 }
 
 void TestUser::on_done_Button_clicked()
@@ -404,10 +404,10 @@ void TestUser::on_done_Button_clicked()
 
 void TestUser::Warning(int flag, QString eng, QString rus){
     QMessageBox msgBox;
-    msgBox.setWindowTitle("Твой выбор");
+    msgBox.setWindowTitle("Ваш выбор");
     int ret;
     if (flag == 0){
-        msgBox.setText(QStringLiteral("Не верно!\n\nЗапомни:\n%1 = %2").arg(eng).arg(rus));
+        msgBox.setText(QStringLiteral("Не верно!\n\nЗапомните:\n%1 = %2").arg(eng).arg(rus));
         msgBox.setIcon(QMessageBox::Warning);
         msgBox.setStandardButtons(QMessageBox::Ok);
         ret = msgBox.exec();

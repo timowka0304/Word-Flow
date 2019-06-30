@@ -68,7 +68,7 @@
        <item>
         <widget class="QPushButton" name="progress_Button">
          <property name="text">
-          <string>Твой прогресс</string>
+          <string>Прогресс</string>
          </property>
         </widget>
        </item>
@@ -112,7 +112,8 @@
   </widget>
   <action name="actionText">
    <property name="icon">
-    <iconset theme=":/new/prefix1/img_324585.png"/>
+    <iconset theme=":/new/prefix1/img_324585.png">
+     <normaloff>.</normaloff>.</iconset>
    </property>
    <property name="text">
     <string>Информация</string>
@@ -120,7 +121,8 @@
   </action>
   <action name="actionExit">
    <property name="icon">
-    <iconset theme=":/new/prefix1/img_359060.png"/>
+    <iconset theme=":/new/prefix1/img_359060.png">
+     <normaloff>.</normaloff>.</iconset>
    </property>
    <property name="text">
     <string>Выход</string>
