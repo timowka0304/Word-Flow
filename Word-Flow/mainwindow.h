@@ -3,6 +3,9 @@
 
 #include <QMainWindow>
 #include "mainmenu.h"
+#include <QtGui>
+#include <QtTest/QTest>
+#include "test_qlineedit.h"
 
 namespace Ui {
 class MainWindow;
