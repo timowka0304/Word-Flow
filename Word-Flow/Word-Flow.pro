@@ -6,7 +6,7 @@ QT       += core gui sql
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TEMPLATE = app
-TARGET = Word-Flow
+TARGET = bin/Word-Flow.exe
 INCLUDEPATH += .
 
 # The following define makes your compiler warn you if you use any
@@ -68,3 +68,4 @@ SOURCES += adjmenu.cpp \
            userdicmenu.cpp \
            verbsmenu.cpp
 RESOURCES += icon.qrc
+include( /home/svetlana/Word-Flow/common.pri )
