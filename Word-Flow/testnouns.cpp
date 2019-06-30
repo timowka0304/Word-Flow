@@ -17,7 +17,7 @@ Random::Random(QWidget *parent) :
     QDesktopWidget *pDescwidget=QApplication::desktop();
     move(pDescwidget->width()/2-width()/2, pDescwidget->height()/2-height()/2);
     this->setFixedSize(600, 400);
-    QPixmap myPixmap(":/new/prefix1/susch.jpg");
+    QPixmap myPixmap(":/new/prefix1/картинки /susch.jpg");
     ui->groupBox->setFocusPolicy(Qt::FocusPolicy::NoFocus);
     ui->back_to_menu_Button->setFocusPolicy(Qt::FocusPolicy::NoFocus);
     ui->next_Button->setFocusPolicy(Qt::FocusPolicy::NoFocus);
@@ -36,7 +36,7 @@ Random::Random(QWidget *parent) :
     ui->msg_text->setHidden(1);
     ui->number_of_page->setHidden(1);
     ui->mark_text->setHidden(1);
-    setWindowIcon(QIcon(":/new/prefix1/353a9a937bc4945eed556e5617806aab.png"));
+    setWindowIcon(QIcon(":/new/prefix1/картинки /353a9a937bc4945eed556e5617806aab.png"));
 }
 
 Random::~Random()

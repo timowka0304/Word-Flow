@@ -67,5 +67,6 @@ SOURCES += adjmenu.cpp \
            testverbs.cpp \
            userdicmenu.cpp \
            verbsmenu.cpp
-RESOURCES += icon.qrc
+RESOURCES += \
+    icon_and_pictures.qrc
 include( /home/svetlana/Word-Flow/common.pri )

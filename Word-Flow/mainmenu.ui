@@ -113,8 +113,7 @@
   <action name="actionText">
    <property name="icon">
     <iconset>
-     <normaloff>.</normaloff>
-     <disabledon>:/new/prefix1/img_324585.png</disabledon>.</iconset>
+     <normaloff>картинки /img_324585.png</normaloff>картинки /img_324585.png</iconset>
    </property>
    <property name="text">
     <string>Информация</string>
@@ -123,8 +122,7 @@
   <action name="actionExit">
    <property name="icon">
     <iconset>
-     <normaloff>.</normaloff>
-     <disabledon>:/new/prefix1/img_359060.png</disabledon>.</iconset>
+     <normaloff>картинки /img_359060.png</normaloff>картинки /img_359060.png</iconset>
    </property>
    <property name="text">
     <string>Выход</string>

@@ -27,7 +27,7 @@ UserDicMenu::UserDicMenu(QWidget *parent) :
     ui->hide_dic_Button->setFocusPolicy(Qt::FocusPolicy::NoFocus);
     ui->add_Button->setFocusPolicy(Qt::FocusPolicy::NoFocus);
     ui->delete_Button->setFocusPolicy(Qt::FocusPolicy::NoFocus);
-    setWindowIcon(QIcon(":/new/prefix1/353a9a937bc4945eed556e5617806aab.png"));
+    setWindowIcon(QIcon(":/new/prefix1/картинки /353a9a937bc4945eed556e5617806aab.png"));
 }
 
 UserDicMenu::~UserDicMenu()

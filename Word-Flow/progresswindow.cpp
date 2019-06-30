@@ -22,7 +22,7 @@ ProgressWindow::ProgressWindow(QWidget *parent) :
     ui->max_Button->setFocusPolicy(Qt::FocusPolicy::NoFocus);
     ui->min_Button->setFocusPolicy(Qt::FocusPolicy::NoFocus);
     Show_db();
-    setWindowIcon(QIcon(":/new/prefix1/353a9a937bc4945eed556e5617806aab.png"));
+    setWindowIcon(QIcon(":/new/prefix1/картинки /353a9a937bc4945eed556e5617806aab.png"));
 }
 
 ProgressWindow::~ProgressWindow()
