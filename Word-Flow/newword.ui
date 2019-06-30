@@ -129,6 +129,13 @@
      </widget>
     </item>
     <item>
+     <widget class="QPushButton" name="info_Button">
+      <property name="text">
+       <string>Формат ввода</string>
+      </property>
+     </widget>
+    </item>
+    <item>
      <widget class="QPushButton" name="cancel_Button">
       <property name="font">
        <font>

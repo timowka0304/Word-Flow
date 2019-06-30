@@ -92,3 +92,21 @@ void NewWord::on_save_Button_clicked()
         }
     }
 }
+
+void NewWord::on_info_Button_clicked()
+{
+    QMessageBox msgBox;
+    msgBox.setText("ENG: [a-z]\nRUS: [а-я]\nбез пробелов\nбез цифр\nодно слово");
+    msgBox.setIcon(QMessageBox::Information);
+    msgBox.setStandardButtons(QMessageBox::Ok);
+    msgBox.setDefaultButton(QMessageBox::Ok);
+    int ret = msgBox.exec();
+       switch (ret) {
+       case QMessageBox::Ok:
+         msgBox.close();
+         break;
+      default:
+         msgBox.close();
+         break;
+    }
+}

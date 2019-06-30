@@ -24,6 +24,8 @@ private slots:
 
     void on_save_Button_clicked();
 
+    void on_info_Button_clicked();
+
 private:
     Ui::NewWord *ui;
     QSqlDatabase db;
