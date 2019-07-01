@@ -8,10 +8,6 @@ os:
     - linux
     - os
 
-before_install:
-    - sudo apt-get update
-    - sudo apt-get install -y libxm12-dev
-
 script:
     - qmake -project "CONFIG += qtestlib"
     - qmake Word-Flow/Word-Flow.pro
