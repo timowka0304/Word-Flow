@@ -13,7 +13,6 @@ before_script:
 script:
     - qmake -project "CONFIG += qtestlib"
     - qmake Word-Flow/Word-Flow.pro
-    - make
     - cd build
     - ctest —output-on-failure
 
