@@ -2,11 +2,17 @@ language: cpp
 
 compiler:
     - clang
-    - g++ -std= c++11
+    - g++ 
 
 os:
     - linux
     - os
+
+sources: 
+    - ubuntu-toolchain-r-test
+  
+packages:
+    - g++-7
 
 script:
     - qmake -project "CONFIG += qtestlib"
