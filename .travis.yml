@@ -2,20 +2,23 @@ language: cpp
 
 compiler:
     - clang
-    - gcc
+    - g++ 
 
 os:
     - linux
     - os
 
-before_script: 
+sources: 
+    - ubuntu-toolchain-r-test
+  
+packages:
+    - g++-7
 
 script:
     - qmake -project "CONFIG += qtestlib"
     - qmake Word-Flow/Word-Flow.pro
     - make
     - cd build
-    - ctest —output-on-failure
 
 
 

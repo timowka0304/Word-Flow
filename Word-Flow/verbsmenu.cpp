@@ -10,7 +10,8 @@ VerbsMenu::VerbsMenu(QWidget *parent) :
     ui(new Ui::VerbsMenu)
 {
     testverbs = new TestVerbs;
-    connect(testverbs, &TestVerbs::VerbsMenu, this, &VerbsMenu::show);
+    QObject::connect(testverbs, SIGNAL(VerbsMenu()), this, SLOT(show()));
+    //connect(testverbs, &TestVerbs::VerbsMenu, this, &VerbsMenu::show);
     ui->setupUi(this);
     setWindowFlags(Qt::Window | Qt::WindowTitleHint | Qt::CustomizeWindowHint);
     QDesktopWidget *pDescwidget=QApplication::desktop();
@@ -48,7 +49,7 @@ void VerbsMenu::on_dic_show_Button_clicked()
 
     QSqlDatabase db;
     db = QSqlDatabase::addDatabase("QSQLITE");
-    db.setDatabaseName("/home/svetlana/Word-Flow/Word-Flow/Words.db3");
+    db.setDatabaseName("/home/timowka0304/Word-Flow/Word-Flow/Word-Flow/Words.db3");
     db.open();
 
     QSqlQuery query;
@@ -56,7 +57,7 @@ void VerbsMenu::on_dic_show_Button_clicked()
 
     while (query.next())
     {
-        if ((query.value(0) > 200) && (query.value(0) < 301)){
+        if ((query.value(0).toInt() > 200) && (query.value(0).toInt() < 301)){
             QString english = query.value(1).toString();
             QString russian = query.value(2).toString();
             ui->textBrowser->insertPlainText(english+" - "+russian+"\n");

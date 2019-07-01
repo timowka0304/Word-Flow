@@ -8,6 +8,7 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TEMPLATE = app
 TARGET = bin/Word-Flow.exe
 INCLUDEPATH += .
+QMAKE_CXXFLAGS += -std=c++0x
 
 # The following define makes your compiler warn you if you use any
 # feature of Qt which has been marked as deprecated (the exact warnings
@@ -21,6 +22,9 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 # Input
+
+CONFIG += c++11
+
 HEADERS += adjmenu.h \
            allmenu.h \
            delword.h \
@@ -73,4 +77,4 @@ SOURCES += adjmenu.cpp \
     test_radiobutton.cpp
 RESOURCES += \
     icon_and_pictures.qrc
-#include( /home/svetlana/Word-Flow/common.pri )
+include( $${PWD}/common.pri )

@@ -11,7 +11,8 @@ NounsMenu::NounsMenu(QWidget *parent) :
     ui(new Ui::NounsMenu)
 {
     random = new Random;
-    connect(random, &Random::NounsMenu, this, &NounsMenu::show);
+    QObject::connect(random, SIGNAL(NounsMenu()), this, SLOT(show()));
+    //connect(random, &Random::NounsMenu, this, &NounsMenu::show);
     ui->setupUi(this);
     setWindowFlags(Qt::Window | Qt::WindowTitleHint | Qt::CustomizeWindowHint);
     QDesktopWidget *pDescwidget=QApplication::desktop();
@@ -50,7 +51,7 @@ void NounsMenu::on_dic_show_Button_clicked()
 
     QSqlDatabase db;
     db = QSqlDatabase::addDatabase("QSQLITE");
-    db.setDatabaseName("/home/svetlana/Word-Flow/Word-Flow/Words.db3");
+    db.setDatabaseName("/home/timowka0304/Word-Flow/Word-Flow/Word-Flow/Words.db3");
     db.open();
 
     QSqlQuery query;
@@ -58,7 +59,7 @@ void NounsMenu::on_dic_show_Button_clicked()
 
     while (query.next())
     {
-        if (query.value(0) < 101){
+        if (query.value(0).toInt() < 101){
             QString english = query.value(1).toString();
             QString russian = query.value(2).toString();
             ui->textBrowser->insertPlainText(english+" - "+russian+"\n");

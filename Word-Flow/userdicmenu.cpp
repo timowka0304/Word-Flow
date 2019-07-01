@@ -10,11 +10,14 @@ UserDicMenu::UserDicMenu(QWidget *parent) :
     ui(new Ui::UserDicMenu)
 {
     newword = new NewWord;
-    connect(newword, &NewWord::UserDicMenu, this, &UserDicMenu::show);
+    QObject::connect(newword, SIGNAL(UserDicMenu()), this, SLOT(show()));
+    //connect(newword, &NewWord::UserDicMenu, this, &UserDicMenu::show);
     delword = new DelWord;
-    connect(delword, &DelWord::UserDicMenu, this, &UserDicMenu::show);
+    QObject::connect(newword, SIGNAL(UserDicMenu()), this, SLOT(show()));
+    //connect(delword, &DelWord::UserDicMenu, this, &UserDicMenu::show);
     testuser = new TestUser;
-    connect(testuser, &TestUser::UserDicMenu, this, &UserDicMenu::show);
+    QObject::connect(testuser, SIGNAL(UserDicMenu()), this, SLOT(show()));
+    //onnect(testuser, &TestUser::UserDicMenu, this, &UserDicMenu::show);
     ui->setupUi(this);
     setWindowFlags(Qt::Window | Qt::WindowTitleHint | Qt::CustomizeWindowHint);
     QDesktopWidget *pDescwidget=QApplication::desktop();
@@ -75,7 +78,7 @@ void UserDicMenu::on_dic_show_Button_clicked()
 
     QSqlDatabase db;
     db = QSqlDatabase::addDatabase("QSQLITE");
-    db.setDatabaseName("/home/svetlana/Word-Flow/Word-Flow/UserDic.db3");
+    db.setDatabaseName("/home/timowka0304/Word-Flow/Word-Flow/Word-Flow/UserDic.db3");
     db.open();
 
     QSqlQuery query;
@@ -83,7 +86,7 @@ void UserDicMenu::on_dic_show_Button_clicked()
 
     while (query.next())
     {
-        if (query.value(3) == 1)
+        if (query.value(3).toInt() == 1)
         {
             QString english = query.value(1).toString();
             QString russian = query.value(2).toString();

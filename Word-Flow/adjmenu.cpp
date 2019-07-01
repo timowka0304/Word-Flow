@@ -4,14 +4,15 @@
 #include <QSqlQuery>
 #include <QMessageBox>
 #include <QDesktopWidget>
-#include <QDir>
+#include <QVariant>
 
 AdjMenu::AdjMenu(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::AdjMenu)
 {
     testadj = new TestAdj;
-    connect(testadj, &TestAdj::AdjMenu, this, &AdjMenu::show);
+    QObject::connect(testadj, SIGNAL(AdjMenu()), this, SLOT(show()));
+    //AdjMenu::connect(testadj, &TestAdj::AdjMenu, this, &AdjMenu::show);
     ui->setupUi(this);
     setWindowFlags(Qt::Window | Qt::WindowTitleHint | Qt::CustomizeWindowHint);
     QDesktopWidget *pDescwidget=QApplication::desktop();
@@ -49,7 +50,7 @@ void AdjMenu::on_dic_show_Button_clicked()
 
     QSqlDatabase db;
     db = QSqlDatabase::addDatabase("QSQLITE");
-    db.setDatabaseName("/home/svetlana/Word-Flow/Word-Flow/Words.db3");
+    db.setDatabaseName("/home/timowka0304/Word-Flow/Word-Flow/Word-Flow/Words.db3");
     db.open();
 
     QSqlQuery query;
@@ -57,7 +58,7 @@ void AdjMenu::on_dic_show_Button_clicked()
 
     while (query.next())
     {
-        if ((query.value(0) > 100) && (query.value(0) < 201)){
+        if ((query.value(0).toInt() > 100) && (query.value(0).toInt() < 201)){
             QString english = query.value(1).toString();
             QString russian = query.value(2).toString();
             ui->textBrowser->insertPlainText(english+" - "+russian+"\n");

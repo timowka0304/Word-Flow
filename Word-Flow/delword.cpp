@@ -6,7 +6,7 @@
 #include <QDesktopWidget>
 #include <QDebug>
 #include <QMessageBox>
-#include <QDir>
+#include <QHeaderView>
 
 DelWord::DelWord(QWidget *parent) :
     QDialog(parent),
@@ -31,7 +31,7 @@ DelWord::~DelWord()
 void DelWord::Show_db()
 {
     QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
-    db.setDatabaseName( "/home/svetlana/Word-Flow/Word-Flow/UserDic.db3");
+    db.setDatabaseName( "/home/timowka0304/Word-Flow/Word-Flow/Word-Flow/UserDic.db3");
     db.open();
     QSqlQuery query;
     query.exec("SELECT UsersWords.English, UsersWords.Russian FROM UsersWords");
@@ -47,8 +47,9 @@ void DelWord::Show_db()
     model->select();
     ui->tableView->setModel(model);
     ui->tableView->setEditTriggers(QAbstractItemView::NoEditTriggers);
-    ui->tableView->horizontalHeader()->setSectionResizeMode(0, QHeaderView::Stretch);
-    ui->tableView->horizontalHeader()->setSectionResizeMode(1, QHeaderView::Stretch);
+    //ui->tableView->horizontalHeader()->set
+    //ui->tableView->horizontalHeader()->setSectionResizeMode(0, QHeaderView::Stretch);
+    //ui->tableView->horizontalHeader()->setSectionResizeMode(1, QHeaderView::Stretch);
 }
 
 void DelWord::on_del_Button_clicked()
@@ -56,11 +57,11 @@ void DelWord::on_del_Button_clicked()
     QString choosen = ui->tableView->currentIndex().data(0).toString();
 
     QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
-    db.setDatabaseName( "/home/svetlana/Word-Flow/Word-Flow/UserDic.db3");
+    db.setDatabaseName( "/home/timowka0304/Word-Flow/Word-Flow/Word-Flow/UserDic.db3");
     db.open();
     QSqlQuery query;
 
-    query.exec(QStringLiteral("UPDATE UsersWords SET valid = 0 WHERE English = '%1' OR Russian = '%1'").arg(choosen));
+    query.exec(QString("UPDATE UsersWords SET valid = 0 WHERE English = '%1' OR Russian = '%1'").arg(choosen));
     QMessageBox msgBox;
     msgBox.setText("Слова удалены из Вашего словаря!");
     msgBox.setIcon(QMessageBox::Information);

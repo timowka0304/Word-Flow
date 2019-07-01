@@ -61,11 +61,11 @@ void NewWord::on_save_Button_clicked()
     else {
         QSqlDatabase db;
         db = QSqlDatabase::addDatabase("QSQLITE");
-        db.setDatabaseName("/home/svetlana/Word-Flow/Word-Flow/UserDic.db3");
+        db.setDatabaseName("/home/timowka0304/Word-Flow/Word-Flow/Word-Flow/UserDic.db3");
         db.open();
         QSqlQuery query;
         QMessageBox msgBox;
-        query.exec(QStringLiteral("SELECT English, Russian FROM UsersWords WHERE valid = 1 and (Russian = '%1' or English = '%2')").arg(ui->rus_new_word->text()).arg(ui->eng_new_word->text()));
+        query.exec(QString("SELECT English, Russian FROM UsersWords WHERE valid = 1 and (Russian = '%1' or English = '%2')").arg(ui->rus_new_word->text()).arg(ui->eng_new_word->text()));
         if(query.first()){
             msgBox.setText("Такие слова уже есть в словаре! Добавьте что-нибудь другое!");
             msgBox.setIcon(QMessageBox::Warning);
@@ -78,7 +78,7 @@ void NewWord::on_save_Button_clicked()
                  break;
             }
         } else {
-            query.exec(QStringLiteral("INSERT INTO UsersWords (English, Russian, valid) VALUES ('%1', '%2', 1)").arg(ui->eng_new_word->text()).arg(ui->rus_new_word->text()));
+            query.exec(QString("INSERT INTO UsersWords (English, Russian, valid) VALUES ('%1', '%2', 1)").arg(ui->eng_new_word->text()).arg(ui->rus_new_word->text()));
             msgBox.setText("Слова успешно добавлены!");
             msgBox.setIcon(QMessageBox::Information);
             msgBox.setStandardButtons(QMessageBox::Ok);

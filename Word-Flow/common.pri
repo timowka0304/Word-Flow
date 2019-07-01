@@ -11,4 +11,4 @@ UI_DIR = $${BUILD_PATH}/ui/
 MOC_DIR = $${BUILD_PATH}/moc/
 OBJECTS_DIR = $${BUILD_PATH}/obj/
 
-linux-g++: QMAKE_CXXFLAGS += -std=c++11
+linux-g++:

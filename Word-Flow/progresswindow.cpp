@@ -34,7 +34,7 @@ ProgressWindow::~ProgressWindow()
 void ProgressWindow::Show_db()
 {
     QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
-    db.setDatabaseName( "/home/svetlana/Word-Flow/Word-Flow/Progress.db3");
+    db.setDatabaseName( "/home/timowka0304/Word-Flow/Word-Flow/Word-Flow/Progress.db3");
     db.open();
     QSqlQuery query;
     query.exec("SELECT * FROM Progress");
@@ -50,10 +50,10 @@ void ProgressWindow::Show_db()
     model->setHeaderData(3, Qt::Horizontal, QObject::tr("Категория"));
     model->select();
     ui->tableView->setModel(model);
-    ui->tableView->horizontalHeader()->setSectionResizeMode(0, QHeaderView::Stretch);
-    ui->tableView->horizontalHeader()->setSectionResizeMode(1, QHeaderView::Stretch);
-    ui->tableView->horizontalHeader()->setSectionResizeMode(2, QHeaderView::Stretch);
-    ui->tableView->horizontalHeader()->setSectionResizeMode(3, QHeaderView::Stretch);
+    //ui->tableView->horizontalHeader()->setSectionResizeMode(0, QHeaderView::Stretch);
+    //ui->tableView->horizontalHeader()->setSectionResizeMode(1, QHeaderView::Stretch);
+    //ui->tableView->horizontalHeader()->setSectionResizeMode(2, QHeaderView::Stretch);
+    //ui->tableView->horizontalHeader()->setSectionResizeMode(3, QHeaderView::Stretch);
 }
 
 void ProgressWindow::on_back_to_menu_Button_clicked()
@@ -86,16 +86,16 @@ void ProgressWindow::on_clear_db_Button_clicked()
 void ProgressWindow::on_max_Button_clicked()
 {
     QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
-    db.setDatabaseName( "/home/svetlana/Word-Flow/Word-Flow/Progress.db3");
+    db.setDatabaseName( "/home/timowka0304/Word-Flow/Word-Flow/Word-Flow/Progress.db3");
     db.open();
     QSqlQuery query;
-    int true_a;
+    true_a = 0;
     query.exec("SELECT max(true) FROM Progress");
     while (query.next()){
         true_a = query.value(0).toInt();
     }
     QMessageBox msgBox;
-    msgBox.setText(QStringLiteral("Лучший результат из %1:\n%2% процентов - %3/10 правильно").arg(size).arg(true_a*10).arg(true_a));
+    msgBox.setText(QString("Лучший результат из %1:\n%2% процентов - %3/10 правильно").arg(size).arg(true_a*10).arg(true_a));
     msgBox.setIcon(QMessageBox::Information);
     msgBox.setStandardButtons(QMessageBox::Ok);
     msgBox.setDefaultButton(QMessageBox::Ok);
@@ -111,16 +111,16 @@ void ProgressWindow::on_max_Button_clicked()
 void ProgressWindow::on_min_Button_clicked()
 {
     QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
-    db.setDatabaseName( "/home/svetlana/Word-Flow/Word-Flow/Progress.db3");
+    db.setDatabaseName( "/home/timowka0304/Word-Flow/Word-Flow/Word-Flow/Progress.db3");
     db.open();
     QSqlQuery query;
-    int true_a;
+    true_a = 0;
     query.exec("SELECT min(true) FROM Progress");
     while (query.next()){
         true_a = query.value(0).toInt();
     }
     QMessageBox msgBox;
-    msgBox.setText(QStringLiteral("Худший результат из %1:\n%2% процентов - %3/10 правильно").arg(size).arg(true_a*10).arg(true_a));
+    msgBox.setText(QString("Худший результат из %1:\n%2 процентов - %3/10 правильно").arg(size).arg(true_a*10).arg(true_a));
     msgBox.setIcon(QMessageBox::Information);
     msgBox.setStandardButtons(QMessageBox::Ok);
     msgBox.setDefaultButton(QMessageBox::Ok);

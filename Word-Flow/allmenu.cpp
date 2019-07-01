@@ -10,7 +10,8 @@ AllMenu::AllMenu(QWidget *parent) :
     ui(new Ui::AllMenu)
 {
     testall = new TestAll;
-    connect(testall, &TestAll::AllMenu, this, &AllMenu::show);
+    QObject::connect(testall, SIGNAL(AllMenu()), this, SLOT(show()));
+    //connect(testall, &TestAll::AllMenu, this, &AllMenu::show);
     ui->setupUi(this);
     setWindowFlags(Qt::Window | Qt::WindowTitleHint | Qt::CustomizeWindowHint);
     QDesktopWidget *pDescwidget=QApplication::desktop();
@@ -48,7 +49,7 @@ void AllMenu::on_dic_show_Button_clicked()
 
     QSqlDatabase db;
     db = QSqlDatabase::addDatabase("QSQLITE");
-    db.setDatabaseName("/home/svetlana/Word-Flow/Word-Flow/Words.db3");
+    db.setDatabaseName("/home/timowka0304/Word-Flow/Word-Flow/Word-Flow/Words.db3");
     db.open();
 
     QSqlQuery query;

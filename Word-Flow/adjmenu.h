@@ -19,6 +19,7 @@ public:
     explicit AdjMenu(QWidget *parent = nullptr);
     ~AdjMenu();
 
+
 private slots:
     void on_menu_back_Button_clicked();
 
