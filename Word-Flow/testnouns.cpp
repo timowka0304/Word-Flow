@@ -165,7 +165,7 @@ void Random::on_next_Button_clicked()
         }
     } else {
         db = QSqlDatabase::addDatabase("QSQLITE");
-        db.setDatabaseName("/home/svetlana/Word-Flow/Word-Flow/Words.db3");
+        db.setDatabaseName("/home/nikita/Рабочий стол/курсовая/Word-Flow/Word-Flow/Words.db3");
         db.open();
         QString needed_eng, needed_rus;
         QString choosen = group.button(group.checkedId())->text();
@@ -205,7 +205,7 @@ void Random::RunTest(){
 
 void Random::ENGtoRUS(){
     db = QSqlDatabase::addDatabase("QSQLITE");
-    db.setDatabaseName("/home/svetlana/Word-Flow/Word-Flow/Words.db3");
+    db.setDatabaseName("/home/nikita/Рабочий стол/курсовая/Word-Flow/Word-Flow/Words.db3");
     db.open();
     QSqlQuery query_eng_to_rus;
     query_eng_to_rus.exec(QStringLiteral("SELECT id, English, Russian FROM Words WHERE id = %1").arg(numbers_words[counter].word_answer_number));
@@ -269,7 +269,7 @@ void Random::ENGtoRUS(){
 
 void Random::RUStoENG(){
     db = QSqlDatabase::addDatabase("QSQLITE");
-    db.setDatabaseName("/home/svetlana/Word-Flow/Word-Flow/Words.db3");
+    db.setDatabaseName("/home/nikita/Рабочий стол/курсовая/Word-Flow/Word-Flow/Words.db3");
     db.open();
     QSqlQuery query_rus_to_eng;
     query_rus_to_eng.exec(QStringLiteral("SELECT id, English, Russian FROM Words WHERE id = %1").arg(numbers_words[counter].word_answer_number));
@@ -380,7 +380,7 @@ void Random::on_done_Button_clicked()
 {
     QSqlDatabase db;
     db = QSqlDatabase::addDatabase("QSQLITE");
-    db.setDatabaseName("/home/svetlana/Word-Flow/Word-Flow/Progress.db3");
+    db.setDatabaseName("/home/nikita/Рабочий стол/курсовая/Word-Flow/Word-Flow/Progress.db3");
     db.open();
 
     QSqlQuery query;

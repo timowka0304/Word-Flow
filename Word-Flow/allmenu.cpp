@@ -47,7 +47,7 @@ void AllMenu::on_dic_show_Button_clicked()
 
     QSqlDatabase db;
     db = QSqlDatabase::addDatabase("QSQLITE");
-    db.setDatabaseName("/home/svetlana/Word-Flow/Word-Flow/Words.db3");
+    db.setDatabaseName("/home/nikita/Рабочий стол/курсовая/Word-Flow/Word-Flow/Words.db3");
     db.open();
 
     QSqlQuery query;
