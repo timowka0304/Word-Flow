@@ -1,0 +1,13 @@
+<RCC>
+    <qresource prefix="/new/prefix1">
+        <file>res/exit.png</file>
+        <file>res/glag.jpg</file>
+        <file>res/glavnaya.jpg</file>
+        <file>res/inf.png</file>
+        <file>res/logo.png</file>
+        <file>res/obsch.jpg</file>
+        <file>res/polzovatel.jpg</file>
+        <file>res/prilag.jpg</file>
+        <file>res/susch.jpg</file>
+    </qresource>
+</RCC>
