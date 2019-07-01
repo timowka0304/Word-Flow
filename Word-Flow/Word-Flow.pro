@@ -21,6 +21,9 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 # Input
+
+CONFIG += c++11
+
 HEADERS += adjmenu.h \
            allmenu.h \
            delword.h \
@@ -73,4 +76,4 @@ SOURCES += adjmenu.cpp \
     test_radiobutton.cpp
 RESOURCES += \
     icon_and_pictures.qrc
-include( /home/svetlana/Word-Flow/common.pri )
+include( /home/nikita/Рабочий стол/курсовая/Word-Flow/common.pri )
