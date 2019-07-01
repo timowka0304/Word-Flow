@@ -6,6 +6,7 @@
 #include <QDesktopWidget>
 #include <QDebug>
 #include <QMessageBox>
+#include <QDir>
 
 DelWord::DelWord(QWidget *parent) :
     QDialog(parent),

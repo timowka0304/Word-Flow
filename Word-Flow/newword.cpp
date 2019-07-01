@@ -6,6 +6,7 @@
 #include <QSqlQuery>
 #include <QDebug>
 #include <QDesktopWidget>
+#include <QDir>
 
 NewWord::NewWord(QWidget *parent) :
     QDialog(parent),

@@ -73,4 +73,4 @@ SOURCES += adjmenu.cpp \
     test_radiobutton.cpp
 RESOURCES += \
     icon_and_pictures.qrc
-include( /home/svetlana/Word-Flow/common.pri )
+#include( /home/svetlana/Word-Flow/common.pri )

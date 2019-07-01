@@ -4,6 +4,7 @@
 #include <QSqlQuery>
 #include <QMessageBox>
 #include <QDesktopWidget>
+#include <QDir>
 
 NounsMenu::NounsMenu(QWidget *parent) :
     QDialog(parent),

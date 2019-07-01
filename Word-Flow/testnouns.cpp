@@ -7,6 +7,7 @@
 #include <QDebug>
 #include <QButtonGroup>
 #include <QDesktopWidget>
+#include <QDir>
 
 Random::Random(QWidget *parent) :
     QDialog(parent),

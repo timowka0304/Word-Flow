@@ -3,6 +3,7 @@
 #include <QDesktopWidget>
 #include <QtSql/QSqlDatabase>
 #include <QSqlQuery>
+#include <QDir>
 
 UserDicMenu::UserDicMenu(QWidget *parent) :
     QDialog(parent),

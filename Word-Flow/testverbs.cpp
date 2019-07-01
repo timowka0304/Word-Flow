@@ -7,6 +7,7 @@
 #include <QDebug>
 #include <QButtonGroup>
 #include <QDesktopWidget>
+#include <QDir>
 
 TestVerbs::TestVerbs(QWidget *parent) :
     QDialog(parent),

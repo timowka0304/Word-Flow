@@ -3,6 +3,7 @@
 #include <QtSql/QSqlDatabase>
 #include <QSqlQuery>
 #include <QDesktopWidget>
+#include <QDir>
 
 VerbsMenu::VerbsMenu(QWidget *parent) :
     QDialog(parent),

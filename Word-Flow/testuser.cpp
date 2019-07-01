@@ -7,6 +7,7 @@
 #include <QDebug>
 #include <QButtonGroup>
 #include <QDesktopWidget>
+#include <QDir>
 
 TestUser::TestUser(QWidget *parent) :
     QDialog(parent),

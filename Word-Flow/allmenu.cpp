@@ -3,6 +3,7 @@
 #include <QtSql/QSqlDatabase>
 #include <QSqlQuery>
 #include <QDesktopWidget>
+#include <QDir>
 
 AllMenu::AllMenu(QWidget *parent) :
     QDialog(parent),

@@ -6,6 +6,7 @@
 #include <QMessageBox>
 #include <QDebug>
 #include <QDesktopWidget>
+#include <QDir>
 
 ProgressWindow::ProgressWindow(QWidget *parent) :
     QDialog(parent),

@@ -7,6 +7,7 @@
 #include <QDebug>
 #include <QButtonGroup>
 #include <QDesktopWidget>
+#include <QDir>
 
 
 TestAll::TestAll(QWidget *parent) :
