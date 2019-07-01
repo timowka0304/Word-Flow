@@ -36,7 +36,8 @@ HEADERS += adjmenu.h \
            testverbs.h \
            userdicmenu.h \
            verbsmenu.h \
-    test_qlineedit.h
+    test_qlineedit.h \
+    test_radiobutton.h
 FORMS += adjmenu.ui \
          allmenu.ui \
          delword.ui \
@@ -68,7 +69,8 @@ SOURCES += adjmenu.cpp \
            testverbs.cpp \
            userdicmenu.cpp \
            verbsmenu.cpp \
-    test_qlineedit.cpp
+    test_qlineedit.cpp \
+    test_radiobutton.cpp
 RESOURCES += \
     icon_and_pictures.qrc
 include( /home/timowka0304/Word-Flow/Word-Flow//common.pri )

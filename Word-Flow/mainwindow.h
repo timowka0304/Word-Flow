@@ -6,6 +6,7 @@
 #include <QtGui>
 #include <QtTest/QTest>
 #include "test_qlineedit.h"
+#include "test_radiobutton.h"
 
 namespace Ui {
 class MainWindow;

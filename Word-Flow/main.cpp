@@ -10,6 +10,7 @@ int main(int argc, char *argv[])
     w.show();
     freopen("testing.log", "w", stdout);
     QTest::qExec(new Test_QLineEdit, argc, argv);
+    QTest::qExec(new test_radiobutton, argc, argv);
 
     return a.exec();
 }
