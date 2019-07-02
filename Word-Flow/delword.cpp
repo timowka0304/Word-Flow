@@ -47,8 +47,9 @@ void DelWord::Show_db()
     model->select();
     ui->tableView->setModel(model);
     ui->tableView->setEditTriggers(QAbstractItemView::NoEditTriggers);
-    ui->tableView->horizontalHeader()->setSectionResizeMode(0, QHeaderView::Stretch);
-    ui->tableView->horizontalHeader()->setSectionResizeMode(1, QHeaderView::Stretch);
+    //ui->tableView->horizontalHeader()->set
+    //ui->tableView->horizontalHeader()->setSectionResizeMode(0, QHeaderView::Stretch);
+    //ui->tableView->horizontalHeader()->setSectionResizeMode(1, QHeaderView::Stretch);
 }
 
 void DelWord::on_del_Button_clicked()
