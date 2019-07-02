@@ -58,7 +58,7 @@ void NounsMenu::on_dic_show_Button_clicked()
 
     while (query.next())
     {
-        if (query.value(0) < 101){
+        if (query.value(0).toInt() < 101){
             QString english = query.value(1).toString();
             QString russian = query.value(2).toString();
             ui->textBrowser->insertPlainText(english+" - "+russian+"\n");

@@ -55,7 +55,7 @@ void VerbsMenu::on_dic_show_Button_clicked()
 
     while (query.next())
     {
-        if ((query.value(0) > 200) && (query.value(0) < 301)){
+        if ((query.value(0).toInt() > 200) && (query.value(0).toInt() < 301)){
             QString english = query.value(1).toString();
             QString russian = query.value(2).toString();
             ui->textBrowser->insertPlainText(english+" - "+russian+"\n");

@@ -85,7 +85,7 @@ void UserDicMenu::on_dic_show_Button_clicked()
 
     while (query.next())
     {
-        if (query.value(3) == 1)
+        if (query.value(3).toInt() == 1)
         {
             QString english = query.value(1).toString();
             QString russian = query.value(2).toString();
