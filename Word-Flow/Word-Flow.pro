@@ -6,7 +6,7 @@ QT       += core gui sql testlib
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TEMPLATE = app
-TARGET = bin/Word-Flow.exe
+TARGET = bin/Word-Flow
 INCLUDEPATH += .
 QMAKE_CXXFLAGS += -std=c++0x
 
