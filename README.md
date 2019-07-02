@@ -4,4 +4,4 @@ TRPO
 IP-814
 Podgurskiy, Orlov, Evtuhova
 
-[![Build Status](https://travis-ci.org/timowka0304/Word-Flow.svg?branch=test)](https://travis-ci.org/timowka0304/Word-Flow)
+[![Build Status](https://travis-ci.org/timowka0304/Word-Flow.svg?branch=master)](https://travis-ci.org/timowka0304/Word-Flow)
