@@ -64,7 +64,7 @@ void NewWord::on_save_Button_clicked()
         db.open();
         QSqlQuery query;
         QMessageBox msgBox;
-        query.exec(QStringLiteral("SELECT English, Russian FROM UsersWords WHERE valid = 1 and (Russian = '%1' or English = '%2')").arg(ui->rus_new_word->text()).arg(ui->eng_new_word->text()));
+        query.exec(QString("SELECT English, Russian FROM UsersWords WHERE valid = 1 and (Russian = '%1' or English = '%2')").arg(ui->rus_new_word->text()).arg(ui->eng_new_word->text()));
         if(query.first()){
             msgBox.setText("Такие слова уже есть в словаре! Добавьте что-нибудь другое!");
             msgBox.setIcon(QMessageBox::Warning);
