@@ -78,4 +78,4 @@ SOURCES += adjmenu.cpp \
     test_radiobutton.cpp
 RESOURCES += \
     icon_and_pictures.qrc
-include( $${_PRO_FILE_PWD_}/common.pri )
+include( $${PWD}/common.pri )
