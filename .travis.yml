@@ -19,7 +19,7 @@ script:
     - qmake Word-Flow/Word-Flow.pro
     - make
     - cd bin
-    - ./Word-Flow.exe
+    - ./Word-Flow
     - cat testing.log
 
 
