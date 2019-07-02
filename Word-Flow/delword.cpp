@@ -6,7 +6,6 @@
 #include <QDesktopWidget>
 #include <QDebug>
 #include <QMessageBox>
-#include <QStringLiteral>
 #include <QHeaderView>
 
 DelWord::DelWord(QWidget *parent) :
