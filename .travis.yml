@@ -15,9 +15,8 @@ packages:
     - g++-7
 
 script:
-    - cd Word-Flow
     - qmake -project "CONFIG += qtestlib"
-    - qmake Word-Flow.pro
+    - qmake Word-Flow/Word-Flow.pro
     - make
     - cd bin
     - ./Word-Flow
