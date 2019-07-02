@@ -9,7 +9,8 @@ VerbsMenu::VerbsMenu(QWidget *parent) :
     ui(new Ui::VerbsMenu)
 {
     testverbs = new TestVerbs;
-    connect(testverbs, &TestVerbs::VerbsMenu, this, &VerbsMenu::show);
+    QObject::connect(testverbs, SIGNAL(VerbsMenu()), this, SLOT(show()));
+    //connect(testverbs, &TestVerbs::VerbsMenu, this, &VerbsMenu::show);
     ui->setupUi(this);
     setWindowFlags(Qt::Window | Qt::WindowTitleHint | Qt::CustomizeWindowHint);
     QDesktopWidget *pDescwidget=QApplication::desktop();
