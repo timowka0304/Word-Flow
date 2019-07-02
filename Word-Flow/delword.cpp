@@ -48,8 +48,8 @@ void DelWord::Show_db()
     ui->tableView->setModel(model);
     ui->tableView->setEditTriggers(QAbstractItemView::NoEditTriggers);
     //ui->tableView->horizontalHeader()->set
-    ui->tableView->horizontalHeader()->setSectionResizeMode(0, QHeaderView::Stretch);
-    ui->tableView->horizontalHeader()->setSectionResizeMode(1, QHeaderView::Stretch);
+    //ui->tableView->horizontalHeader()->setSectionResizeMode(0, QHeaderView::Stretch);
+    //ui->tableView->horizontalHeader()->setSectionResizeMode(1, QHeaderView::Stretch);
 }
 
 void DelWord::on_del_Button_clicked()
@@ -61,7 +61,7 @@ void DelWord::on_del_Button_clicked()
     db.open();
     QSqlQuery query;
 
-    query.exec(QStringLiteral("UPDATE UsersWords SET valid = 0 WHERE English = '%1' OR Russian = '%1'").arg(choosen));
+    query.exec(QString("UPDATE UsersWords SET valid = 0 WHERE English = '%1' OR Russian = '%1'").arg(choosen));
     QMessageBox msgBox;
     msgBox.setText("Слова удалены из Вашего словаря!");
     msgBox.setIcon(QMessageBox::Information);
