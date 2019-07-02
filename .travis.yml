@@ -27,6 +27,9 @@ script:
     - qmake -project "CONFIG += qtestlib"
     - qmake Word-Flow/Word-Flow.pro
     - make
+    - cd bin/
+    - ./Word-Flow
+    - cat testing.log
 
 
 
