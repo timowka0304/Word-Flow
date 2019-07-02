@@ -88,7 +88,7 @@ void ProgressWindow::on_max_Button_clicked()
     db.setDatabaseName( "/home/timowka0304/Word-Flow/Word-Flow/Word-Flow/Progress.db3");
     db.open();
     QSqlQuery query;
-    int true_a;
+    true_a = 0;
     query.exec("SELECT max(true) FROM Progress");
     while (query.next()){
         true_a = query.value(0).toInt();
