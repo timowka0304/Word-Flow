@@ -8,6 +8,7 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TEMPLATE = app
 TARGET = bin/Word-Flow.exe
 INCLUDEPATH += .
+QMAKE_CXXFLAGS += -std=c++0x
 
 # The following define makes your compiler warn you if you use any
 # feature of Qt which has been marked as deprecated (the exact warnings
@@ -76,4 +77,4 @@ SOURCES += adjmenu.cpp \
     test_radiobutton.cpp
 RESOURCES += \
     icon_and_pictures.qrc
-include( /home/nikita/Рабочий стол/курсовая/Word-Flow/common.pri )
+include( /home/timowka0304/Word-Flow/Word-Flow/common.pri )
