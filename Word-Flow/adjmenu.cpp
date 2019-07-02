@@ -4,6 +4,7 @@
 #include <QSqlQuery>
 #include <QMessageBox>
 #include <QDesktopWidget>
+#include <QVariant>
 
 AdjMenu::AdjMenu(QWidget *parent) :
     QDialog(parent),
