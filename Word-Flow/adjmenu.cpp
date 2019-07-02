@@ -10,8 +10,8 @@ AdjMenu::AdjMenu(QWidget *parent) :
     ui(new Ui::AdjMenu)
 {
     testadj = new TestAdj;
-    //AdjMenu::connect(TestAdj*&, void (TestAdj::*)(), AdjMenu* const, void (QWidget::*)());
-    AdjMenu::connect(testadj, &TestAdj::AdjMenu, this, &AdjMenu::show);
+    QObject::connect(testadj, SIGNAL(AdjMenu()), this, SLOT(show()));
+    //AdjMenu::connect(testadj, &TestAdj::AdjMenu, this, &AdjMenu::show);
     ui->setupUi(this);
     setWindowFlags(Qt::Window | Qt::WindowTitleHint | Qt::CustomizeWindowHint);
     QDesktopWidget *pDescwidget=QApplication::desktop();
