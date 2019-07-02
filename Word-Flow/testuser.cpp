@@ -189,7 +189,7 @@ void TestUser::FillStart(){
 void TestUser::RunTest(){
     if(counter != 10){
         ui->number_of_page->setHidden(0);
-        ui->number_of_page->setText(QStringLiteral("%1 / 10").arg(counter+1));
+        ui->number_of_page->setText(QString("%1 / 10").arg(counter+1));
         if(numbers_words[counter].question_number == 1){
             ENGtoRUS();
         }
@@ -207,7 +207,7 @@ void TestUser::ENGtoRUS(){
     db.setDatabaseName("/home/timowka0304/Word-Flow/Word-Flow/Word-Flow/UserDic.db3");
     db.open();
     QSqlQuery query_eng_to_rus;
-    query_eng_to_rus.exec(QStringLiteral("SELECT id, English, Russian FROM UsersWords WHERE id = %1").arg(numbers_words[counter].word_answer_number));
+    query_eng_to_rus.exec(QString("SELECT id, English, Russian FROM UsersWords WHERE id = %1").arg(numbers_words[counter].word_answer_number));
 
     ui->text_question->setText("Переведите с английского на русский слово ");
     while (query_eng_to_rus.next()){
@@ -229,25 +229,25 @@ void TestUser::ENGtoRUS(){
     for(int i = 0; i < 4; i ++){
         switch(i){
             case 0:
-                query_eng_to_rus.exec(QStringLiteral("SELECT id, English, Russian FROM UsersWords WHERE id = %1").arg(numbers_words[counter].word_answer_number));
+                query_eng_to_rus.exec(QString("SELECT id, English, Russian FROM UsersWords WHERE id = %1").arg(numbers_words[counter].word_answer_number));
                 while (query_eng_to_rus.next()){
                     word = query_eng_to_rus.value(2).toString();
                 }
                 break;
             case 1:
-                query_eng_to_rus.exec(QStringLiteral("SELECT id, English, Russian FROM UsersWords WHERE id = %1").arg(numbers_words[counter].word_1_number));
+                query_eng_to_rus.exec(QString("SELECT id, English, Russian FROM UsersWords WHERE id = %1").arg(numbers_words[counter].word_1_number));
                 while (query_eng_to_rus.next()){
                     word = query_eng_to_rus.value(2).toString();
                 }
                 break;
             case 2:
-                query_eng_to_rus.exec(QStringLiteral("SELECT id, English, Russian FROM UsersWords WHERE id = %1").arg(numbers_words[counter].word_2_number));
+                query_eng_to_rus.exec(QString("SELECT id, English, Russian FROM UsersWords WHERE id = %1").arg(numbers_words[counter].word_2_number));
                 while (query_eng_to_rus.next()){
                     word = query_eng_to_rus.value(2).toString();
                 }
                 break;
             case 3:
-                query_eng_to_rus.exec(QStringLiteral("SELECT id, English, Russian FROM UsersWords WHERE id = %1").arg(numbers_words[counter].word_3_number));
+                query_eng_to_rus.exec(QString("SELECT id, English, Russian FROM UsersWords WHERE id = %1").arg(numbers_words[counter].word_3_number));
                 while (query_eng_to_rus.next()){
                     word = query_eng_to_rus.value(2).toString();
                 }
@@ -271,7 +271,7 @@ void TestUser::RUStoENG(){
     db.setDatabaseName("/home/timowka0304/Word-Flow/Word-Flow/Word-Flow/UserDic.db3");
     db.open();
     QSqlQuery query_rus_to_eng;
-    query_rus_to_eng.exec(QStringLiteral("SELECT id, English, Russian FROM UsersWords WHERE id = %1").arg(numbers_words[counter].word_answer_number));
+    query_rus_to_eng.exec(QString("SELECT id, English, Russian FROM UsersWords WHERE id = %1").arg(numbers_words[counter].word_answer_number));
 
     ui->text_question->setText("Переведите с русского на английский слово ");
     while (query_rus_to_eng.next()){
@@ -294,25 +294,25 @@ void TestUser::RUStoENG(){
     for(int i = 0; i < 4; i ++){
         switch(i){
             case 0:
-                query_rus_to_eng.exec(QStringLiteral("SELECT id, English, Russian FROM UsersWords WHERE id = %1").arg(numbers_words[counter].word_answer_number));
+                query_rus_to_eng.exec(QString("SELECT id, English, Russian FROM UsersWords WHERE id = %1").arg(numbers_words[counter].word_answer_number));
                 while (query_rus_to_eng.next()){
                     word = query_rus_to_eng.value(1).toString();
                 }
                 break;
             case 1:
-                query_rus_to_eng.exec(QStringLiteral("SELECT id, English, Russian FROM UsersWords WHERE id = %1").arg(numbers_words[counter].word_1_number));
+                query_rus_to_eng.exec(QString("SELECT id, English, Russian FROM UsersWords WHERE id = %1").arg(numbers_words[counter].word_1_number));
                 while (query_rus_to_eng.next()){
                     word = query_rus_to_eng.value(1).toString();
                 }
                 break;
             case 2:
-                query_rus_to_eng.exec(QStringLiteral("SELECT id, English, Russian FROM UsersWords WHERE id = %1").arg(numbers_words[counter].word_2_number));
+                query_rus_to_eng.exec(QString("SELECT id, English, Russian FROM UsersWords WHERE id = %1").arg(numbers_words[counter].word_2_number));
                 while (query_rus_to_eng.next()){
                     word = query_rus_to_eng.value(1).toString();
                 }
                 break;
             case 3:
-                query_rus_to_eng.exec(QStringLiteral("SELECT id, English, Russian FROM UsersWords WHERE id = %1").arg(numbers_words[counter].word_3_number));
+                query_rus_to_eng.exec(QString("SELECT id, English, Russian FROM UsersWords WHERE id = %1").arg(numbers_words[counter].word_3_number));
                 while (query_rus_to_eng.next()){
                     word = query_rus_to_eng.value(1).toString();
                 }
@@ -372,7 +372,7 @@ void TestUser::ResultShow(){
             if (h == 2) ui->mark_text->setText("Отлично! Вы достихли успеха в запоминании слов!");
             break;
     }
-    ui->msg_text->setText(QStringLiteral("Вы верно ответили на %1 из 10\nВы успешны в запоминании своих слов на %2%").arg(sum).arg(sum*10));
+    ui->msg_text->setText(QString("Вы верно ответили на %1 из 10\nВы успешны в запоминании своих слов на %2%").arg(sum).arg(sum*10));
 }
 
 void TestUser::on_done_Button_clicked()
@@ -383,7 +383,7 @@ void TestUser::on_done_Button_clicked()
     db.open();
 
     QSqlQuery query;
-    query.exec(QStringLiteral("INSERT INTO Progress VALUES (%1, %2, 10, 'Пользовательская')").arg(sum*10).arg(sum));
+    query.exec(QString("INSERT INTO Progress VALUES (%1, %2, 10, 'Пользовательская')").arg(sum*10).arg(sum));
 
     this->close();
     ui->label->setHidden(0);
@@ -407,7 +407,7 @@ void TestUser::Warning(int flag, QString eng, QString rus){
     msgBox.setWindowTitle("Ваш выбор");
     int ret;
     if (flag == 0){
-        msgBox.setText(QStringLiteral("Не верно!\n\nЗапомните:\n%1 = %2").arg(eng).arg(rus));
+        msgBox.setText(QString("Не верно!\n\nЗапомните:\n%1 = %2").arg(eng).arg(rus));
         msgBox.setIcon(QMessageBox::Warning);
         msgBox.setStandardButtons(QMessageBox::Ok);
         ret = msgBox.exec();
@@ -420,7 +420,7 @@ void TestUser::Warning(int flag, QString eng, QString rus){
               break;
         }
     } else {
-        msgBox.setText(QStringLiteral("Верно!\n\nПовторим:\n%1 = %2").arg(eng).arg(rus));
+        msgBox.setText(QString("Верно!\n\nПовторим:\n%1 = %2").arg(eng).arg(rus));
         msgBox.setIcon(QMessageBox::Information);
         msgBox.setStandardButtons(QMessageBox::Ok);
         ret = msgBox.exec();
@@ -462,7 +462,7 @@ void TestUser::on_next_Button_clicked(){
         QString needed_eng, needed_rus;
         QString choosen = group.button(group.checkedId())->text();
         QSqlQuery query;
-        query.exec(QStringLiteral("SELECT id, English, Russian FROM UsersWords WHERE id = %1").arg(numbers_words[counter].word_answer_number));
+        query.exec(QString("SELECT id, English, Russian FROM UsersWords WHERE id = %1").arg(numbers_words[counter].word_answer_number));
         while (query.next()){
             needed_eng = query.value(1).toString();
             needed_rus = query.value(2).toString();

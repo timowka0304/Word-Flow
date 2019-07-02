@@ -94,7 +94,7 @@ void ProgressWindow::on_max_Button_clicked()
         true_a = query.value(0).toInt();
     }
     QMessageBox msgBox;
-    msgBox.setText(QStringLiteral("Лучший результат из %1:\n%2% процентов - %3/10 правильно").arg(size).arg(true_a*10).arg(true_a));
+    msgBox.setText(QString("Лучший результат из %1:\n%2% процентов - %3/10 правильно").arg(size).arg(true_a*10).arg(true_a));
     msgBox.setIcon(QMessageBox::Information);
     msgBox.setStandardButtons(QMessageBox::Ok);
     msgBox.setDefaultButton(QMessageBox::Ok);
@@ -119,7 +119,7 @@ void ProgressWindow::on_min_Button_clicked()
         true_a = query.value(0).toInt();
     }
     QMessageBox msgBox;
-    msgBox.setText(QStringLiteral("Худший результат из %1:\n%2% процентов - %3/10 правильно").arg(size).arg(true_a*10).arg(true_a));
+    msgBox.setText(QString("Худший результат из %1:\n%2% процентов - %3/10 правильно").arg(size).arg(true_a*10).arg(true_a));
     msgBox.setIcon(QMessageBox::Information);
     msgBox.setStandardButtons(QMessageBox::Ok);
     msgBox.setDefaultButton(QMessageBox::Ok);

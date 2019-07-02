@@ -9,11 +9,14 @@ UserDicMenu::UserDicMenu(QWidget *parent) :
     ui(new Ui::UserDicMenu)
 {
     newword = new NewWord;
-    connect(newword, &NewWord::UserDicMenu, this, &UserDicMenu::show);
+    QObject::connect(newword, SIGNAL(UserDicMenu()), this, SLOT(show()));
+    //connect(newword, &NewWord::UserDicMenu, this, &UserDicMenu::show);
     delword = new DelWord;
-    connect(delword, &DelWord::UserDicMenu, this, &UserDicMenu::show);
+    QObject::connect(newword, SIGNAL(UserDicMenu()), this, SLOT(show()));
+    //connect(delword, &DelWord::UserDicMenu, this, &UserDicMenu::show);
     testuser = new TestUser;
-    connect(testuser, &TestUser::UserDicMenu, this, &UserDicMenu::show);
+    QObject::connect(testuser, SIGNAL(UserDicMenu()), this, SLOT(show()));
+    //onnect(testuser, &TestUser::UserDicMenu, this, &UserDicMenu::show);
     ui->setupUi(this);
     setWindowFlags(Qt::Window | Qt::WindowTitleHint | Qt::CustomizeWindowHint);
     QDesktopWidget *pDescwidget=QApplication::desktop();

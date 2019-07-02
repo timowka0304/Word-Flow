@@ -77,7 +77,7 @@ void NewWord::on_save_Button_clicked()
                  break;
             }
         } else {
-            query.exec(QStringLiteral("INSERT INTO UsersWords (English, Russian, valid) VALUES ('%1', '%2', 1)").arg(ui->eng_new_word->text()).arg(ui->rus_new_word->text()));
+            query.exec(QString("INSERT INTO UsersWords (English, Russian, valid) VALUES ('%1', '%2', 1)").arg(ui->eng_new_word->text()).arg(ui->rus_new_word->text()));
             msgBox.setText("Слова успешно добавлены!");
             msgBox.setIcon(QMessageBox::Information);
             msgBox.setStandardButtons(QMessageBox::Ok);

@@ -5,7 +5,6 @@
 QT       += core gui sql testlib
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
-QT_MINOR_VERSION = 5;
 TEMPLATE = app
 TARGET = bin/Word-Flow.exe
 INCLUDEPATH += .
