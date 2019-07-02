@@ -49,10 +49,10 @@ void ProgressWindow::Show_db()
     model->setHeaderData(3, Qt::Horizontal, QObject::tr("Категория"));
     model->select();
     ui->tableView->setModel(model);
-    ui->tableView->horizontalHeader()->setSectionResizeMode(0, QHeaderView::Stretch);
-    ui->tableView->horizontalHeader()->setSectionResizeMode(1, QHeaderView::Stretch);
-    ui->tableView->horizontalHeader()->setSectionResizeMode(2, QHeaderView::Stretch);
-    ui->tableView->horizontalHeader()->setSectionResizeMode(3, QHeaderView::Stretch);
+    //ui->tableView->horizontalHeader()->setSectionResizeMode(0, QHeaderView::Stretch);
+    //ui->tableView->horizontalHeader()->setSectionResizeMode(1, QHeaderView::Stretch);
+    //ui->tableView->horizontalHeader()->setSectionResizeMode(2, QHeaderView::Stretch);
+    //ui->tableView->horizontalHeader()->setSectionResizeMode(3, QHeaderView::Stretch);
 }
 
 void ProgressWindow::on_back_to_menu_Button_clicked()
