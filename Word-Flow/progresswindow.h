@@ -31,6 +31,7 @@ private slots:
 private:
     Ui::ProgressWindow *ui;
    int size;
+   int true_a;
 };
 
 #endif // PROGRESSWINDOW_H
