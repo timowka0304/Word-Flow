@@ -1,0 +1,7 @@
+********* Start testing of Test_QLineEdit *********
+Config: Using QtTest library 5.9.5, Qt 5.9.5 (x86_64-little_endian-lp64 shared (dynamic) release build; by GCC 7.3.0)
+PASS   : Test_QLineEdit::initTestCase()
+PASS   : Test_QLineEdit::paste()
+PASS   : Test_QLineEdit::cleanupTestCase()
+Totals: 3 passed, 0 failed, 0 skipped, 0 blacklisted, 20ms
+********* Finished testing of Test_QLineEdit *********
