@@ -10,7 +10,8 @@ MainMenu::MainMenu(QWidget *parent) :
     nounsmenu = new NounsMenu;
     connect(nounsmenu, &NounsMenu::MainMenu, this, &MainMenu::show);
     adjmenu = new AdjMenu;
-    connect(adjmenu, &AdjMenu::MainMenu, this, &MainMenu::show);
+    QObject::connect(adjmenu, SIGNAL(MainMenu()), this, SLOT(show()));
+    //connect(adjmenu, &AdjMenu::MainMenu, this, &MainMenu::show);
     verbsmenu = new VerbsMenu;
     connect(verbsmenu, &VerbsMenu::MainMenu, this, &MainMenu::show);
     userdicmenu = new UserDicMenu;

@@ -33,7 +33,7 @@ ProgressWindow::~ProgressWindow()
 void ProgressWindow::Show_db()
 {
     QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
-    db.setDatabaseName( "/home/nikita/Рабочий стол/курсовая/Word-Flow/Word-Flow/Progress.db3");
+    db.setDatabaseName( "/home/timowka0304/Word-Flow/Word-Flow/Word-Flow/Progress.db3");
     db.open();
     QSqlQuery query;
     query.exec("SELECT * FROM Progress");
@@ -85,7 +85,7 @@ void ProgressWindow::on_clear_db_Button_clicked()
 void ProgressWindow::on_max_Button_clicked()
 {
     QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
-    db.setDatabaseName( "/home/nikita/Рабочий стол/курсовая/Word-Flow/Word-Flow/Progress.db3");
+    db.setDatabaseName( "/home/timowka0304/Word-Flow/Word-Flow/Word-Flow/Progress.db3");
     db.open();
     QSqlQuery query;
     int true_a;
@@ -110,7 +110,7 @@ void ProgressWindow::on_max_Button_clicked()
 void ProgressWindow::on_min_Button_clicked()
 {
     QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
-    db.setDatabaseName( "/home/nikita/Рабочий стол/курсовая/Word-Flow/Word-Flow/Progress.db3");
+    db.setDatabaseName( "/home/timowka0304/Word-Flow/Word-Flow/Word-Flow/Progress.db3");
     db.open();
     QSqlQuery query;
     int true_a;

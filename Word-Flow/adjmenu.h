@@ -12,13 +12,13 @@ class AdjMenu : public QDialog
 {
     Q_OBJECT
 
-private:
-public:
+signals:
     void MainMenu();
 
 public:
     explicit AdjMenu(QWidget *parent = nullptr);
     ~AdjMenu();
+
 
 private slots:
     void on_menu_back_Button_clicked();

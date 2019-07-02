@@ -10,7 +10,8 @@ AdjMenu::AdjMenu(QWidget *parent) :
     ui(new Ui::AdjMenu)
 {
     testadj = new TestAdj;
-    connect(testadj, &TestAdj::AdjMenu, this, &AdjMenu::show);
+    //AdjMenu::connect(TestAdj*&, void (TestAdj::*)(), AdjMenu* const, void (QWidget::*)());
+    AdjMenu::connect(testadj, &TestAdj::AdjMenu, this, &AdjMenu::show);
     ui->setupUi(this);
     setWindowFlags(Qt::Window | Qt::WindowTitleHint | Qt::CustomizeWindowHint);
     QDesktopWidget *pDescwidget=QApplication::desktop();
@@ -48,7 +49,7 @@ void AdjMenu::on_dic_show_Button_clicked()
 
     QSqlDatabase db;
     db = QSqlDatabase::addDatabase("QSQLITE");
-    db.setDatabaseName("/home/nikita/Рабочий стол/курсовая/Word-Flow/Word-Flow/Words.db3");
+    db.setDatabaseName("/home/timowka0304/Word-Flow/Word-Flow/Word-Flow/Words.db3");
     db.open();
 
     QSqlQuery query;
