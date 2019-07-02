@@ -12,7 +12,8 @@ class AdjMenu : public QDialog
 {
     Q_OBJECT
 
-signals:
+private:
+public:
     void MainMenu();
 
 public:
