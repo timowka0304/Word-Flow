@@ -4,11 +4,13 @@
 
 QT       += core gui sql testlib
 
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+greaterThan(QT_MAJOR_VERSION, 4) {
+    QT += widgets
+}
 TEMPLATE = app
 TARGET = bin/Word-Flow.exe
 INCLUDEPATH += .
-QMAKE_CXXFLAGS += -std=c++0x
+QMAKE_CXXFLAGS += -std=c++0x -std=c++11 -g -std=gnu++11
 
 # The following define makes your compiler warn you if you use any
 # feature of Qt which has been marked as deprecated (the exact warnings
