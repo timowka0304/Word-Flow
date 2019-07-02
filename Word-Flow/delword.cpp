@@ -31,7 +31,7 @@ DelWord::~DelWord()
 void DelWord::Show_db()
 {
     QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
-    db.setDatabaseName( "/home/timowka0304/Word-Flow/Word-Flow/Word-Flow/UserDic.db3");
+    db.setDatabaseName( "UserDic.db3");
     db.open();
     QSqlQuery query;
     query.exec("SELECT UsersWords.English, UsersWords.Russian FROM UsersWords");
@@ -54,7 +54,7 @@ void DelWord::on_del_Button_clicked()
     QString choosen = ui->tableView->currentIndex().data(0).toString();
 
     QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
-    db.setDatabaseName( "/home/timowka0304/Word-Flow/Word-Flow/Word-Flow/UserDic.db3");
+    db.setDatabaseName( "UserDic.db3");
     db.open();
     QSqlQuery query;
 
