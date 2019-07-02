@@ -9,22 +9,16 @@ MainMenu::MainMenu(QWidget *parent) :
 {
     nounsmenu = new NounsMenu;
     QObject::connect(nounsmenu, SIGNAL(MainMenu()), this, SLOT(show()));
-    //connect(nounsmenu, &NounsMenu::MainMenu, this, &MainMenu::show);
     adjmenu = new AdjMenu;
     QObject::connect(adjmenu, SIGNAL(MainMenu()), this, SLOT(show()));
-    //connect(adjmenu, &AdjMenu::MainMenu, this, &MainMenu::show);
     verbsmenu = new VerbsMenu;
     QObject::connect(verbsmenu, SIGNAL(MainMenu()), this, SLOT(show()));
-    //connect(verbsmenu, &VerbsMenu::MainMenu, this, &MainMenu::show);
     userdicmenu = new UserDicMenu;
     QObject::connect(userdicmenu, SIGNAL(MainMenu()), this, SLOT(show()));
-    //connect(userdicmenu, &UserDicMenu::MainMenu, this, &MainMenu::show);
     allmenu = new AllMenu;
     QObject::connect(allmenu, SIGNAL(MainMenu()), this, SLOT(show()));
-    //connect(allmenu, &AllMenu::MainMenu, this, &MainMenu::show);
     progresswindow = new ProgressWindow;
     QObject::connect(progresswindow, SIGNAL(MainMenu()), this, SLOT(show()));
-    //connect(progresswindow, &ProgressWindow::MainMenu, this, &MainMenu::show);
     ui->setupUi(this);
     setWindowFlags(Qt::Window | Qt::WindowTitleHint | Qt::CustomizeWindowHint);
     QDesktopWidget *pDescwidget=QApplication::desktop();

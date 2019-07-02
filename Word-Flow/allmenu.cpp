@@ -11,7 +11,6 @@ AllMenu::AllMenu(QWidget *parent) :
 {
     testall = new TestAll;
     QObject::connect(testall, SIGNAL(AllMenu()), this, SLOT(show()));
-    //connect(testall, &TestAll::AllMenu, this, &AllMenu::show);
     ui->setupUi(this);
     setWindowFlags(Qt::Window | Qt::WindowTitleHint | Qt::CustomizeWindowHint);
     QDesktopWidget *pDescwidget=QApplication::desktop();

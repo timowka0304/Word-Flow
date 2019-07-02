@@ -12,7 +12,6 @@ NounsMenu::NounsMenu(QWidget *parent) :
 {
     random = new Random;
     QObject::connect(random, SIGNAL(NounsMenu()), this, SLOT(show()));
-    //connect(random, &Random::NounsMenu, this, &NounsMenu::show);
     ui->setupUi(this);
     setWindowFlags(Qt::Window | Qt::WindowTitleHint | Qt::CustomizeWindowHint);
     QDesktopWidget *pDescwidget=QApplication::desktop();

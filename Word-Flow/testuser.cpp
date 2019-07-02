@@ -125,7 +125,7 @@ void TestUser::FillStart(){
         mas[i] = query.value(0).toInt();
         qDebug() << "[" << i << "]" << mas[i];
         i++;
-    } //заполнение массива с id существющих слов
+    }
 
     srand(time(nullptr));
     for(int i = 0; i < 10; i++){

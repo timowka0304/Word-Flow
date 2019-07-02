@@ -11,7 +11,6 @@ VerbsMenu::VerbsMenu(QWidget *parent) :
 {
     testverbs = new TestVerbs;
     QObject::connect(testverbs, SIGNAL(VerbsMenu()), this, SLOT(show()));
-    //connect(testverbs, &TestVerbs::VerbsMenu, this, &VerbsMenu::show);
     ui->setupUi(this);
     setWindowFlags(Qt::Window | Qt::WindowTitleHint | Qt::CustomizeWindowHint);
     QDesktopWidget *pDescwidget=QApplication::desktop();
